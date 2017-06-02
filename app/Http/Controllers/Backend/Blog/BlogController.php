@@ -9,6 +9,11 @@ class BlogController extends Controller
      */
     public function index()
     {
+        return view('backend.blog');
+    }
+
+    public function create()
+    {
         return view('backend.blog.create-post');
     }
 }

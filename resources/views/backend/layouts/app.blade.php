@@ -26,6 +26,8 @@
 
         @yield('after-styles')
 
+
+        <script src="{!!asset('/assets/js/summernote.min.js')!!}"></script>
         <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -68,8 +70,18 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
+        <script
+                src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+        <script
+                src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+                integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+                crossorigin="anonymous"></script>
+
         @yield('before-scripts')
         {{ Html::script(mix('js/backend.js')) }}
         @yield('after-scripts')
+
     </body>
 </html>

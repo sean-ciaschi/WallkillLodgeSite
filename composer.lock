@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "010ad9f4e144eee0d97a7687d27defcd",
+    "content-hash": "f3dfa3f9f01103e8ccabbf3c3b0c6984",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -1714,6 +1714,39 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
+        },
+        {
+            "name": "summernote/summernote",
+            "version": "v0.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/summernote/summernote.git",
+                "reference": "f6c2d1c42b9911ec41a63dd75adbb65def86ece8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/summernote/summernote/zipball/f6c2d1c42b9911ec41a63dd75adbb65def86ece8",
+                "reference": "f6c2d1c42b9911ec41a63dd75adbb65def86ece8",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alan",
+                    "email": "susukang98@gmail.com",
+                    "role": "lead"
+                }
+            ],
+            "description": "Super Simple WYSIWYG Editor on Bootstrap(3.0 and 2.x).",
+            "homepage": "http://summernote.org/",
+            "keywords": [
+                "wysiwyg"
+            ],
+            "time": "2017-04-01T13:43:29+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
