@@ -37,6 +37,13 @@
                 </a>
             </li>
 
+            <li class="{{ active_class(Active::checkUriPattern('admin/blog')) }}">
+                <a href="{{ route('admin.blog') }}">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Blog</span>
+                </a>
+            </li>
+
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
 
             @role(1)
