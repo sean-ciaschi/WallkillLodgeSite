@@ -49,12 +49,6 @@
                             <span>Create Post</span>
                         </a>
                     </li>
-                    <li class="{{ active_class(Active::checkUriPattern('admin/blog/manage*')) }}">
-                        <a href="{{ route('admin.blog.manage') }}">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Manage Posts</span>
-                        </a>
-                    </li>
                 </ul>
             </li>
 
