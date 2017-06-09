@@ -8,11 +8,30 @@
                 <span class="icon-bar"></span>
             </button>
 
-            {{ link_to_route('frontend.index', app_name(), [], ['class' => 'navbar-brand']) }}
+            <a href="{{route('frontend.index')}}">
+                <div class="navbar-brand">
+                    <img id="brand-img" src="http://www.newjerseygrandlodge.org/images/Square_And_Compass.png"> Wallkill Lodge #627
+                </div>
+            </a>
         </div><!--navbar-header-->
 
         <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
-
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="{{route('frontend.index')}}">
+                        Home
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{route('frontend.calendar')}}">
+                        Events
+                    </a>
+                </li><li class="">
+                    <a href="{{route('frontend.trestle-board.index')}}">
+                        Trestle Board
+                    </a>
+                </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
                     <li class="dropdown">
@@ -32,9 +51,9 @@
                 @if (! $logged_in_user)
                     <li>{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
 
-                    @if (config('access.users.registration'))
-                        <li>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>
-                    @endif
+                    {{--@if (config('access.users.registration'))--}}
+                        {{--<li>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>--}}
+                    {{--@endif--}}
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

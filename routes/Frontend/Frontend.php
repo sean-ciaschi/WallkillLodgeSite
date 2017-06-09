@@ -29,3 +29,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
     });
 });
+
+
+Route::get('/calendar', function()
+{
+    return view('frontend.calendar.calendar');
+})->name('calendar');
+
+Route::get('/trestle-board','Blog\BlogController@index')->name('trestle-board.index');
+Route::get('/trestle-board/get-posts','Blog\BlogController@getPosts')->name('trestle-board.get-posts');
+Route::get('/trestle-board/download-attachment/{fileName}','Blog\BlogController@downloadAttachment')->name('trestle-board.download-attachment');

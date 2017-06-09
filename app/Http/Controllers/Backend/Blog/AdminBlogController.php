@@ -5,8 +5,9 @@ use App\Models\Blog\BlogPost\BlogPost as BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
-class BlogController extends Controller
+class AdminBlogController extends Controller
 {
     /**
      * @return \Illuminate\View\View
@@ -29,7 +30,6 @@ class BlogController extends Controller
      */
     public function createPost(Request $request)
     {
-
         $this->validate($request, [
             'title' => 'required|max:255',
             'body' => 'required'
@@ -37,12 +37,27 @@ class BlogController extends Controller
 
         $userId     = auth()->user()->id;
 
-        $rowData = [
-            'user_id'       => $userId,
-            'title'         => $request->title,
-            'content'       => $request->body,
-            'attachment'    => isset($request->attachment) ? $request->attachment : null
-        ];
+        if(Input::hasFile('attachment'))
+        {
+            $fileName = Input::file('attachment')->hashName();
+            Storage::disk('local')->put('uploads', Input::file('attachment'), 'public');
+
+            $rowData = [
+                'user_id'           => $userId,
+                'title'             => $request->title,
+                'content'           => $request->body,
+                'attachment_path'   => $fileName
+            ];
+        }
+        else
+        {
+            $rowData = [
+                'user_id'           => $userId,
+                'title'             => $request->title,
+                'content'           => $request->body,
+                'attachment_path'   => null
+            ];
+        }
 
         BlogPost::create($rowData);
 

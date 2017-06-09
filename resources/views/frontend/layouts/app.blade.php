@@ -15,7 +15,6 @@
 
         <!-- Styles -->
         @yield('before-styles')
-
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
         @langRTL
@@ -25,6 +24,8 @@
         @endif
 
         @yield('after-styles')
+
+        <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
 
         <!-- Scripts -->
         <script>
@@ -37,6 +38,8 @@
         <div id="app">
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
+
+            @yield('before_content')
 
             <div class="container">
                 @include('includes.partials.messages')

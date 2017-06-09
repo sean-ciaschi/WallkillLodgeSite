@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    {{Form::open(array('action' => 'Backend\Blog\BlogController@createPost', 'files' => true))}}
+    {{Form::open(array('action' => 'Backend\Blog\AdminBlogController@createPost', 'files' => true))}}
     <div class="box-body">
         <div class="form-group">
             {{Form::label('title', 'Title')}}
@@ -27,7 +27,7 @@
         <div class="form-group">
             {{Form::label('body', 'Content')}}
             {{Form::textarea('body',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'summernote'))}}
-            {{Form::file('attachment', array('multiple'=>true), $attributes = array())}}
+            {{Form::file('attachment')}}
         </div>
         <div class="form-group">
             {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}} </div>

@@ -39,7 +39,7 @@ class BlogPost extends Model
         'user_id',
         'title',
         'content',
-        'attachment',
+        'attachment_path',
         'created_at',
         'updated_at'
     ];
