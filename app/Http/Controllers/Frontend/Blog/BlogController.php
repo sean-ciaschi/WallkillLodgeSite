@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Storage;
 class BlogController extends Controller
 {
     /**
-     * @return \Illuminate\View\View
+     * Index
+     *
+     * @return mixed
      */
     public function index()
     {
@@ -20,8 +22,9 @@ class BlogController extends Controller
     }
 
     /**
-     * Create Post
+     * Get Posts
      *
+     * @return mixed
      */
     public function getPosts()
     {
@@ -30,8 +33,35 @@ class BlogController extends Controller
         return $posts;
     }
 
+    /**
+     * Download Attachment
+     *
+     * @param Request $request
+     * @param $fileName
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
     public function downloadAttachment(Request $request, $fileName)
     {
         return response()->download(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix()."uploads/".$fileName, 'attachment.'.File::extension($fileName));
+    }
+
+    /**
+     * Delete Post
+     *
+     * @param Request $request
+     * @param $id
+     * @return bool
+     */
+    public function deletePost(Request $request, $id)
+    {
+        $post = BlogPost::find($id);
+
+        if(isset($post) && !empty($post))
+        {
+           $post->delete();
+           return redirect(route('frontend.trestle-board.index'));
+        }
+
+        return redirect(route('frontend.trestle-board.index'));
     }
 }

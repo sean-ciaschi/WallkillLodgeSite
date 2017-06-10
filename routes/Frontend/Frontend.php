@@ -38,4 +38,5 @@ Route::get('/calendar', function()
 
 Route::get('/trestle-board','Blog\BlogController@index')->name('trestle-board.index');
 Route::get('/trestle-board/get-posts','Blog\BlogController@getPosts')->name('trestle-board.get-posts');
+Route::get('/trestle-board/delete-post/{id}','Blog\BlogController@deletePost')->name('trestle-board.delete-post');
 Route::get('/trestle-board/download-attachment/{fileName}','Blog\BlogController@downloadAttachment')->name('trestle-board.download-attachment');
