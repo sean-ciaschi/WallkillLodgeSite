@@ -26,6 +26,7 @@
         @yield('after-styles')
 
         <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
+        <link href="{{asset('build/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
 
         <!-- Scripts -->
         <script>
@@ -50,6 +51,9 @@
         <!-- Scripts -->
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}
+        <script src="{{asset('build/plugins/fullcalendar/moment.min.js')}}"></script>
+        <script src="{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
+        <script src="{{asset('build/plugins/fullcalendar/gcal.min.js')}}"></script>
         @yield('after-scripts')
 
         @include('includes.partials.ga')
