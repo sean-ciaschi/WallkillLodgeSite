@@ -65,6 +65,11 @@
                         html += '<p class="event_loc"> <span class="event_child_txt">Location:</span> '+calEvent.location+' (<a href="http://maps.google.com/maps?daddr='+calEvent.location+'" target="_blank">Directions</a>)</p>';
                     }
 
+                    if (calEvent.url)
+                    {
+                        html += '<p class="open-gcal"> <span class="event_child_txt"><a href="'+calEvent.url+'" target="_blank">Copy Event to Google Calendar</a></span></p>';
+                    }
+
                     selectors.modalTitle.innerHTML  = 'Event: ' + calEvent.title;
                     selectors.modalBody.innerHTML   = html;
 
