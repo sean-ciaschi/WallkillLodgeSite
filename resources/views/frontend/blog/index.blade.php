@@ -1,7 +1,12 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <h1>Trestle Board</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="page_title">Trestle Board</h1>
+        </div>
+    </div>
+
     @if(isset($posts) && count($posts) == 0)
         <p>No current posts found!</p>
     @endif

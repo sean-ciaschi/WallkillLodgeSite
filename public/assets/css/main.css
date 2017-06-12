@@ -1,13 +1,13 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .responsiveCal {
-
     position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
-
 }
 
 .responsiveCal iframe {
-
     position: absolute; top:0; left: 0; width: 100%; height: 100%;
-
 }
 
 .navbar {
@@ -94,4 +94,32 @@
     margin: 0 0 20px 0;
     padding: 0 0 5px 0;
     border-bottom:#cccccc solid 1px;
+}
+
+.page_title {
+    border-bottom:2px solid #3a87ad;
+    padding-bottom:2px;
+}
+
+.event_child_txt {
+    font-weight: bold;
+}
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
 }
