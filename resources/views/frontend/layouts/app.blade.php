@@ -48,6 +48,17 @@
             </div><!-- container -->
         </div><!--#app-->
 
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <p class="navbar-text pull-left">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span class="footer-text">Contact us</span>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
         <!-- Scripts -->
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}

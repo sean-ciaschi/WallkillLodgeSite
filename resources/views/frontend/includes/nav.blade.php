@@ -19,35 +19,26 @@
             <ul class="nav navbar-nav">
                 <li class="">
                     <a href="{{route('frontend.index')}}">
-                        Home
+                        <i class="fa fa-home"></i> Home
                     </a>
                 </li>
                 <li class="">
                     <a href="{{route('frontend.calendar')}}">
-                        Events
+                        <i class="fa fa-calendar"></i> Events
                     </a>
-                </li><li class="">
+                </li>
+                <li class="">
                     <a href="{{route('frontend.trestle-board.index')}}">
-                        Trestle Board
+                        <i class="fa fa-book"></i> Trestle Board
+                    </a>
+                </li>
+                <li class="">
+                    <a href="">
+                        <i class="fa fa-question-circle"></i> FAQ
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if (config('locale.status') && count(config('locale.languages')) > 1)
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ trans('menus.language-picker.language') }}
-                            <span class="caret"></span>
-                        </a>
-
-                        @include('includes.partials.lang')
-                    </li>
-                @endif
-
-                @if ($logged_in_user)
-                    <li>{{ link_to_route('frontend.user.dashboard', trans('navs.frontend.dashboard'), [], ['class' => active_class(Active::checkRoute('frontend.user.dashboard')) ]) }}</li>
-                @endif
-
                 @if (! $logged_in_user)
                     <li>{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
 
