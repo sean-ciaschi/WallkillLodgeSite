@@ -50,13 +50,40 @@
 
         <div class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
-                <p class="navbar-text pull-left">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <span class="footer-text">Contact us</span>
-                        </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12 footer-opts">
+                        <ul class="contact-list fa-ul">
+                            <span class="contact-text col-md-8 col-sm-12 col-xs-12">Contact Us</span>
+                            <li class="col-md-12 col-xs-12">
+                                <i class="fa-li fa fa-envelope fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Email us</a>
+                            </li>
+                            <li class="col-md-12 col-xs-12">
+                                <i class="fa-li fa fa-phone fa-lg"></i> (845) 888-8888
+                            </li>
+                            <li class="col-md-12 col-xs-12">
+                                <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text text-muted" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
+                            </li>
+                        </ul>
+                        <ul class="contact-list fa-ul">
+                            <span class="contact-text col-md-8 col-sm-12 col-xs-12">Follow Us</span>
+                            <li class="col-md-12 col-sm-12 col-xs-12">
+                                <i class="fa-li fa fa-facebook fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Facebook</a>
+                            </li>
+                            <li class="col-md-12 col-sm-12 col-xs-12">
+                                <i class="fa-li fa fa-twitter fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Twitter</a>
+                            </li>
+                            <li class="col-md-12 col-sm-12 col-xs-12">
+                                <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text text-muted" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
+                            </li>
+                        </ul>
                     </div>
-                </p>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <p class="navbar-text pull-right">
+                            <span class="developer-text">Developed by Brother Sean Ciaschi</span>
+                        </p>
+                    </div>
+
+                </div>
             </div>
 
         <!-- Scripts -->
