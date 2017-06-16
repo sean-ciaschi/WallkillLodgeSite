@@ -201,6 +201,10 @@ return [
         App\Providers\MacroServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Third Party Service Providers
+         */
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class
     ],
 
     /*
@@ -253,13 +257,14 @@ return [
         /*
          * Third Party Aliases
          */
-        'Active'      => HieuLe\Active\Facades\Active::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-        'Captcha'     => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
-        'Form'        => Collective\Html\FormFacade::class,
-        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
-        'Html'        => Collective\Html\HtmlFacade::class,
-        'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'Active'        => HieuLe\Active\Facades\Active::class,
+        'Breadcrumbs'   => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Captcha'       => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
+        'Form'          => Collective\Html\FormFacade::class,
+        'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Html'          => Collective\Html\HtmlFacade::class,
+        'Socialite'     => Laravel\Socialite\Facades\Socialite::class,
+        'MobileDetect'  => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class
 
     ],
 

@@ -14,6 +14,7 @@
         @yield('meta')
 
         <!-- Styles -->
+        <link rel="manifest" href="../../manifest.json">
         @yield('before-styles')
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
@@ -51,40 +52,49 @@
         <div class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-sm-12 col-xs-12 footer-opts">
-                        <ul class="contact-list fa-ul">
-                            <span class="contact-text col-md-8 col-sm-12 col-xs-12">Contact Us</span>
-                            <li class="col-md-12 col-xs-12">
-                                <i class="fa-li fa fa-envelope fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Email us</a>
-                            </li>
-                            <li class="col-md-12 col-xs-12">
-                                <i class="fa-li fa fa-phone fa-lg"></i> (845) 888-8888
-                            </li>
-                            <li class="col-md-12 col-xs-12">
-                                <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text text-muted" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
-                            </li>
-                        </ul>
-                        <ul class="contact-list fa-ul">
-                            <span class="contact-text col-md-8 col-sm-12 col-xs-12">Follow Us</span>
-                            <li class="col-md-12 col-sm-12 col-xs-12">
-                                <i class="fa-li fa fa-facebook fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Facebook</a>
-                            </li>
-                            <li class="col-md-12 col-sm-12 col-xs-12">
-                                <i class="fa-li fa fa-twitter fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Twitter</a>
-                            </li>
-                            <li class="col-md-12 col-sm-12 col-xs-12">
-                                <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text text-muted" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
-                            </li>
+                    <div class="col-xs-12 col-md-4 footer-opts">
+                        <ul class="footer-list fa-ul">
+                            <div class="row">
+                                <span class="footer-list-header col-xs-12 col-md-8">Contact Us</span>
+                                <li class="col-md-12 col-xs-12">
+                                    <i class="fa-li fa fa-envelope fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Email us</a>
+                                </li>
+                                <li class="col-md-12 col-xs-12">
+                                    <i class="fa-li fa fa-phone fa-lg"></i> (845) 888-8888
+                                </li>
+                                <li class="col-md-12 col-xs-12">
+                                    <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text text-muted" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
+                                </li>
+                            </div>
+
                         </ul>
                     </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="col-xs-12 col-md-4 footer-opts">
+                        <ul class="footer-list fa-ul">
+                            <div class="row">
+                                <span class="footer-list-header col-xs-12 col-md-8">Follow Us</span>
+                                <li class="col-xs-12 col-md-6">
+                                    <i class="fa-li fa fa-facebook fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Facebook</a>
+                                </li>
+                                <li class="col-xs-12 col-md-6">
+                                    <i class="fa-li fa fa-twitter fa-lg"></i> <a class="link-text text-muted" onclick="window.open(this.href,'_blank');return false;" href="mailto:sciaschi1@gmail.com">Twitter</a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
                         <p class="navbar-text pull-right">
-                            <span class="developer-text">Developed by Brother Sean Ciaschi</span>
+                            <div class="row">
+                                <span class="col-xs-12 col-md-12 text-muted"><a href="https://nymasons.org/2016/">Grand Lodge of New York</a></span>
+                                <span class="col-xs-12 col-md-12 developer-text text-muted">Developed by Brother Sean Ciaschi</span>
+                            </div>
+
                         </p>
                     </div>
 
                 </div>
             </div>
+        </div>
 
         <!-- Scripts -->
         @yield('before-scripts')

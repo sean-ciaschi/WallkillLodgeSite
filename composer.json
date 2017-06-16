@@ -21,6 +21,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
+        "riverskies/laravel-mobile-detect": "^1.2",
         "summernote/summernote": "^0.8.3",
         "yajra/laravel-datatables-oracle": "^7.0"
     },
