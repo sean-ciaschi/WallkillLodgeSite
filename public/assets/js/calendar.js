@@ -8,7 +8,7 @@ var defaultOpts = {
     {
 
         var selectors = {
-            modal: document.querySelector('.eventModal'),
+            modal:      document.querySelector('.eventModal'),
             modalTitle: document.querySelector('.modal-title'),
             modalBody:  document.querySelector('.modal-body')
         };
