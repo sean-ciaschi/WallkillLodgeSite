@@ -93,9 +93,7 @@
                 <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Steward:.</h3>
             </div>
-
         </div>
-
     </div><!--row-->
 @endsection
 
