@@ -17,13 +17,15 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <div class="row">
-        <div class="col-md-4">
-            <h1 class="page_title">Upcoming Events</h1>
-        </div>
-        <div class="col-md-12">
-            <div class="container">
-                <div class="responsiveCal">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page_title">Upcoming Events</h1>
+            </div>
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="responsiveCal">
+                    </div>
                 </div>
             </div>
         </div>
