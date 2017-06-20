@@ -14,18 +14,6 @@
             </div><!--pull-left-->
         </div><!--user-panel-->
 
-        <!-- search form (Optional) -->
-        {{ Form::open(['route' => 'admin.search.index', 'method' => 'get', 'class' => 'sidebar-form']) }}
-        <div class="input-group">
-            {{ Form::text('q', Request::get('q'), ['class' => 'form-control', 'required' => 'required', 'placeholder' => trans('strings.backend.general.search_placeholder')]) }}
-
-            <span class="input-group-btn">
-                    <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                  </span><!--input-group-btn-->
-        </div><!--input-group-->
-    {{ Form::close() }}
-    <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">{{ trans('menus.backend.sidebar.general') }}</li>
@@ -47,6 +35,21 @@
                         <a href="{{ route('admin.blog.create') }}">
                             <i class="fa fa-circle-o"></i>
                             <span>Create Post</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="{{ active_class(Active::checkUriPattern('admin/gallery/*')) }}">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Gallery</span>
+                </a>
+                <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/gallery/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
+                    <li class="{{ active_class(Active::checkUriPattern('admin/gallery/create*')) }}">
+                        <a href="{{ route('admin.gallery.create-album') }}">
+                            <i class="fa fa-circle-o"></i>
+                            <span>Create Album</span>
                         </a>
                     </li>
                 </ul>
