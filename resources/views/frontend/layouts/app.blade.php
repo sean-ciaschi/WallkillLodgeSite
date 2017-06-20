@@ -43,7 +43,7 @@
 
             @yield('before_content')
 
-            <div class="container">
+            <div class="container-fluid">
                 @include('includes.partials.messages')
                 @yield('content')
             </div><!-- container -->
