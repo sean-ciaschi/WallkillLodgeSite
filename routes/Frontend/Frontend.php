@@ -40,9 +40,3 @@ Route::get('/trestle-board','Blog\BlogController@index')->name('trestle-board.in
 Route::get('/trestle-board/get-posts','Blog\BlogController@getPosts')->name('trestle-board.get-posts');
 Route::get('/trestle-board/delete-post/{id}','Blog\BlogController@deletePost')->name('trestle-board.delete-post');
 Route::get('/trestle-board/download-attachment/{fileName}','Blog\BlogController@downloadAttachment')->name('trestle-board.download-attachment');
-
-Route::get('/album/{id}', array('as' => 'show_album','uses' => 'AlbumsController@getAlbum'));
-
-Route::get('/addimage/{id}', array('as' => 'add_image','uses' => 'ImagesController@getForm'));
-Route::post('/addimage', array('as' => 'add_image_to_album','uses' => 'ImagesController@postAdd'));
-Route::get('/deleteimage/{id}', array('as' => 'delete_image','uses' => 'ImagesController@getDelete'));
