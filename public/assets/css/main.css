@@ -44,6 +44,10 @@ body, html {
     color: #cccccc;
     background-color: transparent;
 }
+.navbar-fixed-bottom {
+    position: relative !important;
+    bottom:0;
+}
 .ui-rtsr-selected {
     background-color: #677bc5;
     font-weight: bold;
