@@ -164,5 +164,13 @@ body, html {
 }
 .lodge-officer-header {
     text-align:center;
+}
+.album-img {
+    width:450px;
+    height:250px;
+}
 
+.inner-album-img {
+    width:350px;
+    height:200px;
 }

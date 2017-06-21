@@ -3,7 +3,9 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Gallery\Album\Album;
+use App\Models\Gallery\Images\Images;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 /**
@@ -50,14 +52,14 @@ class AdminGalleryController extends Controller
      */
     public function createAlbum(Request $request)
     {
-        $imageName = $request->album_name . '.' . $request->file('cover_img')->getClientOriginalExtension();
+        $imageName = md5($request->album_name) . '.' . $request->file('cover_img')->getClientOriginalExtension();
 
-        $request->file('cover_img')->move(storage_path() . '/app/public/gallery/images/', $imageName);
+        $request->file('cover_img')->move(storage_path() . '/app/public/gallery/images/album_covers/', $imageName);
 
         Album::create([
             'name'          => $request->album_name,
             'description'   => $request->album_desc,
-            'cover_image'   => storage_path() . '/app/public/gallery/images/', $imageName
+            'cover_image'   => $imageName
         ]);
 
         Session::flash('flash_message','Album successfully created!');
@@ -130,11 +132,43 @@ class AdminGalleryController extends Controller
 
         foreach($albumCollection as $album)
         {
-            $albums[] = $album->name;
+            $albums[$album->id] = $album->name;
         }
 
         return view('backend.gallery.add-images')->with([
             'albums' => $albums
         ]);
+    }
+
+    /**
+     * Delete Album
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function addImages(Request $request)
+    {
+        $data = (object) $request->all();
+
+        if(isset($data) && $data != 'undefined')
+        {
+            if(isset($data->images) && isset($data->album_sel))
+            {
+                foreach($data->images as $image)
+                {
+                    $imageName = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+
+                    $image->move(storage_path('/app/public/gallery/images/'. $data->album_sel), $imageName);
+
+                    Images::create([
+                        'album_id'  => $request->album_sel,
+                        'image'     => $imageName,
+                    ]);
+                }
+
+                Session::flash('flash_message','Album successfully created!');
+                return redirect(route('admin.gallery.add-images'));
+            }
+        }
     }
 }

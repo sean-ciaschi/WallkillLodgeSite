@@ -29,6 +29,7 @@
         <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/select2/select2.min.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
+        <link href="{{asset('build/plugins/lightbox/ekko-lightbox.min.css')}}" rel="stylesheet">
 
         <!-- Scripts -->
         <script>
@@ -101,6 +102,12 @@
         <script src="{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
         <script src="{{asset('build/plugins/fullcalendar/gcal.min.js')}}"></script>
         <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
+        <script src="{{asset('build/plugins/lightbox/ekko-lightbox.min.js')}}"></script><script>
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+        </script>
         @yield('after-scripts')
 
         @include('includes.partials.ga')
