@@ -126,15 +126,11 @@ class AdminGalleryController extends Controller
     {
         $albumCollection = Album::all();
 
-        $albums = (object) [];
+        $albums = [];
 
         foreach($albumCollection as $album)
         {
-            $albums[] = [
-                'name'      => $album->name,
-                'desc'      => $album->description,
-                'cover_img' => $album->cover_image,
-            ];
+            $albums[] = $album->name;
         }
 
         return view('backend.gallery.add-images')->with([

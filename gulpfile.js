@@ -17,22 +17,17 @@ elixir(function(mix)
         'public/js/vendor/bootstrap'
     )
     .copy(
-        'node_modules/fullcalendar/dist',
+        [
+            'node_modules/fullcalendar/dist',
+            'node_modules/moment/min/moment.min.js'
+        ],
         'public/build/plugins/fullcalendar'
     )
     .copy(
-        'node_modules/moment/min/moment.min.js',
-        'public/build/plugins/fullcalendar'
+        [
+            'node_modules/select2/dist/js/select2.min.js',
+            'node_modules/select2/dist/css/select2.min.css'
+        ],
+        'public/build/plugins/select2'
     )
-    .scripts([
-        'resources/assets/js/frontend/app.js',
-        'resources/assets/js/plugin/sweetalert/sweetalert.min.js',
-        'resources/assets/js/plugins.js'
-    ], 'public/js/frontend.js')
-    .scripts([
-        'resources/assets/js/backend/app.js',
-        'resources/assets/js/plugin/sweetalert/sweetalert.min.js',
-        'resources/assets/js/plugins.js'
-    ], 'public/js/backend.js')
-
 });

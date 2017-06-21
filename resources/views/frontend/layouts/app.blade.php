@@ -27,6 +27,7 @@
         @yield('after-styles')
 
         <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
+        <link href="{{asset('build/plugins/select2/select2.min.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
 
         <!-- Scripts -->
@@ -83,7 +84,7 @@
                         <p class="navbar-text pull-right">
                             <div class="row">
                                 <span class="col-xs-12 col-md-12 text-muted"><a href="https://nymasons.org/2016/">Grand Lodge of New York</a></span>
-                                <span class="col-xs-12 col-md-12 developer-text text-muted">Developed by Brother Sean Ciaschi</span>
+                                <span class="col-xs-12 col-md-12 developer-text text-muted">Developed by Bro. Sean Ciaschi</span>
                             </div>
 
                         </p>
@@ -99,6 +100,7 @@
         <script src="{{asset('build/plugins/fullcalendar/moment.min.js')}}"></script>
         <script src="{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
         <script src="{{asset('build/plugins/fullcalendar/gcal.min.js')}}"></script>
+        <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
         @yield('after-scripts')
 
         @include('includes.partials.ga')

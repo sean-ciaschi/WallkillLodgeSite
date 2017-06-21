@@ -14,6 +14,9 @@
         @yield('meta')
 
         <!-- Styles -->
+        <link href="{{asset('build/plugins/select2/select2.min.css')}}" rel="stylesheet">
+        <link href="{{asset('build/plugins/fileupload/jquery.fileuploader.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/jquery-ui.min.css')}}" rel="stylesheet">
         @yield('before-styles')
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
@@ -25,22 +28,6 @@
         @endif
 
         @yield('after-styles')
-
-
-        <script src="{!!asset('/assets/js/summernote.min.js')!!}"></script>
-        <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        {{ Html::script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}
-        {{ Html::script('https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js') }}
-        <![endif]-->
-
-        <!-- Scripts -->
-        <script>
-            window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-            ]); ?>
-        </script>
     </head>
 
     <body class="skin-{{ config('backend.theme') }} {{ config('backend.layout') }}">
@@ -71,17 +58,38 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
-        <script
-                src="https://code.jquery.com/jquery-3.2.1.min.js"
-                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                crossorigin="anonymous"></script>
-        <script
-                src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-                integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-                crossorigin="anonymous"></script>
+        <script src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
 
         @yield('before-scripts')
         {{ Html::script(mix('js/backend.js')) }}
+        <script src="{{asset('/assets/js/summernote.min.js')}}"></script>
+        <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        {{ Html::script('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}
+        {{ Html::script('https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js') }}
+        <![endif]-->
+
+        <!-- Scripts -->
+        <script>
+            window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
+        <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
+        <script src="{{asset('build/plugins/fileupload/jquery.fileuploader.min.js')}}"></script>
+        <script type="text/javascript">
+            jQuery('select').select2();
+            jQuery('#fileupload').fileuploader({
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result.files, function (index, file) {
+                        $('<p/>').text(file.name).appendTo(document.body);
+                    });
+                }
+            });
+        </script>
         @yield('after-scripts')
 
     </body>
