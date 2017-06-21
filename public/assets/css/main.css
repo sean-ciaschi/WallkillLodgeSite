@@ -174,3 +174,6 @@ body, html {
     width:350px;
     height:200px;
 }
+.modal {
+    text-align: center;
+}

@@ -5,8 +5,8 @@
         <div class="row">
             @foreach($images as $image)
                 <div class="well col-md-4">
-                    <a href="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}" data-toggle="lightbox">
-                        <img class="inner-album-img" src="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}">
+                    <a href="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}" data-toggle="lightbox" data-gallery="album_{{$albumId}}" class="col-sm-4">
+                        <img class="inner-album-img" src="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}" class="img-fluid">
                     </a>
                 </div>
             @endforeach
