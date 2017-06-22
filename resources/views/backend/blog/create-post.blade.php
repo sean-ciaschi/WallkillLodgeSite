@@ -3,6 +3,7 @@
 @section('before-styles')
     <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
+    <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
 @endsection
 
 @section('after-scripts')
@@ -18,6 +19,9 @@
 @endsection
 
 @section('content')
+    <div class="col-md-12">
+        <h1 class="page_title">Create Trestle Board Post</h1>
+    </div>
     {{Form::open(array('action' => 'Backend\Blog\AdminBlogController@createPost', 'files' => true))}}
     <div class="box-body">
         <div class="form-group">
