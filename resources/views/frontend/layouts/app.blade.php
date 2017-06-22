@@ -51,49 +51,51 @@
             </div><!-- container -->
         </div><!--#app-->
 
-        <div class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-md-4 footer-opts">
-                        <ul class="footer-list fa-ul">
-                            <div class="row">
-                                <span class="footer-list-header col-xs-12 col-md-8">Contact Us</span>
-                                <li class="col-md-12 col-xs-12">
-                                    <i class="fa-li fa fa-envelope fa-lg"></i> <a class="link-text" onclick="window.open(this.href,'_blank');return false;" href="mailto:&#115;&#099;&#105;&#097;&#115;&#099;&#104;&#105;&#049;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Email us</a>
-                                </li>
-                                <li class="col-md-12 col-xs-12">
-                                    <i class="fa-li fa fa-phone fa-lg"></i> (845) 888-8888
-                                </li>
-                                <li class="col-md-12 col-xs-12">
-                                    <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
-                                </li>
-                            </div>
+        <footer>
+            <div class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4 footer-opts">
+                            <ul class="footer-list fa-ul">
+                                <div class="row">
+                                    <span class="footer-list-header col-xs-12 col-md-8">Contact Us</span>
+                                    <li class="col-md-12 col-xs-12">
+                                        <i class="fa-li fa fa-envelope fa-lg"></i> <a class="link-text" onclick="window.open(this.href,'_blank');return false;" href="mailto:&#115;&#099;&#105;&#097;&#115;&#099;&#104;&#105;&#049;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Email us</a>
+                                    </li>
+                                    <li class="col-md-12 col-xs-12">
+                                        <i class="fa-li fa fa-phone fa-lg"></i> (845) 888-8888
+                                    </li>
+                                    <li class="col-md-12 col-xs-12">
+                                        <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
+                                    </li>
+                                </div>
 
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-md-4 footer-opts">
-                        <ul class="footer-list fa-ul">
-                            <div class="row">
-                                <span class="footer-list-header col-xs-12 col-md-8">Follow Us</span>
-                                <li class="col-xs-12 col-md-6">
-                                    <i class="fa-li fa fa-facebook fa-lg"></i> <a class="link-text" onclick="window.open(this.href,'_blank');return false;" href="https://www.facebook.com/Wallkill627/">Facebook</a>
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-md-4">
-                        <p class="navbar-text pull-right">
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-4 footer-opts">
+                            <ul class="footer-list fa-ul">
+                                <div class="row">
+                                    <span class="footer-list-header col-xs-12 col-md-8">Follow Us</span>
+                                    <li class="col-xs-12 col-md-6">
+                                        <i class="fa-li fa fa-facebook fa-lg"></i> <a class="link-text" onclick="window.open(this.href,'_blank');return false;" href="https://www.facebook.com/Wallkill627/">Facebook</a>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <p class="navbar-text pull-right">
                             <div class="row">
                                 <span class="col-xs-12 col-md-12 text-muted"><a href="https://nymasons.org/2016/">Grand Lodge of New York</a></span>
                                 <span class="col-xs-12 col-md-12 developer-text text-muted">Developed by Bro. Sean Ciaschi</span>
                             </div>
 
-                        </p>
-                    </div>
+                            </p>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </footer>
 
         <!-- Scripts -->
         @yield('before-scripts')
