@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             @foreach($images as $image)
-                <div class="well col-md-4">
-                    <a href="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}" data-toggle="lightbox" data-gallery="album_{{$albumId}}" class="col-sm-4">
-                        <img class="inner-album-img" src="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}" class="img-fluid">
+                <div class="col-xs-12 col-md-4">
+                    <a href="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}" data-toggle="lightbox" data-gallery="album_{{$albumId}}" class="col-md-12">
+                        <img class="inner-album-img img-thumbnail" src="{{route('frontend.storage.album.images', ['albumId' => $albumId,'filename' => $image->image])}}">
                     </a>
                 </div>
             @endforeach
