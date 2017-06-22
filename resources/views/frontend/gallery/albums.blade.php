@@ -7,7 +7,7 @@
                 <h1 class="page_title">Gallery - Albums</h1>
             </div>
             @foreach($albums as $album)
-                <div class="well col-xs-12 col-md-5">
+                <div class="well col-xs-12 col-md-5" style="text-align: center;">
                     <img class="album-img img-thumbnail"  src="{{route('frontend.storage.album', ['filename' => $album->cover_image])}}">
                     <h2>{{$album->name}}</h2>
                     <p>{{str_limit($album->description, 150)}}</p>
