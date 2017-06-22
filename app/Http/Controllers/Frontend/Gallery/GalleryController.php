@@ -32,6 +32,7 @@ class GalleryController extends Controller
     public function imageView($id)
     {
         $model  = Images::get()->where('album_id', $id);
+        $album  = Album::find($id)->first();
         $images = [];
 
         foreach($model as $image)
@@ -40,6 +41,7 @@ class GalleryController extends Controller
         }
 
         return view('frontend.gallery.images')->with([
+            'albumName' => $album->name,
             'albumId'   => $id,
             'images'    => (object) $images
         ]);

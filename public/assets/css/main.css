@@ -183,6 +183,6 @@ body, html {
     -webkit-overflow-scrolling: touch;
     outline: 0;
 }
-#ekkoLightbox-86 .modal-dialog {
-    background-color: transparent;
+.album-images {
+    margin:10px 0 10px 0;
 }

@@ -52,6 +52,12 @@
                             <span>Create Album</span>
                         </a>
                     </li>
+                    <li class="{{ active_class(Active::checkUriPattern('admin/gallery/add*')) }}">
+                        <a href="{{ route('admin.gallery.add-images') }}">
+                            <i class="fa fa-circle-o"></i>
+                            <span>Add Images to Album</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

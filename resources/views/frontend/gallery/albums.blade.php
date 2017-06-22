@@ -3,6 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <h1 class="page_title">Gallery - Albums</h1>
+            </div>
             @foreach($albums as $album)
                 <div class="well col-xs-12 col-md-5">
                     <img class="album-img img-thumbnail"  src="{{route('frontend.storage.album', ['filename' => $album->cover_image])}}">
