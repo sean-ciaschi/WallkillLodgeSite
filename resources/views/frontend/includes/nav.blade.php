@@ -33,6 +33,11 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="{{route('frontend.gallery.albums')}}">
+                        <i class="fa fa-image"></i> Gallery
+                    </a>
+                </li>
+                <li class="">
                     <a href="">
                         <i class="fa fa-question-circle"></i> FAQ
                     </a>
