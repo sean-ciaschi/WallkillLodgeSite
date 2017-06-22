@@ -11,7 +11,7 @@
                     </div>
                     <div class="form-group col-md-12">
                         {{ Form::label('fileupload', 'Select Images to Add: *') }}
-                        <input id="fileupload" type="file" name="images[]" multiple>
+                        <input id="fileupload" type="file" name="images[]" data-fileuploader-maxSize="2" multiple>
                     </div>
                     <div class="form-group col-md-12">
                         {{ Form::submit('Add Images to Album') }}
