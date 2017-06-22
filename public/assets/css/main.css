@@ -166,7 +166,6 @@ body, html {
     text-align:center;
 }
 .album-img {
-    width:450px;
     height:250px;
 }
 
@@ -175,5 +174,16 @@ body, html {
     height:200px;
 }
 .modal {
-    text-align: center;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    /*bottom: 0;*/
+    left: 0;
+    z-index: 11;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+#ekkoLightbox-86 .modal-dialog {
+    background-color: transparent;
 }
