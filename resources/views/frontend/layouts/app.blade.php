@@ -9,7 +9,7 @@
         <title>@yield('title', app_name())</title>
 
         <!-- Meta -->
-        <meta name="description" content="@yield('meta_description', 'Wallkill Lodge #627 was established in 1866 and continues to serve the community')">
+        <meta name="description" content="@yield('meta_description', 'Wallkill Lodge #627 was established in 1866 and continues to serve the community ')">
         <meta name="author" content="@yield('meta_author', 'Sean Ciaschi')">
         @yield('meta')
 

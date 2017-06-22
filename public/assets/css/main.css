@@ -123,6 +123,13 @@ body, html {
     text-align: left;
     vertical-align: middle;
 }
+footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: 2em;
+}
 .footer-list-header {
     font-size:24px;
     margin: 0 0 5px 0;
