@@ -28,7 +28,7 @@ class BlogController extends Controller
      */
     public function getPosts()
     {
-        $posts = BlogPost::get();
+        $posts = BlogPost::orderBy('date', 'desc')->get();
 
         return $posts;
     }
