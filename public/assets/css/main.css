@@ -1,4 +1,4 @@
-body, html {
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -6,9 +6,10 @@ body, html {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #app {
+    position:relative;
+    height: calc(100% + 150px);
     margin: 0;
     padding: 0;
-    height: 100%;
     overflow-x: hidden;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
