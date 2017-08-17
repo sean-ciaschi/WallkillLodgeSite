@@ -11,15 +11,22 @@
                 <h3 class="event-name">Event Name</h3>
                 <span>Location:</span><div class="event-where">15 Test Location, New Windsor, NY 12553</div>
                 <span>Time of Event:</span><div class="event-time">8:00 AM</div>
-                <span>Cost:</span><div class="event-cost">$0.00</div>
+                <span>Cost:</span><div class="event-cost">$10.00</div>
+                <div>
+                    <b>Note: If you are paying with cash at the lodge/at the time of the event, please contact the current Worshipful Master or Secretary so that the ticket counts may be accurate</b>
+                </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 mt-10">
             <div class="ticket-details">
                 <label for="spinner">Select Quantity:</label>
-                <input type="number" id="spinner" class="form-control" name="value">
+                <input type="number" id="spinner" class="form-control" name="value" value="1">
+
                 <div id="dropin-container"></div>
-                <button class="btn btn-success pull-right" id="submit-button">Pay Now</button>
+
+                <button class="button button--small button--green pull-right" id="submit-button">Pay Now</button>
+
+                <label for="total-cost">Total Cost:</label><div class="total-cost">$0.00</div>
             </div>
         </div>
     </div>
@@ -27,7 +34,24 @@
 
 @section('after-scripts')
     <script>
-        var button = document.getElementById('submit-button');
+        var quantitySpinner = jQuery('#spinner'),
+            totalCost       = document.querySelector('.total-cost'),
+            button          = document.getElementById('submit-button'),
+            cost            = (quantitySpinner.val() * 10.00).toFixed(2);
+
+        totalCost.innerHTML = '$' + cost;
+
+        quantitySpinner.spinner({
+            min: 1,
+            max: 20,
+            step: 1,
+            value: 1,
+            change: function(event, ui)
+            {
+                cost = (quantitySpinner.val() * 10.00).toFixed(2);
+                totalCost.innerHTML = '$' + cost;
+            }
+        });
 
         braintree.dropin.create({
             authorization: '{{$clientId}}',
@@ -48,13 +72,6 @@
                     });
                 });
             });
-        });
-
-        jQuery('#spinner').spinner({
-            min: 1,
-            max: 20,
-            step: 1,
-            value: 1
         });
     </script>
 @endsection

@@ -70,7 +70,6 @@
                                         <i class="fa-li fa fa-location-arrow fa-lg"></i> <a class="link-text" href="http://maps.google.com/maps?daddr=61 Main St Walden, New York">61 Main St Walden, New York</a>
                                     </li>
                                 </div>
-
                             </ul>
                         </div>
                         <div class="col-xs-12 col-md-4 footer-opts">
