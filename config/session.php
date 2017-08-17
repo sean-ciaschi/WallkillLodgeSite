@@ -185,7 +185,7 @@ return [
     | will automatically log the user out after a set number of seconds.
     |
     */
-    'timeout_status' => env('SESSION_TIMEOUT_STATUS', true),
-    'timeout'        => env('SESSION_TIMEOUT', 600),
+    'timeout_status' => env('SESSION_TIMEOUT_STATUS', false),
+    'timeout'        => env('SESSION_TIMEOUT', 7000),
 
 ];

@@ -25,11 +25,12 @@
         @endif
 
         @yield('after-styles')
-
         <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/select2/select2.min.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/fullcalendar/fullcalendar.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+        <link href="{{asset('assets/css/jquery-ui.min.css')}}" rel="stylesheet">
+        @yield('head_js')
 
         <!-- Scripts -->
         <script>
@@ -102,7 +103,7 @@
         {!! Html::script(mix('js/frontend.js')) !!}
         <script src="{{asset('build/plugins/fullcalendar/moment.min.js')}}"></script>
         <script src="{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
-        <script src="{{asset('build/plugins/fullcalendar/gcal.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
         <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
         @yield('after-scripts')

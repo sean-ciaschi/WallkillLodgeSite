@@ -46,8 +46,8 @@
                     <span>Gallery</span>
                 </a>
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/gallery/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
-                    <li class="{{ active_class(Active::checkUriPattern('admin/gallery/create*')) }}">
-                        <a href="{{ route('admin.gallery.create-album') }}">
+                    <li class="{{ active_class(Active::checkUriPattern('admin/gallery/*')) }}">
+                        <a href="{{ route('admin.gallery.albums') }}">
                             <i class="fa fa-circle-o"></i>
                             <span>Create Album</span>
                         </a>

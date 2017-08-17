@@ -14,6 +14,8 @@
             $('#summernote').summernote({
                 height:500,
             });
+
+            $('#meeting-date').datepicker();
         });
     </script>
 @endsection
@@ -24,6 +26,10 @@
     </div>
     {{Form::open(array('action' => 'Backend\Blog\AdminBlogController@createPost', 'files' => true))}}
     <div class="box-body">
+        <div class="form-group">
+            {{Form::label('meeting-date', 'Meeting Date: *')}}
+            {{ Form::text('meeting-date', null, array('class' => 'form-control')) }}
+        </div>
         <div class="form-group">
             {{Form::label('title', 'Title')}}
             {{Form::text('title',null,array('class' => 'form-control', 'placeholder'=>'Title'))}}

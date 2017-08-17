@@ -191,3 +191,31 @@ footer {
 .album-images {
     margin:10px 0 10px 0;
 }
+.payment-input {
+    text-align: center;
+    margin-top: 5px;
+}
+.event-wrapper {
+    margin: 0 auto;
+}
+table, th, td {
+    text-align:center;
+}
+caption, th {
+    background: #3c8dbc;
+    color:#fff;
+    height: 30px;
+    text-align: center;
+}
+td {
+    border-bottom: 1px #ccc solid;
+    padding:5px;
+}
+td:first-child {
+    border-left: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+}
+td:last-child {
+    border-right: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+}

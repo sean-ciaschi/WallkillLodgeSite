@@ -58,8 +58,8 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
-        <script src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
-        <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('/assets/js/jquery-3.2.1.min.js')}}"></script>
+        <script src="{{asset('/assets/js/jquery-ui.min.js')}}"></script>
 
         @yield('before-scripts')
         {{ Html::script(mix('js/backend.js')) }}
@@ -81,14 +81,17 @@
         <script src="{{asset('build/plugins/fileupload/jquery.fileuploader.min.js')}}"></script>
         <script type="text/javascript">
             jQuery('select').select2();
-            jQuery('#fileupload').fileuploader({
+            var fileUpload = jQuery('#fileupload').fileuploader({
                 dataType: 'json',
+                enableApi: true,
+                addMore: true,
                 done: function (e, data) {
                     $.each(data.result.files, function (index, file) {
                         $('<p/>').text(file.name).appendTo(document.body);
                     });
                 }
             });
+            jQuery('#meeting-date').datepicker();
         </script>
         @yield('after-scripts')
 

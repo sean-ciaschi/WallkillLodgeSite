@@ -38,13 +38,18 @@
                     </a>
                 </li>
                 <li class="">
+                    <a href="{{route('frontend.ticket-sales')}}">
+                        <i class="fa fa-ticket"></i> Ticket Sales
+                    </a>
+                </li>
+                <li class="">
                     <a href="">
                         <i class="fa fa-question-circle"></i> FAQ
                     </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if (! $logged_in_user)
+                @if (!$logged_in_user)
                     <li>{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
 
                     {{--@if (config('access.users.registration'))--}}
