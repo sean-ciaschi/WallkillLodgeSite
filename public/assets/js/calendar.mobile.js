@@ -1,5 +1,5 @@
 var defaultOpts = {
-    googleCalendarApiKey: '	AIzaSyDuEHqh_8Op9ZiJ4o5Daz9Vve96io63qAA',
+    googleCalendarApiKey: 'AIzaSyBcZk7U-YT3Us88WVJmh8ybBX1c2O5HuaI',
     events: {
         googleCalendarId: '84o9isja4rb050mlq10a5acaac@group.calendar.google.com'
     },
