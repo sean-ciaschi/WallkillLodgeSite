@@ -171,11 +171,6 @@ class AdminGalleryController extends Controller
             $album->name        = $request->album_name;
             $album->description  = $request->album_desc;
 
-            if(isset($request->cover_img) && $request->cover_img != '')
-            {
-                $album->cover_image = $request->cover_img;
-            }
-
             $album->save();
         }
 
@@ -223,13 +218,14 @@ class AdminGalleryController extends Controller
         {
             foreach($images as $image)
             {
-                $imageName = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+                //$imageName = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
 
-                $image->move(storage_path('/app/public/gallery/images/'. $albumId != null ? $albumId : $data->album_sel), $imageName);
+//                $image->move(storage_path('\app\public\gallery\images/'), $imageName);
+                $storagePath = Storage::disk('gallery')->put('images/'. $albumId != null ? $albumId : $data->album_sel, $image);
 
                 Images::create([
                     'album_id'  => $albumId != null ? $albumId : $data->album_sel,
-                    'image'     => $imageName,
+                    'image'     => basename($storagePath),
                 ]);
             }
         }

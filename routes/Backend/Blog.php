@@ -6,5 +6,6 @@
 Route::group(['namespace' => 'Blog'], function () {
     Route::get('blog', 'AdminBlogController@index')->name('blog');
     Route::get('blog/blog-create', 'AdminBlogController@create')->name('blog.create');
+    Route::get('blog/edit-post/{id}', 'AdminBlogController@update')->name('blog.edit-post');
     Route::post('blog/create-post', 'AdminBlogController@createPost')->name('blog.create-post');
 });

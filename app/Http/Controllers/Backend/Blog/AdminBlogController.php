@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Backend\Blog;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog\BlogPost\BlogPost as BlogPost;
+use App\Models\Blog\BlogPost\BlogPost;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -36,7 +36,20 @@ class AdminBlogController extends Controller
         }
 
         return view('backend.blog.create-post')->with([
-            'meetingDate' => Carbon::parse($result)->format('m/d/y')
+            'pageType'      => 'create',
+            'meetingDate'   => Carbon::parse($result)->format('m/d/y')
+        ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $blogPost = BlogPost::find($id);
+
+        return view('backend.blog.create-post')->with([
+            'pageType'      => 'edit',
+            'title'         => $blogPost->title,
+            'content'       => $blogPost->content,
+            'meetingDate'   => Carbon::parse($blogPost->date)->format('m/d/y')
         ]);
     }
 
@@ -53,7 +66,7 @@ class AdminBlogController extends Controller
             'body' => 'required'
         ]);
 
-        $userId     = auth()->user()->id;
+        $userId = auth()->user()->id;
 
         if(Input::hasFile('attachment'))
         {

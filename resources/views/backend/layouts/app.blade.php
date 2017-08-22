@@ -15,9 +15,11 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
         <link href="{{asset('build/plugins/select2/select2.min.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/fileupload/jquery.fileuploader.css')}}" rel="stylesheet">
         <link href="{{asset('assets/css/jquery-ui.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
         @yield('before-styles')
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->

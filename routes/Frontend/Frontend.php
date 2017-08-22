@@ -30,26 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-Route::get('storage/app/public/gallery/images/album_covers/{filename}', function ($filename)
+Route::get('storage/app/public/gallery/{albumId}/{filename}', function ($albumId, $filename)
 {
-    $path = storage_path('/app/public/gallery/images/album_covers/' . $filename);
-
-    if (!File::exists($path)) {
-        abort(404);
-    }
-
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
-})->name('storage.album');
-
-Route::get('storage/app/public/gallery/images/{albumId}/{filename}', function ($albumId, $filename)
-{
-    $path = storage_path('/app/public/gallery/images/'. $albumId . '/' . $filename);
+    $path = storage_path('/app/public/gallery/'. $albumId . '/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);

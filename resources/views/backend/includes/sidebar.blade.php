@@ -27,7 +27,7 @@
 
             <li class="{{ active_class(Active::checkUriPattern('admin/blog/*')) }}">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i>
+                    <i class="fa fa-rss"></i>
                     <span>Blog</span>
                 </a>
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/blog/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
@@ -37,12 +37,19 @@
                             <span>Create Post</span>
                         </a>
                     </li>
+
+                    {{--<li class="{{ active_class(Active::checkUriPattern('admin/blog/edit*')) }}">--}}
+                        {{--<a href="{{ route('admin.blog.edit-post') }}">--}}
+                            {{--<i class="fa fa-circle-o"></i>--}}
+                            {{--<span>Edit Post</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                 </ul>
             </li>
 
             <li class="{{ active_class(Active::checkUriPattern('admin/gallery/*')) }}">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i>
+                    <i class="fa fa-image"></i>
                     <span>Gallery</span>
                 </a>
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/gallery/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
