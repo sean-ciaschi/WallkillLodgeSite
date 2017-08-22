@@ -40,7 +40,7 @@ class UserTicketSales extends Controller
         $nonceFromTheClient = $request->get('nonce');
 
         $result = Braintree_Transaction::sale([
-            'amount' => '10.00',
+            'amount' => $request->get('cost'),
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
                 'submitForSettlement' => True

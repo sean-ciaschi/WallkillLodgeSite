@@ -14,6 +14,7 @@
         @yield('meta')
 
         <!-- Styles -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="{{asset('build/plugins/select2/select2.min.css')}}" rel="stylesheet">
         <link href="{{asset('build/plugins/fileupload/jquery.fileuploader.css')}}" rel="stylesheet">
         <link href="{{asset('assets/css/jquery-ui.min.css')}}" rel="stylesheet">
@@ -28,6 +29,8 @@
         @endif
 
         @yield('after-styles')
+
+
     </head>
 
     <body class="skin-{{ config('backend.theme') }} {{ config('backend.layout') }}">
@@ -58,8 +61,7 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
-        <script src="{{asset('/assets/js/jquery-3.2.1.min.js')}}"></script>
-        <script src="{{asset('/assets/js/jquery-ui.min.js')}}"></script>
+
 
         @yield('before-scripts')
         {{ Html::script(mix('js/backend.js')) }}
@@ -77,6 +79,9 @@
                 'csrfToken' => csrf_token(),
             ]); ?>
         </script>
+
+        <script src="{{asset('/assets/js/jquery-ui.min.js')}}"></script>
+
         <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
         <script src="{{asset('build/plugins/fileupload/jquery.fileuploader.min.js')}}"></script>
         <script type="text/javascript">
@@ -91,7 +96,6 @@
                     });
                 }
             });
-            jQuery('#meeting-date').datepicker();
         </script>
         @yield('after-scripts')
 

@@ -6,6 +6,9 @@
 
 @section('content')
     <div class="row container event-wrapper">
+        <div class="col-md-12">
+            <h1 class="page_title">Event Tickets</h1>
+        </div>
         <div class="col-sm-6">
             <div class="payment-input well">
                 <h3 class="event-name">Event Name</h3>
@@ -19,14 +22,27 @@
         </div>
         <div class="col-sm-6 mt-10">
             <div class="ticket-details">
-                <label for="spinner">Select Quantity:</label>
-                <input type="number" id="spinner" class="form-control" name="value" value="1">
+
 
                 <div id="dropin-container"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="col-sm-6">
+                            <label for="spinner">Select Quantity:</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" id="spinner" class="form-control" name="value" value="1">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <span class="col-md-6">Total Cost:</span>
+                        <div class="total-cost col-md-6" id="total-cost">$0.00</div>
+                    </div>
+                </div>
 
                 <button class="button button--small button--green pull-right" id="submit-button">Pay Now</button>
 
-                <label for="total-cost">Total Cost:</label><div class="total-cost">$0.00</div>
             </div>
         </div>
     </div>
@@ -68,7 +84,10 @@
                     jQuery.ajax({
                         method: "POST",
                         url: '{{route('frontend.ticket-sales.process-payment')}}',
-                        data: { nonce: payload.nonce}
+                        data: {
+                            nonce: payload.nonce,
+                            cost: cost
+                        }
                     });
                 });
             });

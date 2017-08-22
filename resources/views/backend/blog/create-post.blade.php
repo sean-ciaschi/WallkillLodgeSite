@@ -12,11 +12,13 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#summernote').summernote({
-                height:500,
+                height:500
             });
 
-            $('#meeting-date').datepicker();
+            jQuery('.meeting-date').datepicker();
         });
+
+
     </script>
 @endsection
 
@@ -28,7 +30,13 @@
     <div class="box-body">
         <div class="form-group">
             {{Form::label('meeting-date', 'Meeting Date: *')}}
-            {{ Form::text('meeting-date', null, array('class' => 'form-control')) }}
+            <div class="input-group date" data-provide="datepicker">
+                {{ Form::text('meetingDate', $meetingDate, array('class' => 'form-control meeting-date')) }}
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+
         </div>
         <div class="form-group">
             {{Form::label('title', 'Title')}}

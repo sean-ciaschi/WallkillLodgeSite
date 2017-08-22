@@ -40,6 +40,7 @@ class BlogPost extends Model
         'title',
         'content',
         'attachment_path',
+        'date',
         'created_at',
         'updated_at'
     ];

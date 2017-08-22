@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog\BlogPost\BlogPost as BlogPost;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +20,24 @@ class AdminBlogController extends Controller
 
     public function create()
     {
-        return view('backend.blog.create-post');
+        $baseDate = Carbon::now();
+        $firstWednesday = Carbon::parse('first wednesday of this month');
+        $thirdWednesday = Carbon::parse('third wednesday of this month');
+
+        $result = null;
+
+        if($baseDate->diffInDays($firstWednesday) < $baseDate->diffInDays($thirdWednesday))
+        {
+            $result = $firstWednesday;
+        }
+        else
+        {
+            $result = $thirdWednesday;
+        }
+
+        return view('backend.blog.create-post')->with([
+            'meetingDate' => Carbon::parse($result)->format('m/d/y')
+        ]);
     }
 
     /**
@@ -46,7 +64,8 @@ class AdminBlogController extends Controller
                 'user_id'           => $userId,
                 'title'             => $request->title,
                 'content'           => $request->body,
-                'attachment_path'   => $fileName
+                'attachment_path'   => $fileName,
+                'date'              => Carbon::parse($request->meetingDate),
             ];
         }
         else
@@ -55,7 +74,8 @@ class AdminBlogController extends Controller
                 'user_id'           => $userId,
                 'title'             => $request->title,
                 'content'           => $request->body,
-                'attachment_path'   => null
+                'attachment_path'   => null,
+                'date'              => Carbon::parse($request->meetingDate)
             ];
         }
 
