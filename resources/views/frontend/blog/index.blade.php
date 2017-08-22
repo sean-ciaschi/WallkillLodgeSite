@@ -21,7 +21,7 @@
                                 @role('Administrator')
                                 <a href="{{route('frontend.trestle-board.delete-post', ['id' => $post->id])}}"><i class="fa fa-trash" title="Delete Post"></i></a>
                                 @endauth
-                                {{date('F d, Y', strtotime($post->date))}} at {{date('h:m a', strtotime($post->created_at))}}
+                                Meeting Date: {{date('F d, Y', strtotime($post->date))}}
                             </div>
                         </div>
                         <div class="col-md-12 post_content">
