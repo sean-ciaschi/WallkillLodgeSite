@@ -61,7 +61,7 @@ class AdminGalleryController extends Controller
 
         foreach($images as $image)
         {
-            $imageUrl   = 'public/gallery/images/'.$id.'/'.$image->image;
+            $imageUrl   = 'public/gallery/'.$id.'/'.$image->image;
             $imageArr[] = [
                 'name'  => $image->image,
                 'size'  => Storage::size($imageUrl),
@@ -89,9 +89,11 @@ class AdminGalleryController extends Controller
     public function editAlbum($id, Request $request)
     {
         $album  = Album::find($id);
-        $images = Images::all()->where('album_id', $id);
+        $images = Images::where('album_id', $id);
+        $uploadedImages = [];
 
         dd($request->all());
+
         if(isset($album) && $album instanceof Album)
         {
             $album->name        = $request->album_name;
@@ -101,14 +103,14 @@ class AdminGalleryController extends Controller
             if(isset($images) && $images instanceof Collection && $images != [])
             {
                 $images->delete();
-                $this->addImages($id, $images);
+                $this->addImages($id, $request);
             }
 
         }
 
         Session::flash('flash_message','Album edited successfully!');
 
-        return view('backend.gallery.create-album');
+        //return view('backend.gallery.create-album');
     }
 
     /**
@@ -193,7 +195,7 @@ class AdminGalleryController extends Controller
         if(isset($album) && $album != '')
         {
             Album::destroy($id);
-            Session::flash('flash_message','Album successfully created!');
+            Session::flash('flash_message','Album successfully deleted!');
 
             return redirect(route('admin.gallery.create-album'));
         }
@@ -213,6 +215,41 @@ class AdminGalleryController extends Controller
     {
         $data   = (object) $request->all();
         $images = (object) $data->images;
+
+
+        if(isset($images) && $images != 'undefined')
+        {
+            foreach($images as $image)
+            {
+                //$imageName = md5($image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+
+//                $image->move(storage_path('\app\public\gallery\images/'), $imageName);
+                $storagePath = Storage::disk('gallery')->put('images/'. $albumId != null ? $albumId : $data->album_sel, $image);
+
+                Images::create([
+                    'album_id'  => $albumId != null ? $albumId : $data->album_sel,
+                    'image'     => basename($storagePath),
+                ]);
+            }
+        }
+
+        Session::flash('flash_message','Images successfully added to Album!');
+        return redirect(route('admin.gallery.create-album'));
+
+    }
+
+    /**
+     * Add Images
+     *
+     * @param null $albumId
+     * @param Request $request
+     * @return mixed
+     */
+    public function removeImages($albumId = null, Request $request)
+    {
+        $data   = (object) $request->all();
+        $images = (object) $data->images;
+
 
         if(isset($images) && $images != 'undefined')
         {

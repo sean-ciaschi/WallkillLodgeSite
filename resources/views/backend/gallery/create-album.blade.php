@@ -8,6 +8,8 @@
     @if(isset($images) && $images != 'undefined')
         <script>
             var api = $.fileuploader.getInstance('#fileupload');
+
+
             api.append({!! $images !!});
             console.log(api.getChoosedFiles());
             console.log(api.getUploadedFiles());

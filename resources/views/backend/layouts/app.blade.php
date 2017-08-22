@@ -92,6 +92,34 @@
                 dataType: 'json',
                 enableApi: true,
                 addMore: true,
+                thumbnails: {
+                    item2:  '<li class="fileuploader-item">' +
+                            '<div class="columns">' +
+                            '<a href="${data.url}" target="_blank">' +
+                            '<div class="column-thumbnail">${image}<span class="fileuploader-action-popup"></span></div>' +
+                            '<div class="column-title">' +
+                            '<div title="${name}">${name}</div>' +
+                            '<span>${size2}</span>' +
+                            '</div>' +
+                            '</a>' +
+                            '<div class="column-actions">' +
+                            '<a href="${file}" class="fileuploader-action fileuploader-action-download" title="${captions.download}" download><i></i></a>' +
+                            '<a class="fileuploader-action fileuploader-action-remove" data-image-id="1" title="${captions.remove}"><i></i></a>' +
+                            '</div>' +
+                            '</div>' +
+                            '</li>',
+
+                    onItemRemove: function(itemEl, listEl, parentEl, newInputEl, inputEl) {
+                        itemEl.children().animate({'opacity': 0}, 200, function() {
+                            setTimeout(function() {
+                                itemEl.slideUp(200, function() {
+                                    itemEl.remove();
+                                });
+                            }, 100);
+                        });
+                    }
+                },
+
                 done: function (e, data) {
                     $.each(data.result.files, function (index, file) {
                         $('<p/>').text(file.name).appendTo(document.body);
