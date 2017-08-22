@@ -9,7 +9,11 @@
                 Create
             @endif Trestle Board Post </h1>
     </div>
-    {{Form::open(array('action' => 'Backend\Blog\AdminBlogController@createPost', 'files' => true))}}
+    @if($pageType == 'edit')
+        {{Form::open(array('action' => ['Backend\Blog\AdminBlogController@updatePost', 'id' => $postId], 'files' => true))}}
+    @else
+        {{Form::open(array('action' => 'Backend\Blog\AdminBlogController@createPost', 'files' => true))}}
+    @endif
     <div class="box-body">
         <div class="form-group">
             {{Form::label('meeting-date', 'Meeting Date: *')}}
@@ -23,15 +27,16 @@
         </div>
         <div class="form-group">
             {{Form::label('title', 'Title')}}
-            {{Form::text('title', null, array('class' => 'form-control', 'placeholder'=>'Title'))}}
+            {{Form::text('title', isset($title) ? $title : null, array('class' => 'form-control', 'placeholder'=>'Title'))}}
         </div>
         <div class="form-group">
             {{Form::label('body', 'Content')}}
-            {{Form::textarea('body',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'summernote'))}}
+            {{Form::textarea('body', isset($content) ? $content : null ,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'summernote'))}}
             {{Form::file('attachment')}}
         </div>
         <div class="form-group">
-            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}} </div>
+            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}}
+        </div>
     {{Form::close()}}
 @endsection
 

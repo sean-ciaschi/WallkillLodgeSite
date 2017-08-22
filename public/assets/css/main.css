@@ -252,3 +252,6 @@ td:last-child {
     background-color: #8bdda8;
     color: white;
 }
+th {
+    text-align: center!important;
+}

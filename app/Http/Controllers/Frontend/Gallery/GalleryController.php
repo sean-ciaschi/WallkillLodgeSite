@@ -16,7 +16,7 @@ class GalleryController extends Controller
 {
     public function albumView()
     {
-        $model  = Album::all();
+        $model  = Album::with('images')->get();
         $albums = [];
 
         foreach($model as $album)

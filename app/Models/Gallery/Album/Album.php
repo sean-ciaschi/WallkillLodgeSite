@@ -1,9 +1,13 @@
 <?php namespace App\Models\Gallery\Album;
 
+use App\Models\Gallery\Album\Traits\Attribute\Attribute;
+use App\Models\Gallery\Album\Traits\Relationship\Relationship;
 use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
+    use Attribute, Relationship;
+
     /**
      * Table
      *

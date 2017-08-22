@@ -25,26 +25,11 @@
                 </a>
             </li>
 
-            <li class="{{ active_class(Active::checkUriPattern('admin/blog/*')) }}">
-                <a href="#">
+            <li class="{{ active_class(Active::checkUriPattern('admin/blog*')) }}">
+                <a href="{{route('admin.blog')}}">
                     <i class="fa fa-rss"></i>
                     <span>Blog</span>
                 </a>
-                <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/blog/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
-                    <li class="{{ active_class(Active::checkUriPattern('admin/blog/create*')) }}">
-                        <a href="{{ route('admin.blog.create') }}">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Create Post</span>
-                        </a>
-                    </li>
-
-                    {{--<li class="{{ active_class(Active::checkUriPattern('admin/blog/edit*')) }}">--}}
-                        {{--<a href="{{ route('admin.blog.edit-post') }}">--}}
-                            {{--<i class="fa fa-circle-o"></i>--}}
-                            {{--<span>Edit Post</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                </ul>
             </li>
 
             <li class="{{ active_class(Active::checkUriPattern('admin/gallery/*')) }}">
