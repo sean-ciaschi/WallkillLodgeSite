@@ -48,24 +48,10 @@
             </li>
 
             <li class="{{ active_class(Active::checkUriPattern('admin/gallery/*')) }}">
-                <a href="#">
+                <a href="{{ route('admin.gallery.albums') }}">
                     <i class="fa fa-image"></i>
                     <span>Gallery</span>
                 </a>
-                <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/gallery/*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/access/*'), 'display: block;') }}">
-                    <li class="{{ active_class(Active::checkUriPattern('admin/gallery/*')) }}">
-                        <a href="{{ route('admin.gallery.albums') }}">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Create Album</span>
-                        </a>
-                    </li>
-                    <li class="{{ active_class(Active::checkUriPattern('admin/gallery/add*')) }}">
-                        <a href="{{ route('admin.gallery.add-images') }}">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Add Images to Album</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
 
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>

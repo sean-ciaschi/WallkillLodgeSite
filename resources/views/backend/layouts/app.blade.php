@@ -32,6 +32,7 @@
 
         @yield('after-styles')
 
+        <script src="{{asset('/assets/js/WKL.js')}}"></script>
 
     </head>
 
@@ -93,7 +94,7 @@
                 enableApi: true,
                 addMore: true,
                 thumbnails: {
-                    item2:  '<li class="fileuploader-item">' +
+                    item2:  '<li class="fileuploader-item" data-image-id="${data.id}">' +
                             '<div class="columns">' +
                             '<a href="${data.url}" target="_blank">' +
                             '<div class="column-thumbnail">${image}<span class="fileuploader-action-popup"></span></div>' +
@@ -104,12 +105,17 @@
                             '</a>' +
                             '<div class="column-actions">' +
                             '<a href="${file}" class="fileuploader-action fileuploader-action-download" title="${captions.download}" download><i></i></a>' +
-                            '<a class="fileuploader-action fileuploader-action-remove" data-image-id="1" title="${captions.remove}"><i></i></a>' +
+                            '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i></i></a>' +
                             '</div>' +
                             '</div>' +
                             '</li>',
 
                     onItemRemove: function(itemEl, listEl, parentEl, newInputEl, inputEl) {
+                        var context = this,
+                            itemId  = itemEl[0].dataset.imageId;
+
+                        WKL.runRequest('{{route('admin.gallery.ajax-remove-images')}}', 'POST', {imageId: itemId}, false);
+
                         itemEl.children().animate({'opacity': 0}, 200, function() {
                             setTimeout(function() {
                                 itemEl.slideUp(200, function() {

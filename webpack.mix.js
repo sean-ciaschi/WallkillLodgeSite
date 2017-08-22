@@ -24,6 +24,9 @@ mix.sass('resources/assets/sass/frontend/app.scss', 'public/css/frontend.css')
         'resources/assets/js/plugin/sweetalert/sweetalert.min.js',
         'resources/assets/js/plugins.js'
     ], 'public/js/backend.js')
+    .js([
+        'resources/assets/js/backend/WKL.js'
+    ], 'public/js/WKL.js')
     .webpackConfig({
         plugins: [
             new WebpackRTLPlugin('/css/[name].rtl.css')

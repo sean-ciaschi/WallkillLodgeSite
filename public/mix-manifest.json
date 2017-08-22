@@ -3,5 +3,7 @@
   "/js/backend.js": "/js/backend.js",
   "/mix.js": "/mix.js",
   "/css/frontend.css": "/css/frontend.css",
-  "/css/backend.css": "/css/backend.css"
+  "/css/backend.css": "/css/backend.css",
+  "/js/WLK.js": "/js/WLK.js",
+  "/js/WKL.js": "/js/WKL.js"
 }
