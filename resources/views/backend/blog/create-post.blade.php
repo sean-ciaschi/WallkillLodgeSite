@@ -37,19 +37,20 @@
         <div class="form-group">
             {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}}
         </div>
-    {{Form::close()}}
+        {{Form::close()}}
+    </div>
 @endsection
 
-        @section('after-scripts')
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+@section('after-scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
 
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#summernote').summernote({
-                        height:500
-                    });
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height:500
+            });
 
-                    jQuery('.meeting-date').datepicker();
-                });
-            </script>
+            jQuery('.meeting-date').datepicker();
+        });
+    </script>
 @endsection

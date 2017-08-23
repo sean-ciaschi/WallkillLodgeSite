@@ -39,6 +39,13 @@
                 </a>
             </li>
 
+            <li class="{{ active_class(Active::checkUriPattern('admin/events/*')) }}">
+                <a href="{{ route('admin.events.index') }}">
+                    <i class="fa fa-ticket"></i>
+                    <span>Events</span>
+                </a>
+            </li>
+
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
 
             @role(1)

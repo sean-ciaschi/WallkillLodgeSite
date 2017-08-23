@@ -28,8 +28,42 @@ class AdminEventController extends Controller
     {
         $events = Event::all();
 
-        return view('backend.gallery.albums')->with([
+        return view('backend.event.events')->with([
             'events' => $events
         ]);
+    }
+
+    /**
+     * Index
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('backend.event.create-event');
+    }
+
+    public function ajaxCreateEvent(Request $request)
+    {
+        $data = (object) $request->all();
+
+        dd($data);
+
+        if(isset($data) && $data != null)
+        {
+            Event::create([
+               'name' => $data->name
+            ]);
+        }
+    }
+
+    public function ajaxUpdateEvent()
+    {
+
+    }
+
+    public function ajaxDeleteEvent()
+    {
+
     }
 }
