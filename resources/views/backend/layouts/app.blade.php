@@ -21,6 +21,7 @@
         <link href="{{asset('assets/css/jquery-ui.min.css')}}" rel="stylesheet">
         <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
         <link href="{{asset('assets/css/bootstrap2-toggle.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assets/css/bootstrap-spinner.min.css')}}" rel="stylesheet">
         @yield('before-styles')
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
@@ -67,15 +68,7 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
-        <script src="{{asset('assets/js/cldr.js')}}"></script>
-        <script src="{{asset('assets/js/event.js')}}"></script>
-        <script src="{{asset('assets/js/supplemental.js')}}"></script>
-        <script src="{{asset('assets/js/globalize.js')}}"></script>
-        <script src="{{asset('assets/js/globalize/message.js')}}"></script>
-        <script src="{{asset('assets/js/globalize/number.js')}}"></script>
-        <script src="{{asset('assets/js/globalize/plural.js')}}"></script>
-        <script src="{{asset('assets/js/globalize/date.js')}}"></script>
-        <script src="{{asset('assets/js/globalize/currency.js')}}"></script>
+
         {{ Html::script(mix('js/backend.js')) }}
         <script src="{{asset('/assets/js/summernote.min.js')}}"></script>
         <script src="{{asset('assets/js/moment.min.js')}}"></script>
@@ -93,7 +86,9 @@
             ]); ?>
         </script>
 
+
         <script src="{{asset('/assets/js/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.spinner.min.js')}}"></script>
         <script src="{{asset('assets/js/bootstrap2-toggle.min.js')}}"></script>
 
         @yield('before-scripts')
@@ -101,209 +96,6 @@
         <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
         <script src="{{asset('build/plugins/fileupload/jquery.fileuploader.min.js')}}"></script>
         <script type="text/javascript">
-            Globalize.load({
-                "main": {
-                    "en": {
-                        "identity": {
-                            "version": {
-                                "_cldrVersion": "25",
-                                "_number": "$Revision: 91 $"
-                            },
-                            "generation": {
-                                "_date": "$Date: 2014-03-13 22:27:12 -0500 (Thu, 13 Mar 2014) $"
-                            },
-                            "language": "en"
-                        },
-                        "dates": {
-                            "calendars": {
-                                "gregorian": {
-                                    "days": {
-                                        "format": {
-                                            "wide": {
-                                                "sun": "Sunday",
-                                                "mon": "Monday",
-                                                "tue": "Tuesday",
-                                                "wed": "Wednesday",
-                                                "thu": "Thursday",
-                                                "fri": "Friday",
-                                                "sat": "Saturday"
-                                            }
-                                        }
-                                    },
-                                    "months": {
-                                        "format": {
-                                            "abbreviated": {
-                                                "1": "Jan",
-                                                "2": "Feb",
-                                                "3": "Mar",
-                                                "4": "Apr",
-                                                "5": "May",
-                                                "6": "Jun",
-                                                "7": "Jul",
-                                                "8": "Aug",
-                                                "9": "Sep",
-                                                "10": "Oct",
-                                                "11": "Nov",
-                                                "12": "Dec"
-                                            },
-                                            "wide": {
-                                                "1": "January",
-                                                "2": "February",
-                                                "3": "March",
-                                                "4": "April",
-                                                "5": "May",
-                                                "6": "June",
-                                                "7": "July",
-                                                "8": "August",
-                                                "9": "September",
-                                                "10": "October",
-                                                "11": "November",
-                                                "12": "December"
-                                            }
-                                        }
-                                    },
-                                    "dayPeriods": {
-                                        "format": {
-                                            "wide": {
-                                                "am": "AM",
-                                                "am-alt-variant": "am",
-                                                "noon": "noon",
-                                                "pm": "PM",
-                                                "pm-alt-variant": "pm"
-                                            }
-                                        }
-                                    },
-                                    "dateFormats": {
-                                        "full": "EEEE, MMMM d, y",
-                                        "medium": "MMM d, y"
-                                    },
-                                    "timeFormats": {
-                                        "full": "h:mm:ss a zzzz",
-                                        "medium": "h:mm:ss a",
-                                    },
-                                    "dateTimeFormats": {
-                                        "full": "{1} 'at' {0}",
-                                        "medium": "{1}, {0}"
-                                    }
-                                }
-                            },
-                            "fields": {
-                                "second": {
-                                    "displayName": "Second",
-                                    "relative-type-0": "now",
-                                    "relativeTime-type-future": {
-                                        "relativeTimePattern-count-one": "in {0} second",
-                                        "relativeTimePattern-count-other": "in {0} seconds"
-                                    },
-                                    "relativeTime-type-past": {
-                                        "relativeTimePattern-count-one": "{0} second ago",
-                                        "relativeTimePattern-count-other": "{0} seconds ago"
-                                    }
-                                }
-                            },
-                            "timeZoneNames": {
-                                "metazone": {
-                                    "Brasilia": {
-                                        "long": {
-                                            "generic": "Brasilia Time",
-                                            "standard": "Brasilia Standard Time",
-                                            "daylight": "Brasilia Summer Time"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "numbers": {
-                            "currencies": {
-                                "USD": {
-                                    "symbol": "$"
-                                }
-                            },
-                            "defaultNumberingSystem": "latn",
-                            "symbols-numberSystem-latn": {
-                                "decimal": ".",
-                                "exponential": "E",
-                                "group": ",",
-                                "infinity": "∞",
-                                "minusSign": "-",
-                                "nan": "NaN",
-                                "percentSign": "%",
-                                "perMille": "‰",
-                                "plusSign": "+",
-                                "timeSeparator": ":"
-                            },
-                            "decimalFormats-numberSystem-latn": {
-                                "standard": "#,##0.###"
-                            },
-                            "currencyFormats-numberSystem-latn": {
-                                "currencySpacing": {
-                                    "beforeCurrency": {
-                                        "currencyMatch": "[:^S:]",
-                                        "surroundingMatch": "[:digit:]",
-                                        "insertBetween": " "
-                                    },
-                                    "afterCurrency": {
-                                        "currencyMatch": "[:^S:]",
-                                        "surroundingMatch": "[:digit:]",
-                                        "insertBetween": " "
-                                    }
-                                },
-                                "standard": "¤#,##0.00"
-                            }
-                        },
-                        "units": {
-                            "short": {
-                                "per": {
-                                    "compoundUnitPattern": "{0}/{1}"
-                                },
-                                "speed-mile-per-hour": {
-                                    "displayName": "miles/hour",
-                                    "unitPattern-count-one": "{0} mph",
-                                    "unitPattern-count-other": "{0} mph"
-                                }
-                            }
-                        }
-                    }
-                },
-                "supplemental": {
-                    "version": {
-                        "_cldrVersion": "25",
-                        "_number": "$Revision: 91 $"
-                    },
-                    "currencyData": {
-                        "fractions": {
-                            "DEFAULT": {
-                                "_rounding": "0",
-                                "_digits": "2"
-                            }
-                        }
-                    },
-                    "likelySubtags": {
-                        "en": "en-Latn-US",
-                    },
-                    "metaZones": {
-                        "metazoneInfo": {
-                            "timezone": {
-                                "America": {
-                                    "Sao_Paulo": [
-                                        {
-                                            "usesMetazone": {
-                                                "_mzone": "Brasilia"
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "plurals-type-cardinal": {
-                        "en": {
-                            "pluralRule-count-one": "i = 1 and v = 0 @integer 1",
-                            "pluralRule-count-other": " @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, … @decimal 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …"
-                        }
-                    }
-                }
-            });
             jQuery('select').select2();
             var fileUpload = jQuery('#fileupload').fileuploader({
                 dataType: 'json',

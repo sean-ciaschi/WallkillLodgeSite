@@ -1,3 +1,7 @@
+<?php
+    $activeEvent = $event->first();
+?>
+
 @extends('frontend.layouts.app')
 
 @section('head_js')
@@ -9,42 +13,42 @@
         <div class="col-md-12">
             <h1 class="page_title">Event Tickets</h1>
         </div>
-        <div class="col-sm-6">
-            <div class="payment-input well">
-                <h3 class="event-name">Event Name</h3>
-                <span>Location:</span><div class="event-where">15 Test Location, New Windsor, NY 12553</div>
-                <span>Time of Event:</span><div class="event-time">8:00 AM</div>
-                <span>Cost:</span><div class="event-cost">$10.00</div>
-                <div>
-                    <b>Note: If you are paying with cash at the lodge/at the time of the event, please contact the current Worshipful Master or Secretary so that the ticket counts may be accurate</b>
+        @if(isset($activeEvent) && $activeEvent != null)
+            <div class="col-sm-6">
+                <div class="payment-input well">
+                    <h3 class="event-name">{{$activeEvent->name}}</h3>
+                    <span>Location:</span><div class="event-where">{{$activeEvent->location}}</div>
+                    <span>Time of Event:</span><div class="event-time">{{$activeEvent->date}}</div>
+                    <span>Cost:</span><div class="event-cost">${{$activeEvent->price}}</div>
+                    <div>
+                        <b>Note: If you are paying with cash at the lodge/at the time of the event, please contact the current Worshipful Master or Secretary so that the ticket counts may be accurate</b>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 mt-10">
-            <div class="ticket-details">
-
-
-                <div id="dropin-container"></div>
-                <div class="row">
-                    <div class="col-sm-6">
+            <div class="col-sm-6 mt-10">
+                <div class="ticket-details">
+                    <div id="dropin-container"></div>
+                    <div class="row">
                         <div class="col-sm-6">
-                            <label for="spinner">Select Quantity:</label>
+                            <div class="col-sm-6">
+                                <label for="spinner">Select Quantity:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" id="spinner" class="form-control" name="value" value="1">
+                            </div>
                         </div>
+
                         <div class="col-sm-6">
-                            <input type="number" id="spinner" class="form-control" name="value" value="1">
+                            <span class="col-md-6">Total Cost:</span>
+                            <div class="total-cost col-md-6" id="total-cost">$0.00</div>
                         </div>
                     </div>
 
-                    <div class="col-sm-6">
-                        <span class="col-md-6">Total Cost:</span>
-                        <div class="total-cost col-md-6" id="total-cost">$0.00</div>
-                    </div>
+                    <button class="button button--small button--green pull-right" id="submit-button">Pay Now</button>
+
                 </div>
-
-                <button class="button button--small button--green pull-right" id="submit-button">Pay Now</button>
-
             </div>
-        </div>
+        @endif
     </div>
 @endsection
 
@@ -53,7 +57,7 @@
         var quantitySpinner = jQuery('#spinner'),
             totalCost       = document.querySelector('.total-cost'),
             button          = document.getElementById('submit-button'),
-            cost            = (quantitySpinner.val() * 10.00).toFixed(2);
+            cost            = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
 
         totalCost.innerHTML = '$' + cost;
 
@@ -64,7 +68,7 @@
             value: 1,
             change: function(event, ui)
             {
-                cost = (quantitySpinner.val() * 10.00).toFixed(2);
+                cost = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
                 totalCost.innerHTML = '$' + cost;
             }
         });

@@ -63,58 +63,15 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 46);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 34:
-/***/ (function(module, exports) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var WLK = {
-    runRequest: function runRequest(url, type, params, synchronous, onComplete) {
-        // Set response variable
-        var response;
-
-        // Run Ajax Call`
-        jQuery.ajax({
-            'async': typeof synchronous != 'undefined' && synchronous ? true : false,
-            'type': type,
-            'global': false,
-            'dataType': 'json',
-            'data': params,
-            'url': url,
-            'complete': function complete(data) {
-                response = data;
-            }
-        });
-
-        if (typeof onComplete == 'function') {
-            onComplete(response);
-        }
-
-        if (typeof response.responseText == 'undefined' || response.responseText == '' || !this.IsJsonString(response.responseText)) {
-            return false;
-        }
-
-        response = jQuery.parseJSON(response.responseText);
-
-        if ((typeof response === 'undefined' ? 'undefined' : _typeof(response)) == 'object') {
-            return response;
-        } else {
-            return false;
-        }
-    }
-};
-
-/***/ }),
-
-/***/ 46:
+/***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(34);
+(function webpackMissingModule() { throw new Error("Cannot find module \"C:\\wamp\\www\\wallkill627\\resources\\assets\\js\\backend\\WKL.js\""); }());
 
 
 /***/ })

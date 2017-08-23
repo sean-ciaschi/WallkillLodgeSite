@@ -7,11 +7,11 @@
 
 @section('content')
     <div class="col-md-12">
-        <h1 class="page_title">Create Album</h1>
+        <h1 class="page_title">Create Event</h1>
     </div>
     <div class="well">
         <div class="row">
-            @if(isset($eventName) && isset($albumDesc))
+            @if(isset($eventName) && isset($eventDesc))
                 {{ Form::open(['route' => ['admin.events.ajax.edit-event', $id], 'method' => 'POST', 'files'=>true]) }}
 
                 <div class="col-md-12 form-group">
@@ -63,11 +63,17 @@
                 </div>
                 <div class="col-md-12 form-group">
                     {{ Form::label('spinner', 'Cost of Event (USD): *') }}
-                    <input type="number" id="spinner" class="form-control" name="cost" value="1">
+                    <div class="input-group spinner" data-trigger="spinner">
+                        <input type="text" class="form-control text-left" name="event_cost" value="1" data-rule="currency">
+                        <span class="input-group-addon">
+                            <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+                            <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
+                        </span>
+                    </div>
                 </div>
                 <div class="col-md-12 form-group">
                     {{ Form::label('is-active', 'Active Event: *') }}
-                    <input id="is-active" type="checkbox" data-toggle="toggle">
+                    <input id="is-active" type="checkbox" name="event_is_active" data-toggle="toggle">
                 </div>
                 <div class="col-md-12 form-group">
                     {{ Form::label('event_date', 'Event Date: *') }}
@@ -90,24 +96,24 @@
 
 @section('after-scripts')
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
-
-
     <script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
-
+    <script src="{{asset('assets/js/globalize.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#summernote').summernote({
                 height:500
             });
 
+            $("#spinner")
+                .spinner('delay', 200) //delay in ms
+                .spinner('changed', function(e, newVal, oldVal) {
+                    // trigger lazed, depend on delay option.
+                })
+                .spinner('changing', function(e, newVal, oldVal) {
+                    // trigger immediately
+                });
 
-
-            jQuery('#spinner').spinner({
-                min: 1.00,
-                step: .01,
-                value: 1.00
-            });
-            jQuery( "#spinner" ).spinner( "option", "culture", 'en-US' );
+            //jQuery( "#spinner" ).spinner( "option", "culture", 'en-US' );
             jQuery('.event-date').datetimepicker();
 
 

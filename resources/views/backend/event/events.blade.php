@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <h1 class="page_title">Events</h1>
     </div>
-    <a href="{{route('admin.gallery.create-album')}}">
+    <a href="{{route('admin.events.create-event')}}">
         <div class="btn btn-success btn-sm pull-right mb-10">
             <i class="fa fa-plus"></i> Create Event
         </div>

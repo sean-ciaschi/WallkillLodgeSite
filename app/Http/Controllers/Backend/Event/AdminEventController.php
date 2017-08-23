@@ -47,14 +47,28 @@ class AdminEventController extends Controller
     {
         $data = (object) $request->all();
 
-        dd($data);
-
         if(isset($data) && $data != null)
         {
+            $currentlyActiveEvents = Event::where('is_active', 1)->get();
+            foreach($currentlyActiveEvents as $activeEvent)
+            {
+                $activeEvent->is_active = 0;
+                $activeEvent->save();
+            }
+
             Event::create([
-               'name' => $data->name
+               'name'           => $data->event_name,
+               'description'    => $data->event_desc,
+               'location'       => $data->event_location,
+               'date'           => $data->event_date,
+               'price'          => $data->event_cost,
+               'is_active'      => ($data->event_is_active == 'on') ? 1 : 0,
             ]);
+
+            return redirect()->route('admin.events.index');
         }
+
+        return redirect()->route('admin.events.index');
     }
 
     public function ajaxUpdateEvent()

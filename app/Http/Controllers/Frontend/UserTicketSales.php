@@ -7,6 +7,7 @@
  */
 
 use App\Http\Controllers\Controller;
+use App\Models\Event\Event;
 use Braintree_ClientToken;
 use Braintree_Configuration;
 use Braintree_Transaction;
@@ -30,8 +31,11 @@ class UserTicketSales extends Controller
 
     public function index(Request $request)
     {
+        $event = Event::where('is_active', 1)->get();
+
         return view('frontend.ticket-sales.ticket-sales')->with([
-           'clientId' => $this->provider->generate()
+            'event'     => $event,
+            'clientId'  => $this->provider->generate()
         ]);
     }
 
