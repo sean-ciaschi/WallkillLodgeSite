@@ -28,12 +28,12 @@
                 <td>{{str_limit($event->description, 120)}}</td>
                 <td>{{$event->date}}</td>
                 <td>
-                    <a href="{{route('admin.blog.edit-post', ['id' => $event->id])}}">
+                    <a href="{{route('admin.events.update-event', ['id' => $event->id])}}">
                         <div class="btn btn-info btn-sm">
                             <i class="fa fa-pencil"></i>
                         </div>
                     </a>
-                    <a href="{{route('admin.blog.delete-post', ['id' => $event->id])}}">
+                    <a href="{{route('admin.events.delete-event', ['id' => $event->id])}}">
                         <div class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                         </div>

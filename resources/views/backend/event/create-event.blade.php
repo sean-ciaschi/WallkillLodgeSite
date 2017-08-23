@@ -11,85 +11,50 @@
     </div>
     <div class="well">
         <div class="row">
-            @if(isset($eventName) && isset($eventDesc))
-                {{ Form::open(['route' => ['admin.events.ajax.edit-event', $id], 'method' => 'POST', 'files'=>true]) }}
-
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_name', 'Event Name: *') }}
-                    {{ Form::text('event_name', $eventName, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_desc', 'Event Description: *') }}
-                    {{ Form::textarea('event_desc', $eventDesc, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_loc', 'Event Name: *') }}
-                    {{ Form::text('event_loc', $eventLoc, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('spinner', 'Cost of Event: *') }}
-                    <input type="number" id="spinner" class="form-control" name="cost" value="1">
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('is-active', 'Active Event: *') }}
-                    <input id="is-active" type="checkbox" checked data-toggle="toggle">
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_date', 'Event Date: *') }}
-                    <div class="input-group date" data-provide="datepicker">
-                        {{ Form::text('event_date', $eventDate, array('class' => 'form-control event-date')) }}
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::submit('Save Changes', ['class' => 'btn btn-success pull-right']) }}
-                </div>
-                {{ Form::close() }}
+            @if(isset($event))
+                {{ Form::open(['route' => ['admin.events.ajax.update-event', 'id' => $event->id], 'method' => 'POST']) }}
             @else
-                {{ Form::open(['route' => 'admin.events.ajax.create-event', 'method' => 'POST', 'files'=>true]) }}
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_name', 'Event Name: *') }}
-                    {{ Form::text('event_name', null, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_desc', 'Event Description: *') }}
-                    {{ Form::textarea('event_desc', null, ['class' => 'form-control']) }}
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('autocomplete', 'Event Address: *') }}
-                        <input id="autocomplete" class="form-control" placeholder="Enter Address" name="event_location" type="text"/>
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('spinner', 'Cost of Event (USD): *') }}
-                    <div class="input-group spinner" data-trigger="spinner">
-                        <input type="text" class="form-control text-left" name="event_cost" value="1" data-rule="currency">
-                        <span class="input-group-addon">
-                            <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
-                            <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('is-active', 'Active Event: *') }}
-                    <input id="is-active" type="checkbox" name="event_is_active" data-toggle="toggle">
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::label('event_date', 'Event Date: *') }}
-                    <div class="input-group date" data-provide="datepicker">
-                        {{ Form::text('event_date', null, array('class' => 'form-control event-date')) }}
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 form-group">
-                    {{ Form::submit('Save Changes', ['class' => 'btn btn-success pull-right']) }}
-                </div>
-                {{ Form::close() }}
+                {{ Form::open(['route' => 'admin.events.ajax.create-event', 'method' => 'POST']) }}
             @endif
-
+            <div class="col-md-12 form-group">
+                {{ Form::label('event_name', 'Event Name: *') }}
+                {{ Form::text('event_name', (isset($event) && $event->name) ? $event->name : null, ['class' => 'form-control']) }}
+            </div>
+            <div class="col-md-12 form-group">
+                {{ Form::label('event_desc', 'Event Description: *') }}
+                {{ Form::textarea('event_desc', (isset($event) && $event->description) ? $event->description : null, ['class' => 'form-control']) }}
+            </div>
+            <div class="col-md-12 form-group">
+                {{ Form::label('autocomplete', 'Event Address: *') }}
+                <input id="autocomplete" class="form-control" placeholder="Enter Address" name="event_location" type="text" value='{{(isset($event) && $event->location) ? $event->location : null}}'/>
+            </div>
+            <div class="col-md-12 form-group">
+                {{ Form::label('spinner', 'Cost of Event (USD): *') }}
+                <div class="input-group spinner" data-trigger="spinner">
+                    <input type="text" class="form-control text-left" name="event_cost" value="{{(isset($event) && $event->price) ? $event->price : 1.00}}" data-rule="currency">
+                    <span class="input-group-addon">
+                        <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+                        <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                {{ Form::label('is-active', 'Active Event: *') }}
+                <input id="is-active" type="checkbox" name="event_is_active" {{(isset($event) && $event->is_active) ? 'checked' : false}} data-toggle="toggle">
+            </div>
+            <div class="col-md-12 form-group">
+                {{ Form::label('event_date', 'Event Date: *') }}
+                <div class="input-group date" data-provide="datepicker">
+                    {{ Form::text('event_date', (isset($event) && $event->date) ? $event->date : null, array('class' => 'form-control event-date')) }}
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 form-group">
+                {{ Form::submit('Save Changes', ['class' => 'btn btn-success pull-right']) }}
+            </div>
+            {{ Form::close() }}
         </div>
     </div>
 @endsection
