@@ -3,6 +3,8 @@
     {
         $activeEvent = $event->first();
     }
+
+    dd($activeEvent);
 ?>
 
 @extends('frontend.layouts.app')
