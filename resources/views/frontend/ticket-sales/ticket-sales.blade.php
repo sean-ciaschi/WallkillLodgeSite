@@ -1,12 +1,12 @@
 <?php
-
-    dd($event == []);
-
-    if(isset($event) && $event != [])
+    if(isset($event) && $event->count() != 0)
     {
         $activeEvent = $event->first();
     }
-
+    else
+    {
+        $activeEvent = null;
+    }
 ?>
 
 @extends('frontend.layouts.app')
@@ -55,6 +55,11 @@
 
                 </div>
             </div>
+        @else
+            <div class="text-muted" style="text-align: center;">
+                No tickets currently for sale
+            </div>
+
         @endif
     </div>
 @endsection
@@ -64,8 +69,11 @@
         var quantitySpinner = jQuery('#spinner'),
             totalCost       = document.querySelector('.total-cost'),
             button          = document.getElementById('submit-button'),
-            cost            = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
-
+            @if(isset($activeEvent) && $activeEvent != null)
+                cost        = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
+            @else
+                cost = 0;
+            @endif
         totalCost.innerHTML = '$' + cost;
 
         quantitySpinner.spinner({
@@ -75,7 +83,11 @@
             value: 1,
             change: function(event, ui)
             {
-                cost = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
+                @if(isset($activeEvent) && $activeEvent != null)
+                    cost = (quantitySpinner.val() * {{($activeEvent->price) ? $activeEvent->price : 0}}).toFixed(2);
+                @else
+                    cost = 0;
+                @endif
                 totalCost.innerHTML = '$' + cost;
             }
         });
