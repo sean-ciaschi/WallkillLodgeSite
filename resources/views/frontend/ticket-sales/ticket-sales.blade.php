@@ -41,7 +41,7 @@
                                 <label for="spinner">Select Quantity:</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" id="spinner" class="form-control" name="value" value="1">
+                                <input type="number" readonly id="spinner" class="form-control" name="value" value="1">
                             </div>
                         </div>
 
