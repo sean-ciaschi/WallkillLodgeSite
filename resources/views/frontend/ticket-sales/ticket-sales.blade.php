@@ -1,10 +1,12 @@
 <?php
-    if(isset($event))
+
+    dd($event);
+
+    if(isset($event) && $event != null)
     {
         $activeEvent = $event->first();
     }
 
-    dd($activeEvent);
 ?>
 
 @extends('frontend.layouts.app')
