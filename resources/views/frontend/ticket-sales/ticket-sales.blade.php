@@ -1,8 +1,8 @@
 <?php
 
-    dd($event);
+    dd($event == []);
 
-    if(isset($event) && $event != null)
+    if(isset($event) && $event != [])
     {
         $activeEvent = $event->first();
     }
