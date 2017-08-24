@@ -1,5 +1,8 @@
 <?php
-    $activeEvent = $event->first();
+    if(isset($event))
+    {
+        $activeEvent = $event->first();
+    }
 ?>
 
 @extends('frontend.layouts.app')
