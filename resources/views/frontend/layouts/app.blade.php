@@ -103,6 +103,7 @@
         <script src="{{asset('build/plugins/fullcalendar/moment.min.js')}}"></script>
         <script src="{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+        <script src="{{asset('assets/js/validator.min.js')}}"></script>
         <script src="{{asset('build/plugins/select2/select2.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
         @yield('after-scripts')

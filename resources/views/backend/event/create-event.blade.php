@@ -80,8 +80,6 @@
 
             //jQuery( "#spinner" ).spinner( "option", "culture", 'en-US' );
             jQuery('.event-date').datetimepicker();
-
-
         });
 
     </script>

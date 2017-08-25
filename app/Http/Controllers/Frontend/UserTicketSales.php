@@ -8,10 +8,12 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Event\Event;
+use Braintree\Exception;
 use Braintree_ClientToken;
 use Braintree_Configuration;
 use Braintree_Transaction;
 use Illuminate\Http\Request;
+use Knp\Snappy\Pdf;
 
 class UserTicketSales extends Controller
 {
@@ -43,14 +45,39 @@ class UserTicketSales extends Controller
     {
         $nonceFromTheClient = $request->get('nonce');
 
-        $result = Braintree_Transaction::sale([
-            'amount' => $request->get('cost'),
-            'paymentMethodNonce' => $nonceFromTheClient,
-            'options' => [
-                'submitForSettlement' => True
-            ]
-        ]);
+        try
+        {
+            $result = Braintree_Transaction::sale([
+                'amount' => $request->get('cost'),
+                'paymentMethodNonce' => $nonceFromTheClient,
+                'options' => [
+                    'submitForSettlement' => True
+                ]
+            ]);
+            if($result->success)
+            {
+                $this->generateTicket($result);
+            }
+        }
+        catch (Exception $exception)
+        {
+            dd($exception);
+        }
+    }
 
-        dd($result);
+    public function generateTicket($ticketResponse)
+    {
+        $html = '';
+
+        $html .= '<div class="ticket-wrapper">';
+            $html .= '<div class="ticket-info">';
+                $html .= '<img src="images/ticket-header.png">';
+                $html .= '<span>Thank you for supporting our event! We appreciate your commitment and hope you enjoy yourself!</span>';
+            $html .= '</div>';
+        $html .= '</div>';
+
+        $snappy = new Pdf('pdf');
+
+        return $snappy->generateFromHtml($html, 'test-ticket.pdf');
     }
 }

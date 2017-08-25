@@ -205,6 +205,7 @@ return [
          * Third Party Service Providers
          */
         Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class,
+        Novanti\LaravelPDF\PDFServiceProvider::class
     ],
 
     /*
@@ -265,6 +266,7 @@ return [
         'Html'          => Collective\Html\HtmlFacade::class,
         'Socialite'     => Laravel\Socialite\Facades\Socialite::class,
         'MobileDetect'  => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class,
+        'PDF'           => Novanti\LaravelPDF\PDFFacade::class,
     ],
 
 ];

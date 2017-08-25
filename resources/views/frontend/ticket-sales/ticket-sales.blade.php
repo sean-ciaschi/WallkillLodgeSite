@@ -34,6 +34,22 @@
             </div>
             <div class="col-sm-6 mt-10">
                 <div class="ticket-details">
+                    <div class="row">
+                        <form role="form" id="user-form" data-toggle="validator">
+                            <div class="col-sm-12 form-group">
+                                <label for="user-fname">First name:</label>
+                                <input id="user-fname" class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label for="user-lname">Last name:</label>
+                                <input id="user-lname" class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label for="user-email">Email:</label>
+                                <input type="email" id="user-email" class="form-control" required>
+                            </div>
+                        </form>
+                    </div>
                     <div id="dropin-container"></div>
                     <div class="row">
                         <div class="col-sm-6">
@@ -57,7 +73,7 @@
             </div>
         @else
             <div class="text-muted" style="text-align: center;">
-                No tickets currently for sale
+                No tickets are currently for sale!
             </div>
 
         @endif
@@ -104,14 +120,26 @@
                         }
                     });
 
-                    jQuery.ajax({
-                        method: "POST",
-                        url: '{{route('frontend.ticket-sales.process-payment')}}',
-                        data: {
-                            nonce: payload.nonce,
-                            cost: cost
-                        }
-                    });
+                    var hasErrors = jQuery('#user-form').validator('validate').has('.has-error').length;
+
+                    if(!hasErrors)
+                    {
+                        jQuery.ajax({
+                            method: "POST",
+                            url: '{{route('frontend.ticket-sales.process-payment')}}',
+                            data: {
+                                nonce: payload.nonce,
+                                cost: cost,
+                                email: document.getElementById('user-email').value,
+                                firstname: document.getElementById('user-fname').value,
+                                lastname: document.getElementById('user-lname').value
+                            }
+                        });
+                    }
+                    else
+                    {
+                        swal("Error!", "Make sure that you have filled out all form fields!", "error");
+                    }
                 });
             });
         });
