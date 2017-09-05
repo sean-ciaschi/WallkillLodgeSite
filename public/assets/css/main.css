@@ -287,5 +287,5 @@ input[type=range]+.thumb.active .value {
     margin-bottom:30px;
 }
 .fc-scroller {
-    height: 500px !important;
+    /*height: 500px !important;*/
 }
