@@ -67,6 +67,7 @@ class UserTicketSales extends Controller
 
     public function generateTicket($ticketResponse)
     {
+
         $html = '';
 
         $html .= '<div class="ticket-wrapper">';
@@ -76,7 +77,9 @@ class UserTicketSales extends Controller
             $html .= '</div>';
         $html .= '</div>';
 
-        $snappy = new Pdf('pdf');
+        $snappy 	= \App::make('snappy.pdf');
+        $binaryPath = base_path(). '/bin/wkhtmltopdf';
+        $snappy->setBinary($binaryPath);
 
         return $snappy->generateFromHtml($html, 'test-ticket.pdf');
     }

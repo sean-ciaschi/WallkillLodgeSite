@@ -3,7 +3,7 @@
 @section('before_content')
     @notmobile()
     <!-- Full Page Image Background Carousel Header -->
-    <header id="myCarousel" class="carousel slide">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -12,30 +12,33 @@
         </ol>
 
         <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1891243_377317762424096_374112220093852261_n.jpg?oh=b7fa15214c96d6fd6c900ed295ae7194&oe=59E6A8DF');"></div>
+                <img class="d-block w-100" src ="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1891243_377317762424096_374112220093852261_n.jpg?oh=b7fa15214c96d6fd6c900ed295ae7194&oe=59E6A8DF"
+                        style=""/>
             </div>
-            <div class="item">
+            <div class="carousel-item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10450796_361168124039060_3023797322292611501_n.jpg?oh=6169a0c3394f5b75e7b1a8fe90f1d74d&oe=59E5369B');"></div>
+                <img class="d-block w-100" src ="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10450796_361168124039060_3023797322292611501_n.jpg?oh=6169a0c3394f5b75e7b1a8fe90f1d74d&oe=59E5369BF"/>
             </div>
-            <div class="item">
+            <div class="carousel-item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/62493_130922827063592_815700082_n.png?oh=d41dc470cb715c852f74561e27b1950c&oe=59EA85B2');"></div>
+                <img class="d-block w-100" src ="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/62493_130922827063592_815700082_n.png?oh=d41dc470cb715c852f74561e27b1950c&oe=59EA85B2"/>
             </div>
         </div>
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
         </a>
 
-    </header>
+    </div>
     @endnotmobile
 @endsection
 

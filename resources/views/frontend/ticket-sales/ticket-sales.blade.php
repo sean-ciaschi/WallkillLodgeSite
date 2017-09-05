@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="row container event-wrapper">
-        <div class="col-md-12">
+        <div class="col-sm-12">
             <h1 class="page_title">Event Tickets</h1>
         </div>
         @if(isset($activeEvent) && $activeEvent != null)
@@ -36,17 +36,17 @@
                 <div class="ticket-details">
                     <div class="row">
                         <form role="form" id="user-form" data-toggle="validator">
-                            <div class="col-sm-12 form-group">
-                                <label for="user-fname">First name:</label>
-                                <input id="user-fname" class="form-control" required>
+                            <div class="md-form col-sm-12">
+                                <input type="text" id="user-fname" class="form-control" required>
+                                <label for="user-fname">First name</label>
                             </div>
-                            <div class="col-sm-12 form-group">
-                                <label for="user-lname">Last name:</label>
-                                <input id="user-lname" class="form-control" required>
+                            <div class="md-form col-sm-12 ">
+                                <input type="text" id="user-lname" class="form-control" required>
+                                <label for="user-lname">Last name</label>
                             </div>
-                            <div class="col-sm-12 form-group">
-                                <label for="user-email">Email:</label>
+                            <div class="md-form col-sm-12">
                                 <input type="email" id="user-email" class="form-control" required>
+                                <label for="user-email">Email</label>
                             </div>
                         </form>
                     </div>
@@ -57,13 +57,14 @@
                                 <label for="spinner">Select Quantity:</label>
                             </div>
                             <div class="col-sm-6">
-                                <input type="number" readonly id="spinner" class="form-control" name="value" value="1">
+                                {{--<input type="number" readonly id="spinner" class="form-control" name="value" value="1">--}}
+                                <input id="spinner" type="range" min="1" max="20" />
                             </div>
                         </div>
 
                         <div class="col-sm-6">
-                            <span class="col-md-6">Total Cost:</span>
-                            <div class="total-cost col-md-6" id="total-cost">$0.00</div>
+                            <span class="col-sm-6">Total Cost:</span>
+                            <div class="total-cost col-sm-6" id="total-cost">$0.00</div>
                         </div>
                     </div>
 
@@ -91,21 +92,14 @@
                 cost = 0;
             @endif
         totalCost.innerHTML = '$' + cost;
-
-        quantitySpinner.spinner({
-            min: 1,
-            max: 20,
-            step: 1,
-            value: 1,
-            change: function(event, ui)
-            {
-                @if(isset($activeEvent) && $activeEvent != null)
-                    cost = (quantitySpinner.val() * {{($activeEvent->price) ? $activeEvent->price : 0}}).toFixed(2);
-                @else
-                    cost = 0;
-                @endif
+        $('#spinner').on('change input', function(item) {
+            var value = item.currentTarget.value;
+            @if(isset($activeEvent) && $activeEvent != null)
+                cost = (value * {{($activeEvent->price) ? $activeEvent->price : 0}}).toFixed(2);
+            @else
+                cost = 0;
+            @endif
                 totalCost.innerHTML = '$' + cost;
-            }
         });
 
         braintree.dropin.create({
