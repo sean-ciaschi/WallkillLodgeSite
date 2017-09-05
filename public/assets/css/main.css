@@ -23,7 +23,7 @@ body, html {
 .navbar {
     position: relative;
     min-height: 50px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     border: 1px solid transparent;
 }
 .navbar-default {
@@ -105,6 +105,7 @@ body, html {
 }
 .modal {
     text-align: center;
+    width:100%;
 }
 @media screen and (min-width: 768px) {
     .modal:before {
@@ -177,17 +178,6 @@ footer {
 
 .inner-album-img {
     height:200px;
-}
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    /*bottom: 0;*/
-    left: 0;
-    z-index: 11;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
 }
 .album-images {
     margin:10px 0 10px 0;
