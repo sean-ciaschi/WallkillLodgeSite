@@ -15,12 +15,12 @@
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <img class="d-block w-100" src ="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1891243_377317762424096_374112220093852261_n.jpg?oh=b7fa15214c96d6fd6c900ed295ae7194&oe=59E6A8DF"
+                <img class="d-block w-100" src ="images/carousel_1.jpg"
                         style=""/>
             </div>
             <div class="carousel-item">
                 <!-- Set the second background image using inline CSS below. -->
-                <img class="d-block w-100" src ="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10450796_361168124039060_3023797322292611501_n.jpg?oh=6169a0c3394f5b75e7b1a8fe90f1d74d&oe=59E5369BF"/>
+                <img class="d-block w-100" src ="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/10583050_354568161365723_1416304525595290067_o.jpg?oh=f204c5e7fb7e6438fe1491e42fa84eb9&oe=5A1743B7"/>
             </div>
             <div class="carousel-item">
                 <!-- Set the third background image using inline CSS below. -->

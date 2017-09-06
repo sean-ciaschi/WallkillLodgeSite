@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-sm-6">
                                 {{--<input type="number" readonly id="spinner" class="form-control" name="value" value="1">--}}
-                                <input id="spinner" type="range" min="1" max="20" />
+                                <input id="spinner" type="range" min="1" max="20" value="1" />
                             </div>
                         </div>
 

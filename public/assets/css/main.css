@@ -23,7 +23,7 @@ body, html {
 .navbar {
     position: relative;
     min-height: 50px;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     border: 1px solid transparent;
 }
 .navbar-default {
@@ -120,40 +120,18 @@ body, html {
     text-align: left;
     vertical-align: middle;
 }
-footer {
-    clear: both;
-    position: relative;
-    z-index: 10;
-    height: 3em;
-    margin-top: 2em;
-}
-.footer-list-header {
-    font-size:24px;
-    margin: 0 0 5px 0;
-    border-bottom:1px solid #8c8c8c;
-}
-.footer-list {
-    list-style-type: none;
-}
-.footer-list li{
-    list-style-type: none;
-    margin:0 0 10px 50px;
-    text-align: left;
-    vertical-align: middle;
-}
-.footer-list .fa {
-    padding-right:10px;
-}
 .link-text:hover {
     text-decoration: none;
 }
 /* Carousel base class */
 .carousel,
-.item,
-.item .active {
-    height: calc(100vh - 50px);
+.carousel-item,
+.carousel-item .active {
+    height: calc(100vh - 66px);
 }
-
+.carousel-item img{
+    max-height: 100vh;
+}
 .carousel-inner {
     height: 100%;
 }

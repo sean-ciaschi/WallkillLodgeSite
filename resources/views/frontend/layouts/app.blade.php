@@ -56,51 +56,130 @@
                 @yield('content')
             </div><!-- container -->
         </div><!--#app-->
+        <!--Footer-->
+        <!--Footer-->
+        <footer class="page-footer stylish-color-dark">
 
-        <footer>
-            <div class='navbar navbar-default navbar-fixed-bottom'>
-                <div class='container'>
-                    <div class='row'>
-                        <div class='col-xs-12 col-md-4 footer-opts'>
-                            <ul class='footer-list fa-ul'>
-                                <div class='row'>
-                                    <span class='footer-list-header col-xs-12 col-md-8'>Contact Us</span>
-                                    <li class='col-md-12 col-xs-12'>
-                                        <i class='fa-li fa fa-envelope fa-lg'></i> <a class='link-text' onclick='window.open(this.href,'_blank');return false;' href='mailto:&#115;&#099;&#105;&#097;&#115;&#099;&#104;&#105;&#049;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;'>Email us</a>
-                                    </li>
-                                    <li class='col-md-12 col-xs-12'>
-                                        <i class='fa-li fa fa-phone fa-lg'></i> (845) 888-8888
-                                    </li>
-                                    <li class='col-md-12 col-xs-12'>
-                                        <i class='fa-li fa fa-location-arrow fa-lg'></i> <a class='link-text' href='http://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a>
-                                    </li>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class='col-xs-12 col-md-4 footer-opts'>
-                            <ul class='footer-list fa-ul'>
-                                <div class='row'>
-                                    <span class='footer-list-header col-xs-12 col-md-8'>Follow Us</span>
-                                    <li class='col-xs-12 col-md-6'>
-                                        <i class='fa-li fa fa-facebook fa-lg'></i> <a class='link-text' onclick='window.open(this.href,'_blank');return false;' href='https://www.facebook.com/Wallkill627/'>Facebook</a>
-                                    </li>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class='col-xs-12 col-md-4'>
-                            <p class='navbar-text pull-right'>
-                            <div class='row'>
-                                <span class='col-xs-12 col-md-12 text-muted'><a href='https://nymasons.org/2016/'>Grand Lodge of New York</a></span>
-                                <span class='col-xs-12 col-md-12 developer-text text-muted'>Developed by Bro. Sean Ciaschi</span>
-                            </div>
+            <!--Footer Links-->
+            <div class="container">
 
-                            </p>
-                        </div>
+                <!-- Footer links -->
+                <div class="row text-center text-md-left mt-3 pb-3">
+
+                    <!--First column-->
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="title mb-4 font-bold">Wallkill Lodge #627</h6>
+                        <p>Making good men, better men</p>
+                    </div>
+                    <!--/.First column-->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!--Second column-->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="title mb-4 font-bold">Sitemap</h6>
+                        <p><a href="#!">MDBootstrap</a></p>
+                        <p><a href="#!">MDWordPress</a></p>
+                        <p><a href="#!">BrandFlow</a></p>
+                        <p><a href="#!">Bootstrap Angular</a></p>
+                    </div>
+                    <!--/.Second column-->
+
+                    <hr class="w-100 clearfix d-md-none">
+
+                    <!--Fourth column-->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="title mb-4 font-bold">Contact</h6>
+                        <p><i class="fa fa-home mr-3"></i><a class='link-text' href='http://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a></p>
+                        <p><i class="fa fa-envelope mr-3"></i> info@example.com</p>
+                        <p><i class="fa fa-phone mr-3"></i> +1 845-123-4567</p>
+                        <p><i class="fa fa-print mr-3"></i> +1 845-123-4567</p>
+                    </div>
+                    <!--/.Fourth column-->
+
+                </div>
+                <!-- Footer links -->
+
+                <hr>
+
+                <div class="row py-3 d-flex align-items-center">
+
+                    <!--Grid column-->
+                    <div class="col">
+
+                        <!--Copyright-->
+                        <p class="text-center text-md-left grey-text">© 2017 Copyright: <a href="https://www.wallkill627.com"><strong>Wallkill Lodge #627</strong></a></p>
+                        <!--/.Copyright-->
 
                     </div>
+
+                    <!--Grid column-->
+                    <div class="col">
+                        <!--Social buttons-->
+                        <div class="social-section text-center text-md-left">
+                            <ul>
+                                <li><a class="btn-floating btn-sm rgba-white-slight mr-xl-4" href="https://www.facebook.com/Wallkill627/"><i class="fa fa-facebook"></i></a></li>
+                            </ul>
+                        </div>
+                        <!--/.Social buttons-->
+                    </div>
+                    <!--Grid column-->
+
+                    <div class="col">
+                        <ul>
+                            <li>Developed by Bro. Sean Ciaschi</li>
+                            <li><a href='https://nymasons.org/site/'>Grand Lodge of New York</a></li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
                 </div>
+
             </div>
+
         </footer>
+        {{--<footer>--}}
+            {{--<div class='navbar navbar-default navbar-fixed-bottom'>--}}
+                {{--<div class='container'>--}}
+                    {{--<div class='row'>--}}
+                        {{--<div class='col-xs-12 col-md-4 footer-opts'>--}}
+                            {{--<ul class='footer-list fa-ul'>--}}
+                                {{--<div class='row'>--}}
+                                    {{--<span class='footer-list-header col-xs-12 col-md-8'>Contact Us</span>--}}
+                                    {{--<li class='col-md-12 col-xs-12'>--}}
+                                    {{--</li>--}}
+                                    {{--<li class='col-md-12 col-xs-12'>--}}
+                                        {{--<i class='fa-li fa fa-phone fa-lg'></i> (845) 888-8888--}}
+                                    {{--</li>--}}
+                                    {{--<li class='col-md-12 col-xs-12'>--}}
+                                        {{--<i class='fa-li fa fa-location-arrow fa-lg'></i> <a class='link-text' href='http://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a>--}}
+                                    {{--</li>--}}
+                                {{--</div>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                        {{--<div class='col-xs-12 col-md-4 footer-opts'>--}}
+                            {{--<ul class='footer-list fa-ul'>--}}
+                                {{--<div class='row'>--}}
+                                    {{--<span class='footer-list-header col-xs-12 col-md-8'>Follow Us</span>--}}
+                                    {{--<li class='col-xs-12 col-md-6'>--}}
+                                        {{--<i class='fa-li fa fa-facebook fa-lg'></i> <a class='link-text' onclick='window.open(this.href,'_blank');return false;' href='https://www.facebook.com/Wallkill627/'>Facebook</a>--}}
+                                    {{--</li>--}}
+                                {{--</div>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                        {{--<div class='col-xs-12 col-md-4'>--}}
+                            {{--<p class='navbar-text pull-right'>--}}
+                            {{--<div class='row'>--}}
+                                {{--<span class='col-xs-12 col-md-12 text-muted'><a href='https://nymasons.org/2016/'>Grand Lodge of New York</a></span>--}}
+                                {{--<span class='col-xs-12 col-md-12 developer-text text-muted'>Developed by Bro. Sean Ciaschi</span>--}}
+                            {{--</div>--}}
+
+                            {{--</p>--}}
+                        {{--</div>--}}
+
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</footer>--}}
 
         <!-- Scripts -->
         @yield('before-scripts')
