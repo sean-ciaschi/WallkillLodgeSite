@@ -74,10 +74,11 @@
                     <!--Second column-->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h6 class="title mb-4 font-bold">Sitemap</h6>
-                        <p><a href="#!">MDBootstrap</a></p>
-                        <p><a href="#!">MDWordPress</a></p>
-                        <p><a href="#!">BrandFlow</a></p>
-                        <p><a href="#!">Bootstrap Angular</a></p>
+                        <p><a href="{{route('frontend.index')}}">Home</a></p>
+                        <p><a href="{{route('frontend.calendar')}}">Events</a></p>
+                        <p><a href="{{route('frontend.trestle-board.index')}}">Trestle Board</a></p>
+                        <p><a href="{{route('frontend.gallery.albums')}}">Gallery</a></p>
+                        <p><a href="{{route('frontend.ticket-sales')}}">Ticket Sales</a></p>
                     </div>
                     <!--/.Second column-->
 

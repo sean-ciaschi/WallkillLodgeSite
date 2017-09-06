@@ -15,8 +15,7 @@
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <img class="d-block w-100" src ="images/carousel_1.jpg"
-                        style=""/>
+                <img class="d-block w-100" src ="images/carousel_1.jpg"/>
             </div>
             <div class="carousel-item">
                 <!-- Set the second background image using inline CSS below. -->
