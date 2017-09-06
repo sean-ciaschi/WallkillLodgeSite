@@ -35,7 +35,7 @@
                     <a class="nav-link" href="{{route('frontend.ticket-sales')}}">
                         <i class="fa fa-ticket"></i> Ticket Sales
                     </a>
-                {{--</li>--}}
+                </li>
                 {{--<li class="nav-item">--}}
                     {{--<a class="nav-link" href="">--}}
                         {{--<i class="fa fa-question-circle"></i> FAQ--}}
