@@ -47,52 +47,52 @@
             <div class="lodge-officer-header">
                 <h2>2017-2018 Lodge Officers</h2>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Worshipful Master:. Bob Agazzi</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Senior Warden:. Sean McMorris</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Junior Warden:. Nick Iacovitti</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Secretary:. Collin Oakinforth</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Treasurer:. George Ciaschi</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Senior Deacon:.</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Junior Deacon:.</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Marshal:.</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Tiler:.</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Chaplain:. Jose Ithier</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Steward:. Sean Ciaschi</h3>
             </div>
-            <div class="col-xs-12 col-md-4 text-center">
-                <img src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
+            <div class="col-xs-12 col-4 text-center">
+                <img class="officer-photo" src="http://lorempixel.com/1280/1024/abstract" style="width:150px; height:150px; align:center;">
                 <h3>Steward:.</h3>
             </div>
         </div>

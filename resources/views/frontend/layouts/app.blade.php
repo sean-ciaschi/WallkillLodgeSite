@@ -140,7 +140,7 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js'></script>
         <!-- Bootstrap tooltips -->
         <script type='text/javascript' src='{{asset('assets/js/popper.min.js')}}'></script>
-        <script type='text/javascript' src='{{asset('assets/js/bootstrap.min.js')}}'></script>
+
         <!-- MDB core JavaScript -->
         <script type='text/javascript' src='{{asset('assets/js/mdbpro.min.js')}}'></script>
         <script src='{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}'></script>

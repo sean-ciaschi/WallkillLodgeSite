@@ -257,3 +257,6 @@ input[type=range]+.thumb.active .value {
 .fc-scroller {
     /*height: 500px !important;*/
 }
+.officer-photo {
+    margin-bottom: 10px;
+}
