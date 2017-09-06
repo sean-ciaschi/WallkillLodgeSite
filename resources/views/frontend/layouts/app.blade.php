@@ -57,15 +57,11 @@
             </div><!-- container -->
         </div><!--#app-->
         <!--Footer-->
-        <!--Footer-->
         <footer class="page-footer stylish-color-dark">
-
             <!--Footer Links-->
             <div class="container">
-
                 <!-- Footer links -->
                 <div class="row text-center text-md-left mt-3 pb-3">
-
                     <!--First column-->
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="title mb-4 font-bold">Wallkill Lodge #627</h6>
@@ -103,14 +99,10 @@
                 <hr>
 
                 <div class="row py-3 d-flex align-items-center">
-
-                    <!--Grid column-->
                     <div class="col">
-
                         <!--Copyright-->
                         <p class="text-center text-md-left grey-text">© 2017 Copyright: <a href="https://www.wallkill627.com"><strong>Wallkill Lodge #627</strong></a></p>
                         <!--/.Copyright-->
-
                     </div>
 
                     <!--Grid column-->
@@ -133,53 +125,8 @@
                     </div>
                     <!--Grid column-->
                 </div>
-
             </div>
-
         </footer>
-        {{--<footer>--}}
-            {{--<div class='navbar navbar-default navbar-fixed-bottom'>--}}
-                {{--<div class='container'>--}}
-                    {{--<div class='row'>--}}
-                        {{--<div class='col-xs-12 col-md-4 footer-opts'>--}}
-                            {{--<ul class='footer-list fa-ul'>--}}
-                                {{--<div class='row'>--}}
-                                    {{--<span class='footer-list-header col-xs-12 col-md-8'>Contact Us</span>--}}
-                                    {{--<li class='col-md-12 col-xs-12'>--}}
-                                    {{--</li>--}}
-                                    {{--<li class='col-md-12 col-xs-12'>--}}
-                                        {{--<i class='fa-li fa fa-phone fa-lg'></i> (845) 888-8888--}}
-                                    {{--</li>--}}
-                                    {{--<li class='col-md-12 col-xs-12'>--}}
-                                        {{--<i class='fa-li fa fa-location-arrow fa-lg'></i> <a class='link-text' href='http://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a>--}}
-                                    {{--</li>--}}
-                                {{--</div>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                        {{--<div class='col-xs-12 col-md-4 footer-opts'>--}}
-                            {{--<ul class='footer-list fa-ul'>--}}
-                                {{--<div class='row'>--}}
-                                    {{--<span class='footer-list-header col-xs-12 col-md-8'>Follow Us</span>--}}
-                                    {{--<li class='col-xs-12 col-md-6'>--}}
-                                        {{--<i class='fa-li fa fa-facebook fa-lg'></i> <a class='link-text' onclick='window.open(this.href,'_blank');return false;' href='https://www.facebook.com/Wallkill627/'>Facebook</a>--}}
-                                    {{--</li>--}}
-                                {{--</div>--}}
-                            {{--</ul>--}}
-                        {{--</div>--}}
-                        {{--<div class='col-xs-12 col-md-4'>--}}
-                            {{--<p class='navbar-text pull-right'>--}}
-                            {{--<div class='row'>--}}
-                                {{--<span class='col-xs-12 col-md-12 text-muted'><a href='https://nymasons.org/2016/'>Grand Lodge of New York</a></span>--}}
-                                {{--<span class='col-xs-12 col-md-12 developer-text text-muted'>Developed by Bro. Sean Ciaschi</span>--}}
-                            {{--</div>--}}
-
-                            {{--</p>--}}
-                        {{--</div>--}}
-
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</footer>--}}
 
         <!-- Scripts -->
         @yield('before-scripts')
