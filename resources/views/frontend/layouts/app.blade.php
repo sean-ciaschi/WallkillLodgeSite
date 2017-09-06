@@ -73,7 +73,7 @@
 
                     <!--Second column-->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="title mb-4 font-bold">Sitemap</h6>
+                        <h6 class="title mb-4 font-bold">Our Site</h6>
                         <p><a href="{{route('frontend.index')}}">Home</a></p>
                         <p><a href="{{route('frontend.calendar')}}">Events</a></p>
                         <p><a href="{{route('frontend.trestle-board.index')}}">Trestle Board</a></p>
