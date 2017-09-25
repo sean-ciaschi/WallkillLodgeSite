@@ -13,8 +13,7 @@ class ChangeBlogAttachmentToAttachmentPath extends Migration
      */
     public function up()
     {
-        Schema::table('blog_posts', function (Blueprint $table)
-        {
+        Schema::table('blog_posts', function (Blueprint $table) {
             $table->text('attachment')->change('attachment_path');
         });
     }

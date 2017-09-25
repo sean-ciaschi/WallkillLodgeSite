@@ -1,7 +1,7 @@
-<?php namespace App\Models\TicketSales\Traits\Relationship;
+<?php
 
+namespace App\Models\TicketSales\Traits\Relationship;
 
 trait Relationship
 {
-
 }

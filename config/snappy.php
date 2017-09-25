@@ -1,18 +1,18 @@
 <?php
 
-return array(
-    'pdf' => array(
+return [
+    'pdf' => [
         'enabled' => true,
         'binary'  => '"C:\wkhtmltopdf\bin\wkhtmltopdf"',
         'timeout' => false,
-        'options' => array(),
-        'env'     => array(),
-    ),
-    'image' => array(
+        'options' => [],
+        'env'     => [],
+    ],
+    'image' => [
         'enabled' => false,
         'binary'  => '/usr/local/bin/wkhtmltoimage',
         'timeout' => false,
-        'options' => array(),
-        'env'     => array(),
-    ),
-);
+        'options' => [],
+        'env'     => [],
+    ],
+];

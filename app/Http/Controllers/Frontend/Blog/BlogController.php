@@ -1,18 +1,17 @@
-<?php namespace App\Http\Controllers\Frontend\Blog;
+<?php
 
-use App\Http\Controllers\Controller;
-use App\Models\Blog\BlogPost\BlogPost as BlogPost;
-use function GuzzleHttp\Psr7\mimetype_from_filename;
+namespace App\Http\Controllers\Frontend\Blog;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Blog\BlogPost\BlogPost as BlogPost;
 
 class BlogController extends Controller
 {
     /**
-     * Index
+     * Index.
      *
      * @return mixed
      */
@@ -22,7 +21,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Get Posts
+     * Get Posts.
      *
      * @return mixed
      */
@@ -34,7 +33,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Download Attachment
+     * Download Attachment.
      *
      * @param Request $request
      * @param $fileName
@@ -42,11 +41,11 @@ class BlogController extends Controller
      */
     public function downloadAttachment(Request $request, $fileName)
     {
-        return response()->download(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix()."uploads/".$fileName, 'attachment.'.File::extension($fileName));
+        return response()->download(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().'uploads/'.$fileName, 'attachment.'.File::extension($fileName));
     }
 
     /**
-     * Delete Post
+     * Delete Post.
      *
      * @param Request $request
      * @param $id
@@ -56,10 +55,10 @@ class BlogController extends Controller
     {
         $post = BlogPost::find($id);
 
-        if(isset($post) && !empty($post))
-        {
-           $post->delete();
-           return redirect(route('frontend.trestle-board.index'));
+        if (isset($post) && ! empty($post)) {
+            $post->delete();
+
+            return redirect(route('frontend.trestle-board.index'));
         }
 
         return redirect(route('frontend.trestle-board.index'));

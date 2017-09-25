@@ -1,12 +1,13 @@
-<?php namespace App\Models\Gallery\Images\Traits\Relationship;
+<?php
 
+namespace App\Models\Gallery\Images\Traits\Relationship;
 
 use App\Models\Gallery\Album\Album;
 
 trait Relationship
 {
     /**
-     * Relationship mapping for Album
+     * Relationship mapping for Album.
      *
      * @return mixed
      */

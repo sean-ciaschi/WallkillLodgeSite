@@ -1,18 +1,20 @@
-<?php namespace App\Models\Gallery\Images;
+<?php
+
+namespace App\Models\Gallery\Images;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Images extends Model
 {
     /**
-     * Table
+     * Table.
      *
      * @var string
      */
-    protected $table = "images";
+    protected $table = 'images';
 
     /**
-     * Fillable
+     * Fillable.
      *
      * @var array
      */
@@ -21,11 +23,11 @@ class Images extends Model
         'image',
         'description',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     /**
-     * Hidden
+     * Hidden.
      *
      * @var array
      */

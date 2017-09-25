@@ -13,8 +13,7 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function(Blueprint $table)
-        {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('album_id')->unsigned();
             $table->string('image');
