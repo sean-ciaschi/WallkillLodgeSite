@@ -1,7 +1,7 @@
-<?php namespace App\Models\Event\Traits\Attribute;
+<?php
 
+namespace App\Models\Event\Traits\Attribute;
 
 trait Attribute
 {
-
 }

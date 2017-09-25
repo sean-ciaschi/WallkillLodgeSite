@@ -14,8 +14,7 @@ class CreateUserTicketSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_ticket_sales', function(Blueprint $table)
-        {
+        Schema::create('user_ticket_sales', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('ticket_id')->unsigned();
             $table->string('buyer_name');

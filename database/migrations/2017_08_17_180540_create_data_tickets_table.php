@@ -14,8 +14,7 @@ class CreateDataTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_tickets', function(Blueprint $table)
-        {
+        Schema::create('data_tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ticket_id', 255);
             $table->string('event_name');

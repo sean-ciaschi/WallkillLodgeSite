@@ -13,8 +13,7 @@ class AddUpdatedAtToDataEvents extends Migration
      */
     public function up()
     {
-        Schema::table('data_events', function(Blueprint $table)
-        {
+        Schema::table('data_events', function (Blueprint $table) {
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }

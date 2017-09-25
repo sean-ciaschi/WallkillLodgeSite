@@ -1,7 +1,7 @@
-<?php namespace App\Models\Blog\BlogPost\Traits\Attribute;
+<?php
 
+namespace App\Models\Blog\BlogPost\Traits\Attribute;
 
 trait Attribute
 {
-
 }

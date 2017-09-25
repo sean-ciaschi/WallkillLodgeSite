@@ -1,26 +1,18 @@
-<?php namespace App\Http\Controllers\Backend\Event;
+<?php
 
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers\Backend\Event;
+
 use App\Models\Event\Event;
-use App\Models\Gallery\Album\Album;
-use App\Models\Gallery\Images\Images;
-use function GuzzleHttp\Psr7\mimetype_from_filename;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 /**
- * Class AdminEventController
- * @package App\Http\Controllers\Backend\Gallery
+ * Class AdminEventController.
  */
 class AdminEventController extends Controller
 {
     /**
-     * Index
+     * Index.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -29,12 +21,12 @@ class AdminEventController extends Controller
         $events = Event::all();
 
         return view('backend.event.events')->with([
-            'events' => $events
+            'events' => $events,
         ]);
     }
 
     /**
-     * Create Event View
+     * Create Event View.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -44,7 +36,7 @@ class AdminEventController extends Controller
     }
 
     /**
-     * Update Event View
+     * Update Event View.
      *
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -54,7 +46,7 @@ class AdminEventController extends Controller
         $event = Event::find($id);
 
         return view('backend.event.create-event')->with([
-            'event' => $event
+            'event' => $event,
         ]);
     }
 
@@ -62,11 +54,9 @@ class AdminEventController extends Controller
     {
         $data = (object) $request->all();
 
-        if(isset($data) && $data != null)
-        {
+        if (isset($data) && $data != null) {
             $currentlyActiveEvents = Event::where('is_active', 1)->get();
-            foreach($currentlyActiveEvents as $activeEvent)
-            {
+            foreach ($currentlyActiveEvents as $activeEvent) {
                 $activeEvent->is_active = 0;
                 $activeEvent->save();
             }
@@ -90,13 +80,10 @@ class AdminEventController extends Controller
     {
         $data = (object) $request->all();
 
-        if(isset($data) && $data != null)
-        {
-            if(isset($data->event_is_active))
-            {
+        if (isset($data) && $data != null) {
+            if (isset($data->event_is_active)) {
                 $currentlyActiveEvents = Event::where('is_active', 1)->get();
-                foreach($currentlyActiveEvents as $activeEvent)
-                {
+                foreach ($currentlyActiveEvents as $activeEvent) {
                     $activeEvent->is_active = 0;
                     $activeEvent->save();
                 }
@@ -104,16 +91,14 @@ class AdminEventController extends Controller
 
             $currentEvent = Event::find($id);
 
-            $currentEvent->name         = $data->event_name;
-            $currentEvent->description  = $data->event_desc;
-            $currentEvent->location     = $data->event_location;
-            $currentEvent->price        = $data->event_cost;
-            $currentEvent->date         = $data->event_date;
-            if(isset($data->event_is_active))
-            {
+            $currentEvent->name = $data->event_name;
+            $currentEvent->description = $data->event_desc;
+            $currentEvent->location = $data->event_location;
+            $currentEvent->price = $data->event_cost;
+            $currentEvent->date = $data->event_date;
+            if (isset($data->event_is_active)) {
                 $currentEvent->is_active = ($data->event_is_active == 'on') ? 1 : 0;
             }
-
 
             $currentEvent->save();
 
@@ -125,6 +110,5 @@ class AdminEventController extends Controller
 
     public function ajaxDeleteEvent()
     {
-
     }
 }

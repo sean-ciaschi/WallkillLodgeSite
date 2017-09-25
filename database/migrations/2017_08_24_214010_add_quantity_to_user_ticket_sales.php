@@ -13,8 +13,7 @@ class AddQuantityToUserTicketSales extends Migration
      */
     public function up()
     {
-        Schema::table('user_ticket_sales', function(Blueprint $table)
-        {
+        Schema::table('user_ticket_sales', function (Blueprint $table) {
             $table->integer('quantity')->after('buyer_name');
         });
     }

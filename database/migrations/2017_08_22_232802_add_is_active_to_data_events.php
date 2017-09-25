@@ -13,8 +13,7 @@ class AddIsActiveToDataEvents extends Migration
      */
     public function up()
     {
-        Schema::table('data_events', function(Blueprint $table)
-        {
+        Schema::table('data_events', function (Blueprint $table) {
             $table->boolean('is_active')->after('price');
         });
     }

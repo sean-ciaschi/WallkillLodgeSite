@@ -1,27 +1,23 @@
-<?php namespace App\Http\Controllers\Backend\Gallery;
+<?php
 
+namespace App\Http\Controllers\Backend\Gallery;
 
-use App\Http\Controllers\Controller;
-use App\Models\Gallery\Album\Album;
-use App\Models\Gallery\Images\Images;
-use function GuzzleHttp\Psr7\mimetype_from_filename;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use App\Models\Gallery\Album\Album;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Input;
+use App\Models\Gallery\Images\Images;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use function GuzzleHttp\Psr7\mimetype_from_filename;
 
 /**
- * Class AdminGalleryController
- * @package App\Http\Controllers\Backend\Gallery
+ * Class AdminGalleryController.
  */
 class AdminGalleryController extends Controller
 {
-
     /**
-     * Create Album View
+     * Create Album View.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -30,24 +26,23 @@ class AdminGalleryController extends Controller
         $albums = Album::all();
 
         return view('backend.gallery.albums')->with([
-            'albums' => $albums
+            'albums' => $albums,
         ]);
     }
 
     /**
-     * Create Album View
+     * Create Album View.
      *
      * @param Request $request
      * @return mixed
      */
     public function createAlbumView(Request $request)
     {
-
         return view('backend.gallery.create-album');
     }
 
     /**
-     * Create Edit Album View
+     * Create Edit Album View.
      *
      * @param $id
      * @param Request $request
@@ -55,22 +50,21 @@ class AdminGalleryController extends Controller
      */
     public function createEditAlbumView($id, Request $request)
     {
-        $album      = Album::find($id);
-        $images     = Images::all()->where('album_id', $id);
-        $imageArr   = [];
+        $album = Album::find($id);
+        $images = Images::all()->where('album_id', $id);
+        $imageArr = [];
 
-        foreach($images as $image)
-        {
-            $imageUrl   = 'public/gallery/'.$id.'/'.$image->image;
+        foreach ($images as $image) {
+            $imageUrl = 'public/gallery/'.$id.'/'.$image->image;
             $imageArr[] = [
                 'name'  => $image->image,
                 'size'  => Storage::size($imageUrl),
                 'type'  => mimetype_from_filename($image->image),
-                'file'  => route('frontend.storage.album.images', ['albumId' => $id,'filename' => $image->image]),
+                'file'  => route('frontend.storage.album.images', ['albumId' => $id, 'filename' => $image->image]),
                 'data'  => [
                     'id'    => $image->id,
-                    'url'   => Storage::disk('gallery')->url($id .'/file1.jpg')
-                ]
+                    'url'   => Storage::disk('gallery')->url($id.'/file1.jpg'),
+                ],
             ];
         }
 
@@ -78,12 +72,12 @@ class AdminGalleryController extends Controller
             'id'        => $album->id,
             'albumName' => $album->name,
             'albumDesc' => $album->description,
-            'images'    => json_encode($imageArr)
+            'images'    => json_encode($imageArr),
         ]);
     }
 
     /**
-     * Edit Album
+     * Edit Album.
      *
      * @param $id
      * @param Request $request
@@ -91,26 +85,25 @@ class AdminGalleryController extends Controller
      */
     public function editAlbum($id, Request $request)
     {
-        $album  = Album::find($id);
+        $album = Album::find($id);
 
-        if(isset($album) && $album instanceof Album)
-        {
-            $album->name        = $request->album_name;
+        if (isset($album) && $album instanceof Album) {
+            $album->name = $request->album_name;
             $album->description = $request->album_desc;
             $album->save();
 
             $this->addImages($id, $request);
         }
 
-        Session::flash('flash_message','Album edited successfully!');
+        Session::flash('flash_message', 'Album edited successfully!');
 
         return redirect()->route('admin.gallery.edit-album', [
-            'id' => $id
+            'id' => $id,
         ]);
     }
 
     /**
-     * Create Album
+     * Create Album.
      *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -121,18 +114,18 @@ class AdminGalleryController extends Controller
 
         $albumId = Album::create([
             'name'          => $request->album_name,
-            'description'   => $request->album_desc
+            'description'   => $request->album_desc,
         ])->id;
 
         $this->addImages($albumId, $request);
 
-        Session::flash('flash_message','Album successfully created!');
+        Session::flash('flash_message', 'Album successfully created!');
 
         return redirect(route('admin.gallery.create-album'));
     }
 
     /**
-     * Delete Album
+     * Delete Album.
      *
      * @param Request $request
      * @param $id
@@ -142,10 +135,9 @@ class AdminGalleryController extends Controller
     {
         $album = Album::find($id);
 
-        if(isset($album) && $album != '')
-        {
+        if (isset($album) && $album != '') {
             Album::destroy($id);
-            Session::flash('flash_message','Album successfully deleted!');
+            Session::flash('flash_message', 'Album successfully deleted!');
 
             return redirect(route('admin.gallery.create-album'));
         }
@@ -153,24 +145,21 @@ class AdminGalleryController extends Controller
         return false;
     }
 
-
     /**
-     * Add Images
+     * Add Images.
      *
      * @param null $albumId
      * @param Request $request
      * @return mixed
      */
-    public function addImages($albumId = null, Request $request)
+    public function addImages($albumId, Request $request)
     {
-        $data   = (object) $request->all();
+        $data = (object) $request->all();
         $images = (object) $data->images;
 
-        if(isset($images) && $images != 'undefined')
-        {
-            foreach($images as $image)
-            {
-                $storagePath = Storage::disk('gallery')->put('images/'. $albumId != null ? $albumId : $data->album_sel, $image);
+        if (isset($images) && $images != 'undefined') {
+            foreach ($images as $image) {
+                $storagePath = Storage::disk('gallery')->put('images/'.$albumId != null ? $albumId : $data->album_sel, $image);
 
                 Images::create([
                     'album_id'  => $albumId != null ? $albumId : $data->album_sel,
@@ -179,7 +168,7 @@ class AdminGalleryController extends Controller
             }
 
             return [
-                'result' => 'Successfully added images?'
+                'result' => 'Successfully added images?',
             ];
         }
 
@@ -187,7 +176,7 @@ class AdminGalleryController extends Controller
     }
 
     /**
-     * Remove Image
+     * Remove Image.
      *
      * @param Request $request
      * @return mixed
@@ -195,15 +184,14 @@ class AdminGalleryController extends Controller
     public function removeImage(Request $request)
     {
         $image = Images::find($request->get('imageId'));
-        if($image != null)
-        {
+        if ($image != null) {
             $image->delete();
         }
 
-        Session::flash('flash_message','Image Removed');
+        Session::flash('flash_message', 'Image Removed');
 
         return json_encode([
-            'result' => 'success'
+            'result' => 'success',
         ]);
     }
 }

@@ -30,11 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-Route::get('storage/app/public/gallery/{albumId}/{filename}', function ($albumId, $filename)
-{
-    $path = storage_path('/app/public/gallery/'. $albumId . '/' . $filename);
+Route::get('storage/app/public/gallery/{albumId}/{filename}', function ($albumId, $filename) {
+    $path = storage_path('/app/public/gallery/'.$albumId.'/'.$filename);
 
-    if (!File::exists($path)) {
+    if (! File::exists($path)) {
         abort(404);
     }
 
@@ -42,21 +41,19 @@ Route::get('storage/app/public/gallery/{albumId}/{filename}', function ($albumId
     $type = File::mimeType($path);
 
     $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
+    $response->header('Content-Type', $type);
 
     return $response;
 })->name('storage.album.images');
 
-
-Route::get('/calendar', function()
-{
+Route::get('/calendar', function () {
     return view('frontend.calendar.calendar');
 })->name('calendar');
 
-Route::get('/trestle-board','Blog\BlogController@index')->name('trestle-board.index');
-Route::get('/trestle-board/get-posts','Blog\BlogController@getPosts')->name('trestle-board.get-posts');
-Route::get('/trestle-board/delete-post/{id}','Blog\BlogController@deletePost')->name('trestle-board.delete-post');
-Route::get('/trestle-board/download-attachment/{fileName}','Blog\BlogController@downloadAttachment')->name('trestle-board.download-attachment');
+Route::get('/trestle-board', 'Blog\BlogController@index')->name('trestle-board.index');
+Route::get('/trestle-board/get-posts', 'Blog\BlogController@getPosts')->name('trestle-board.get-posts');
+Route::get('/trestle-board/delete-post/{id}', 'Blog\BlogController@deletePost')->name('trestle-board.delete-post');
+Route::get('/trestle-board/download-attachment/{fileName}', 'Blog\BlogController@downloadAttachment')->name('trestle-board.download-attachment');
 
 Route::get('ticket-sales', 'UserTicketSales@index')->name('ticket-sales');
 Route::post('ticket-sales/process-payment', 'UserTicketSales@chargeSale')->name('ticket-sales.process-payment');

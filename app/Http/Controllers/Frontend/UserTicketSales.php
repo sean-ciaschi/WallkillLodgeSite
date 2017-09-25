@@ -1,19 +1,22 @@
-<?php namespace App\Http\Controllers\Frontend;
-/**
+<?php
+
+namespace App\Http\Controllers\Frontend;
+
+/*
  * Created by PhpStorm.
  * User: sean.ciaschi
  * Date: 8/17/2017
  * Time: 2:31 PM
  */
 
-use App\Http\Controllers\Controller;
-use App\Models\Event\Event;
+use Knp\Snappy\Pdf;
 use Braintree\Exception;
 use Braintree_ClientToken;
-use Braintree_Configuration;
 use Braintree_Transaction;
+use App\Models\Event\Event;
+use Braintree_Configuration;
 use Illuminate\Http\Request;
-use Knp\Snappy\Pdf;
+use App\Http\Controllers\Controller;
 
 class UserTicketSales extends Controller
 {
@@ -37,7 +40,7 @@ class UserTicketSales extends Controller
 
         return view('frontend.ticket-sales.ticket-sales')->with([
             'event'     => $event,
-            'clientId'  => $this->provider->generate()
+            'clientId'  => $this->provider->generate(),
         ]);
     }
 
@@ -45,40 +48,35 @@ class UserTicketSales extends Controller
     {
         $nonceFromTheClient = $request->get('nonce');
 
-        try
-        {
+        try {
             $result = Braintree_Transaction::sale([
                 'amount' => $request->get('cost'),
                 'paymentMethodNonce' => $nonceFromTheClient,
                 'options' => [
-                    'submitForSettlement' => True
-                ]
+                    'submitForSettlement' => true,
+                ],
             ]);
-            if($result->success)
-            {
+            if ($result->success) {
                 $this->generateTicket($result);
             }
-        }
-        catch (Exception $exception)
-        {
+        } catch (Exception $exception) {
             dd($exception);
         }
     }
 
     public function generateTicket($ticketResponse)
     {
-
         $html = '';
 
         $html .= '<div class="ticket-wrapper">';
-            $html .= '<div class="ticket-info">';
-                $html .= '<img src="images/ticket-header.png">';
-                $html .= '<span>Thank you for supporting our event! We appreciate your commitment and hope you enjoy yourself!</span>';
-            $html .= '</div>';
+        $html .= '<div class="ticket-info">';
+        $html .= '<img src="images/ticket-header.png">';
+        $html .= '<span>Thank you for supporting our event! We appreciate your commitment and hope you enjoy yourself!</span>';
+        $html .= '</div>';
         $html .= '</div>';
 
-        $snappy 	= \App::make('snappy.pdf');
-        $binaryPath = base_path(). '/bin/wkhtmltopdf';
+        $snappy = \App::make('snappy.pdf');
+        $binaryPath = base_path().'/bin/wkhtmltopdf';
         $snappy->setBinary($binaryPath);
 
         return $snappy->generateFromHtml($html, 'test-ticket.pdf');

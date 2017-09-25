@@ -1,22 +1,24 @@
-<?php namespace App\Models\Gallery\Album;
+<?php
 
+namespace App\Models\Gallery\Album;
+
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Gallery\Album\Traits\Attribute\Attribute;
 use App\Models\Gallery\Album\Traits\Relationship\Relationship;
-use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
     use Attribute, Relationship;
 
     /**
-     * Table
+     * Table.
      *
      * @var string
      */
-    protected $table = "albums";
+    protected $table = 'albums';
 
     /**
-     * Fillable
+     * Fillable.
      *
      * @var array
      */
@@ -25,11 +27,11 @@ class Album extends Model
         'description',
         'cover_image',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     /**
-     * Hidden
+     * Hidden.
      *
      * @var array
      */

@@ -34,4 +34,3 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      */
     includeRouteFiles(__DIR__.'/Backend/');
 });
-

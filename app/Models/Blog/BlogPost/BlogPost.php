@@ -1,37 +1,39 @@
-<?php namespace app\Models\Blog\BlogPost;
+<?php
 
-/**
+namespace app\Models\Blog\BlogPost;
+
+/*
  * BlogPosts Model
  *
  * @author Sean Ciaschi
  */
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Blog\BlogPost\Traits\Attribute\Attribute;
 use App\Models\Blog\BlogPost\Traits\Relationship\Relationship;
-use Illuminate\Database\Eloquent\Model;
 
 class BlogPost extends Model
 {
     use Attribute, Relationship;
     /**
-     * Blog Post Table
+     * Blog Post Table.
      *
      * @var string
      */
     protected $table = 'blog_posts';
 
     /**
-     * Dates
+     * Dates.
      *
      * @var array
      */
     protected $dates = [
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     /**
-     * Fillable
+     * Fillable.
      *
      * @var array
      */
@@ -42,6 +44,6 @@ class BlogPost extends Model
         'attachment_path',
         'date',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 }

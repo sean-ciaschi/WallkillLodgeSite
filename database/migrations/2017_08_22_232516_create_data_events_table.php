@@ -13,8 +13,7 @@ class CreateDataEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_events', function(Blueprint $table)
-        {
+        Schema::create('data_events', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 255);
             $table->text('description');

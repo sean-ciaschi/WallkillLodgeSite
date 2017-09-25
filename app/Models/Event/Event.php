@@ -1,23 +1,24 @@
-<?php namespace App\Models\Event;
+<?php
 
+namespace App\Models\Event;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Event\Traits\Attribute\Attribute;
 use App\Models\Event\Traits\Relationship\Relationship;
-use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
     use Attribute, Relationship;
 
     /**
-     * Table
+     * Table.
      *
      * @var string
      */
-    protected $table = "data_events";
+    protected $table = 'data_events';
 
     /**
-     * Fillable
+     * Fillable.
      *
      * @var array
      */
@@ -28,11 +29,11 @@ class Event extends Model
         'date',
         'price',
         'is_active',
-        'created_at'
+        'created_at',
     ];
 
     /**
-     * Hidden
+     * Hidden.
      *
      * @var array
      */

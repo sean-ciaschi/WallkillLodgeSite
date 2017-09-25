@@ -205,7 +205,7 @@ return [
          * Third Party Service Providers
          */
         Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class,
-        Novanti\LaravelPDF\PDFServiceProvider::class
+        Novanti\LaravelPDF\PDFServiceProvider::class,
     ],
 
     /*
