@@ -39,6 +39,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
 Route::get('/mailable', function () {
     $ticketSale = UserTicketSales::find(1);
-    dd($ticketSale);
+
     return new App\Mail\SendTickets($ticketSale);
 });
