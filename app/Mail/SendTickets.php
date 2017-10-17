@@ -1,6 +1,9 @@
-<?php
+<?php namespace App\Mail;
 
-namespace App\Mail;
+/**
+ * Class SendTickets
+ * @package App\Mail
+ */
 
 use App\Models\UserTicketSales\UserTicketSales;
 use Illuminate\Bus\Queueable;
@@ -19,6 +22,7 @@ class SendTickets extends Mailable
      */
     public function __construct(UserTicketSales $ticket)
     {
+        dd($ticket);
         $this->ticket = $ticket;
     }
 
@@ -29,7 +33,6 @@ class SendTickets extends Mailable
      */
     public function build()
     {
-        dd(1);
         return $this->view('emails.base.base.ticket');
     }
 }
