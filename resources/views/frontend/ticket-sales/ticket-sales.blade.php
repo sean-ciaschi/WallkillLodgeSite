@@ -127,7 +127,7 @@
                                 nonce: payload.nonce,
                                 cost: cost,
                                 quantity: quantitySpinner.val(),
-                                eventId: {!! $activeEvent->id !!},
+                                eventId: {!! isset($activeEvent) && isset($activeEvent->id) ? $activeEvent->id : null; !!},
                                 buyerEmail: document.getElementById('user-email').value,
                                 buyerName: document.getElementById('user-fname').value + ' ' + document.getElementById('user-lname').value
                             }
