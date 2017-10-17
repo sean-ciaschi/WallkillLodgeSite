@@ -1,6 +1,4 @@
-<?php
-
-namespace App\Models\TicketSales\Traits\Attribute;
+<?php namespace App\Models\TicketSales\Traits\Attribute;
 
 trait Attribute
 {

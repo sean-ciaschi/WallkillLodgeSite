@@ -1,10 +1,10 @@
-<?php namespace App\Models\TicketSales;
+<?php namespace App\Models\UserTicketSales;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\TicketSales\Traits\Attribute\Attribute;
-use App\Models\TicketSales\Traits\Relationship\Relationship;
+use App\Models\UserTicketSales\Traits\Attribute\Attribute;
+use App\Models\UserTicketSales\Traits\Relationship\Relationship;
 
-class TicketSales extends Model
+class UserTicketSales extends Model
 {
     use Attribute, Relationship;
 
@@ -13,7 +13,7 @@ class TicketSales extends Model
      *
      * @var string
      */
-    protected $table = 'data_events';
+    protected $table = 'data_tickets';
 
     /**
      * Fillable.
@@ -21,12 +21,10 @@ class TicketSales extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'description',
-        'location',
-        'date',
-        'price',
-        'is_active',
+        'ticket_id',
+        'buyer_name',
+        'buyer_email',
+        'quantity',
         'created_at',
     ];
 
