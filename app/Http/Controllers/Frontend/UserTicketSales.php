@@ -64,7 +64,13 @@ class UserTicketSales extends Controller
         }
     }
 
-    public function generateTicket($ticketResponse)
+    /**
+     * Create and Send Tickets
+     *
+     * @param $ticketResponse
+     * @return mixed
+     */
+    public function createAndSendTickets($ticketResponse)
     {
         $html = '';
 

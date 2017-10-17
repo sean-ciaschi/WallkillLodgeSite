@@ -3,6 +3,7 @@ var defaultOpts = {
     events: {
         googleCalendarId: 'wm.wallkill627@gmail.com'
     },
+    textEscape: false,
     timeFormat: 'h:mm a',
     eventClick: function(calEvent, jsEvent, view)
     {

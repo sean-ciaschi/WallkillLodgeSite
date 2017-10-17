@@ -38,15 +38,15 @@
                         <form role="form" id="user-form" data-toggle="validator">
                             <div class="md-form col-sm-12">
                                 <input type="text" id="user-fname" class="form-control" required>
-                                <label for="user-fname">First name</label>
+                                <label for="user-fname">Recipient First name</label>
                             </div>
                             <div class="md-form col-sm-12 ">
                                 <input type="text" id="user-lname" class="form-control" required>
-                                <label for="user-lname">Last name</label>
+                                <label for="user-lname">Recipient Last name</label>
                             </div>
                             <div class="md-form col-sm-12">
                                 <input type="email" id="user-email" class="form-control" required>
-                                <label for="user-email">Email</label>
+                                <label for="user-email">Recipient Email</label>
                             </div>
                         </form>
                     </div>

@@ -7,6 +7,8 @@
 
 // Switch between the included languages
 use App\Models\UserTicketSales\UserTicketSales;
+use App\Mail\SendTickets;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('lang/{lang}', 'LanguageController@swap');
 
@@ -40,5 +42,5 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 Route::get('/mailable', function () {
     $ticketSale = UserTicketSales::find(1);
 
-    return new App\Mail\SendTickets($ticketSale);
+    Mail::to("sciaschi1@gmail.com")->send(new SendTickets($ticketSale));
 });
