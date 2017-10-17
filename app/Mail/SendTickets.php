@@ -29,6 +29,7 @@ class SendTickets extends Mailable
      */
     public function build()
     {
+        dd(1);
         return $this->view('emails.base.base.ticket');
     }
 }
