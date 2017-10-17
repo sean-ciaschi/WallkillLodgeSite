@@ -38,9 +38,3 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      */
     includeRouteFiles(__DIR__.'/Backend/');
 });
-
-Route::get('/mailable', function () {
-    $ticketSale = UserTicketSales::find(1);
-
-    Mail::to("sciaschi1@gmail.com")->send(new SendTickets($ticketSale));
-});

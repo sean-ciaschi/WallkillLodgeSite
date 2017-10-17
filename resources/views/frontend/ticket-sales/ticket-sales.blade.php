@@ -28,7 +28,9 @@
                     <span>Time of Event:</span><div class="event-time">{{$activeEvent->date}}</div>
                     <span>Cost:</span><div class="event-cost">${{$activeEvent->price}}</div>
                     <div>
-                        <b>Note: If you are paying with cash at the lodge/at the time of the event, please contact the current Worshipful Master or Secretary so that the ticket counts may be accurate</b>
+                        <p>Note: If you are paying with cash at the lodge/at the time of the event, please contact the current Worshipful Master or Secretary so that the ticket counts may be accurate</p>
+                        <p style="font-weight: bold;">ALL TICKETS ARE NON-REFUNDABLE</p>
+                        <p style="font-weight: bold;">Recipient must have ID and Tickets with them at time/place of event to verify the purchase</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +116,7 @@
                         }
                     });
 
-                    var hasErrors = jQuery('#user-form').validator('validate').has('.has-error').length;
+                    var hasErrors = false;
 
                     if(!hasErrors)
                     {
@@ -124,9 +126,10 @@
                             data: {
                                 nonce: payload.nonce,
                                 cost: cost,
-                                email: document.getElementById('user-email').value,
-                                firstname: document.getElementById('user-fname').value,
-                                lastname: document.getElementById('user-lname').value
+                                quantity: quantitySpinner.val(),
+                                eventId: {!! $activeEvent->id !!},
+                                buyerEmail: document.getElementById('user-email').value,
+                                buyerName: document.getElementById('user-fname').value + ' ' + document.getElementById('user-lname').value
                             }
                         });
                     }

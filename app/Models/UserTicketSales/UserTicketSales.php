@@ -21,7 +21,7 @@ class UserTicketSales extends Model
      * @var array
      */
     protected $fillable = [
-        'ticket_id',
+        'event_id',
         'buyer_name',
         'buyer_email',
         'quantity',

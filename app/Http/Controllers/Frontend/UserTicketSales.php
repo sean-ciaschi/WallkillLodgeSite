@@ -9,6 +9,8 @@ namespace App\Http\Controllers\Frontend;
  * Time: 2:31 PM
  */
 
+use App\Mail\SendTickets;
+use Illuminate\Support\Facades\Mail;
 use Knp\Snappy\Pdf;
 use Braintree\Exception;
 use Braintree_ClientToken;
@@ -57,7 +59,7 @@ class UserTicketSales extends Controller
                 ],
             ]);
             if ($result->success) {
-                $this->generateTicket($result);
+                $this->createAndSendTickets($request);
             }
         } catch (Exception $exception) {
             dd($exception);
@@ -67,24 +69,23 @@ class UserTicketSales extends Controller
     /**
      * Create and Send Tickets
      *
-     * @param $ticketResponse
+     * @param Request $request
      * @return mixed
      */
-    public function createAndSendTickets($ticketResponse)
+    public function createAndSendTickets(Request $request)
     {
-        $html = '';
+        $buyerName  = $request->get('buyerName');
+        $buyerEmail = $request->get('buyerEmail');
+        $quantity   = $request->get('quantity');
+        $eventId    = $request->get('eventId');
 
-        $html .= '<div class="ticket-wrapper">';
-        $html .= '<div class="ticket-info">';
-        $html .= '<img src="images/ticket-header.png">';
-        $html .= '<span>Thank you for supporting our event! We appreciate your commitment and hope you enjoy yourself!</span>';
-        $html .= '</div>';
-        $html .= '</div>';
+        $buyerTickets = \App\Models\UserTicketSales\UserTicketSales::create([
+            'event_id'      => $eventId,
+            'buyer_name'    => $buyerName,
+            'buyer_email'   => $buyerEmail,
+            'quantity'      => $quantity
+        ])->id;
 
-        $snappy = \App::make('snappy.pdf');
-        $binaryPath = base_path().'/bin/wkhtmltopdf';
-        $snappy->setBinary($binaryPath);
-
-        return $snappy->generateFromHtml($html, 'test-ticket.pdf');
+        return Mail::to("sciaschi1@gmail.com")->send(new SendTickets($buyerTickets));
     }
 }

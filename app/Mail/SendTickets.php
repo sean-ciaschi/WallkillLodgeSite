@@ -22,11 +22,11 @@ class SendTickets extends Mailable
     /**
      * Create a new message instance.
      *
-     * @param UserTicketSales $ticket
+     * @param $ticketId
      */
-    public function __construct(UserTicketSales $ticket)
+    public function __construct($ticketId)
     {
-        $this->tickets = $ticket;
+        $this->ticket = UserTicketSales::find($ticketId);
     }
 
     /**
@@ -36,16 +36,20 @@ class SendTickets extends Mailable
      */
     public function build()
     {
+        //Define the email headers/name/subject and who its being sent to
         $name       = 'Wallkill Lodge #627 Tickets';
         $subject    = 'Your event tickets are here!';
-        $address    = 'sciaschi1@gmail.com';
+        $address    = $this->ticket->buyer_email;
 
-        // instantiate and use the dompdf class
+        // Instantiate and use the dompdf class
         $dompdf = new Dompdf();
+
+        //Genereate the tickets and
         $dompdf->loadHtml(View::make('emails.base.ticket')->with([
-            'tickets'   => $this->tickets,
-            'event'     => $this->tickets->event()->get(),
+            'tickets'   => $this->ticket,
+            'event'     => $this->ticket->event()->get(),
         ])->render());
+
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
 
