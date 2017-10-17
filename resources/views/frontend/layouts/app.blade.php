@@ -14,7 +14,7 @@
         @yield('meta')
 
         <!-- Styles -->
-        <link rel='icon' href='http://www.wallkill627.seanci.com/favicon.ico' type='image/icon'>
+        <link rel='icon' href='{{asset('favicon.ico')}}' type='image/icon'>
         @yield('before-styles')
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
