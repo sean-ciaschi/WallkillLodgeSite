@@ -1,7 +1,7 @@
 var defaultOpts = {
-    googleCalendarApiKey: 'AIzaSyBcZk7U-YT3Us88WVJmh8ybBX1c2O5HuaI',
+    googleCalendarApiKey: 'AIzaSyCamEOyqgGIdb3yRMdDfke3Es-tT-i7IK4',
     events: {
-        googleCalendarId: '84o9isja4rb050mlq10a5acaac@group.calendar.google.com'
+        googleCalendarId: 'wm.wallkill627@gmail.com'
     },
     timeFormat: 'h:mm a',
     windowResize: function(view) {
