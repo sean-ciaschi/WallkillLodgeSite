@@ -1,17 +1,19 @@
-<?php namespace App\Http\Middleware;
+<?php
 
-/**
+namespace App\Http\Middleware;
+
+/*
  * Class HttpsProtocol
  * @package App\Http\Middleware
  */
 
 use Closure;
 
-class HttpsProtocol {
-
+class HttpsProtocol
+{
     public function handle($request, Closure $next)
     {
-        if (!$request->secure() && env('APP_ENV') === 'production') {
+        if (! $request->secure() && env('APP_ENV') === 'production') {
             return redirect()->secure($request->getRequestUri());
         }
 
