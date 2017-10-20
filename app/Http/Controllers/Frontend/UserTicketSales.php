@@ -33,6 +33,11 @@ class UserTicketSales extends Controller
         ]);
     }
 
+    public function success(Request $request)
+    {
+        return view('frontend.ticket-sales.ticket-sales-receipt');
+    }
+
     public function chargeSale(Request $request)
     {
         $amount             = (integer) $request->get('cost');
@@ -43,8 +48,8 @@ class UserTicketSales extends Controller
         $access_token       = env('SQUARE_ACCESS_TOKEN', 0);
         $squareProcesser    = new \SquareConnect\Configuration;
 
-        try {
-
+        try
+        {
             $squareProcesser::getDefaultConfiguration()->setAccessToken($access_token);
             $transactions_api = new \SquareConnect\Api\TransactionsApi();
             $request_body = [
@@ -63,16 +68,18 @@ class UserTicketSales extends Controller
                 "idempotency_key" => uniqid()
             ];
 
-            # The SDK throws an exception if a Connect endpoint responds with anything besides 200 (success).
-            # This block catches any exceptions that occur from the request.
-            try {
+            try
+            {
                 $charge = $transactions_api->charge($locationId, $request_body);
-//                dd($charge);
                 $this->createAndSendTickets($request, $charge);
-            } catch (Exception $e) {
+            }
+            catch (Exception $e)
+            {
                 echo "Caught exception " . $e->getMessage();
             }
-        } catch (Exception $exception) {
+        }
+        catch (Exception $exception)
+        {
             dd($exception);
         }
     }
@@ -80,7 +87,8 @@ class UserTicketSales extends Controller
     /**
      * Create and Send Tickets
      *
-     * @param Request $request
+     * @param Request        $request
+     * @param ChargeResponse $charge
      * @return mixed
      */
     public function createAndSendTickets(Request $request, ChargeResponse $charge)
@@ -92,8 +100,6 @@ class UserTicketSales extends Controller
             'Authorization' => 'Bearer ' . $access_token,
             'Accept'        => 'application/json',
         ];
-
-
 
         $client = new Client();
         $res = $client->get('https://connect.squareup.com/v1/'.$locationId.'/payments/'.$transaction->getId(), [
@@ -114,6 +120,6 @@ class UserTicketSales extends Controller
             'quantity'      => $quantity
         ])->id;
 
-        return Mail::to("sciaschi1@gmail.com")->send(new SendTickets($buyerTickets, $responseBody));
+        return Mail::to($buyerEmail)->send(new SendTickets($buyerTickets, $responseBody));
     }
 }

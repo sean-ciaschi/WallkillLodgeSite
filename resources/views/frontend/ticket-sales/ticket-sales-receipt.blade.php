@@ -5,5 +5,11 @@
         <div class="col-sm-12">
             <h1 class="page_title">Thank you for your purchase!</h1>
         </div>
+        <div class="col-sm-6">
+            <img src="{{asset('images/ticket-header.png')}}">
+        </div>
+        <div class="col-sm-6">
+            <h2>Your receipt and ticket(s) have been sent to your email which should arrive in 1 minute to 5 minutes</h2>
+        </div>
     </div>
 @endsection
