@@ -260,3 +260,47 @@ input[type=range]+.thumb.active .value {
 .officer-photo {
     margin-bottom: 10px;
 }
+
+.sq-input {
+    background-color: transparent;
+    border: none;
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+    border-bottom: 1px solid #bdbdbd;
+    border-radius: 0;
+    outline: 0;
+    height: 2.1rem;
+    width: 100%;
+    font-size: 1rem;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.sq-input--focus {
+    /* Indicates how form inputs should appear when they have focus */
+    border-bottom: 1px solid #4285F4;
+    -webkit-box-shadow: 0 1px 0 0 #4285F4;
+    box-shadow: 0 1px 0 0 #4285F4;
+}
+.sq-input--error {
+    /* Indicates how form inputs should appear when they contain invalid values */
+    border-bottom: 1px solid rgb(255, 97, 97);
+    -webkit-box-shadow: 0 1px 0 0 rgb(255, 97, 97);
+    box-shadow: 0 1px 0 0 rgb(255, 97, 97);
+}
+#user-form {
+    width:100%;
+}
+.card {
+    margin-bottom:10px;
+}
+.card-block {
+    padding:15px;
+}
+.custom-card-header {
+    background: #22313F !important;
+}

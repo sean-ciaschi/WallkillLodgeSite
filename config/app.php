@@ -200,6 +200,7 @@ return [
         App\Providers\HistoryServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
 
         /*
          * Third Party Service Providers

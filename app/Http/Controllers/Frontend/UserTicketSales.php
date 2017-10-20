@@ -11,30 +11,18 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Mail\SendTickets;
 use Illuminate\Support\Facades\Mail;
-use Knp\Snappy\Pdf;
 use Braintree\Exception;
-use Braintree_ClientToken;
-use Braintree_Transaction;
 use App\Models\Event\Event;
-use Braintree_Configuration;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller as Controller;
+use SquareConnect\Model\ChargeResponse;
+use Validator;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class UserTicketSales extends Controller
 {
-    public $provider;
-
-    public function __construct()
-    {
-        $config = config('braintree');
-
-        Braintree_Configuration::environment($config['environment']);
-        Braintree_Configuration::merchantId($config['merc_id']);
-        Braintree_Configuration::publicKey($config['public_key']);
-        Braintree_Configuration::privateKey($config['private_key']);
-
-        $this->provider = new Braintree_ClientToken();      // To use express checkout.
-    }
+    public function __construct(){}
 
     public function index(Request $request)
     {
@@ -42,24 +30,47 @@ class UserTicketSales extends Controller
 
         return view('frontend.ticket-sales.ticket-sales')->with([
             'event'     => $event,
-            'clientId'  => $this->provider->generate(),
         ]);
     }
 
     public function chargeSale(Request $request)
     {
+        $amount             = (integer) $request->get('cost');
+        $buyerEmail         = $request->get('buyerEmail');
         $nonceFromTheClient = $request->get('nonce');
 
+        $locationId         = env('SQUARE_LOCATION_ID', 0);
+        $access_token       = env('SQUARE_ACCESS_TOKEN', 0);
+        $squareProcesser    = new \SquareConnect\Configuration;
+
         try {
-            $result = Braintree_Transaction::sale([
-                'amount' => $request->get('cost'),
-                'paymentMethodNonce' => $nonceFromTheClient,
-                'options' => [
-                    'submitForSettlement' => true,
-                ],
-            ]);
-            if ($result->success) {
-                $this->createAndSendTickets($request);
+
+            $squareProcesser::getDefaultConfiguration()->setAccessToken($access_token);
+            $transactions_api = new \SquareConnect\Api\TransactionsApi();
+            $request_body = [
+                "card_nonce" => $nonceFromTheClient,
+                # Monetary amounts are specified in the smallest unit of the applicable currency.
+                # This amount is in cents. It's also hard-coded for $1, which is not very useful.
+                "amount_money" => array (
+                    "amount" => $amount,
+                    "currency" => "USD"
+                ),
+                "buyer_email_address" => $buyerEmail,
+                # Every payment you process for a given business have a unique idempotency key.
+                # If you're unsure whether a particular payment succeeded, you can reattempt
+                # it with the same idempotency key without worrying about double charging
+                # the buyer.
+                "idempotency_key" => uniqid()
+            ];
+
+            # The SDK throws an exception if a Connect endpoint responds with anything besides 200 (success).
+            # This block catches any exceptions that occur from the request.
+            try {
+                $charge = $transactions_api->charge($locationId, $request_body);
+//                dd($charge);
+                $this->createAndSendTickets($request, $charge);
+            } catch (Exception $e) {
+                echo "Caught exception " . $e->getMessage();
             }
         } catch (Exception $exception) {
             dd($exception);
@@ -72,8 +83,25 @@ class UserTicketSales extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function createAndSendTickets(Request $request)
+    public function createAndSendTickets(Request $request, ChargeResponse $charge)
     {
+        $transaction        = $charge->getTransaction();
+        $locationId         = env('SQUARE_LOCATION_ID', 0);
+        $access_token       = env('SQUARE_ACCESS_TOKEN', 0);
+        $headers = [
+            'Authorization' => 'Bearer ' . $access_token,
+            'Accept'        => 'application/json',
+        ];
+
+
+
+        $client = new Client();
+        $res = $client->get('https://connect.squareup.com/v1/'.$locationId.'/payments/'.$transaction->getId(), [
+            'headers' =>  $headers
+        ]);
+
+        $responseBody = json_decode($res->getBody());
+
         $buyerName  = $request->get('buyerName');
         $buyerEmail = $request->get('buyerEmail');
         $quantity   = $request->get('quantity');
@@ -86,6 +114,6 @@ class UserTicketSales extends Controller
             'quantity'      => $quantity
         ])->id;
 
-        return Mail::to("sciaschi1@gmail.com")->send(new SendTickets($buyerTickets));
+        return Mail::to("sciaschi1@gmail.com")->send(new SendTickets($buyerTickets, $responseBody));
     }
 }

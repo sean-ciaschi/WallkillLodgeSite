@@ -28,6 +28,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
         "riverskies/laravel-mobile-detect": "^1.2",
+        "square/connect": "*",
         "summernote/summernote": "^0.8.3",
         "wemersonjanuario/laravelpdf": "^1.1",
         "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3",

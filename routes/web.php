@@ -8,7 +8,6 @@
 // Switch between the included languages
 use App\Models\UserTicketSales\UserTicketSales;
 use App\Mail\SendTickets;
-use Illuminate\Support\Facades\Mail;
 
 Route::get('lang/{lang}', 'LanguageController@swap');
 
@@ -37,4 +36,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      * Note: Administrator has all permissions so you do not have to specify the administrator role everywhere.
      */
     includeRouteFiles(__DIR__.'/Backend/');
+});
+
+Route::get('/mailable', function () {
+    $ticketSale = UserTicketSales::find(1);
+
+    return new SendTickets($ticketSale);
 });

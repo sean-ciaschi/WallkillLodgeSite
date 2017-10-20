@@ -35,6 +35,7 @@
         <!-- Your custom styles (optional) -->
         <link href='{{asset('assets/css/main.css')}}' rel='stylesheet'>
 
+        <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
         @yield('head_js')
 
         <!-- Scripts -->
@@ -87,7 +88,7 @@
                     <!--Fourth column-->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="title mb-4 font-bold">Contact</h6>
-                        <p><i class="fa fa-home mr-3"></i><a class='link-text' href='http://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a></p>
+                        <p><i class="fa fa-home mr-3"></i><a class='link-text' href='https://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a></p>
                         <p><i class="fa fa-envelope mr-3"></i> info@example.com</p>
                         <p><i class="fa fa-phone mr-3"></i> +1 845-123-4567</p>
                         <p><i class="fa fa-print mr-3"></i> +1 845-123-4567</p>
@@ -133,9 +134,7 @@
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}
         <script src='{{asset('build/plugins/fullcalendar/moment.min.js')}}'></script>
-
         <script src='{{asset('assets/js/jquery-ui.min.js')}}'></script>
-        <script src='{{asset('assets/js/validator.min.js')}}'></script>
         <script src='{{asset('build/plugins/select2/select2.min.js')}}'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js'></script>
         <!-- Bootstrap tooltips -->
@@ -144,6 +143,8 @@
         <!-- MDB core JavaScript -->
         <script type='text/javascript' src='{{asset('assets/js/mdbpro.min.js')}}'></script>
         <script src='{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}'></script>
+
+        <script src='{{asset('assets/js/validator.min.js')}}'></script>
         @yield('after-scripts')
 
         @include('includes.partials.ga')

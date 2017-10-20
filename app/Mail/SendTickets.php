@@ -19,14 +19,17 @@ class SendTickets extends Mailable
 
     public $tickets;
 
+    public $charge;
+
     /**
      * Create a new message instance.
      *
      * @param $ticketId
      */
-    public function __construct($ticketId)
+    public function __construct($ticketId, $chargeResponse)
     {
         $this->ticket = UserTicketSales::find($ticketId);
+        $this->charge = $chargeResponse;
     }
 
     /**
@@ -47,13 +50,16 @@ class SendTickets extends Mailable
         //Genereate the tickets and
         $dompdf->loadHtml(View::make('emails.base.ticket')->with([
             'tickets'   => $this->ticket,
-            'event'     => $this->ticket->event()->get(),
+            'event'     => $this->ticket->event()->get()
         ])->render());
 
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
 
         return $this->view('emails.base.header')
+                    ->with([
+                        'charge'    => $this->charge
+                    ])
                     ->from($address, $name)
                     ->subject($subject)
                     ->attachData($dompdf->output(), 'mytickets.pdf', [
@@ -61,10 +67,34 @@ class SendTickets extends Mailable
                     ]);
     }
 
-//    public function __toString()
-//    {
-//        $view = View::make('emails.base.ticket');
+    public function __toString()
+    {
+//        $str = '';
 //
-//        return $view->render();
-//    }
+//        foreach(debug_backtrace() as $index => $trace)
+//        {
+//            if($index + 1 )
+//            {
+//                break;
+//            }
+//
+//            $str .= sprintf(
+//                "\n%s:%s %s::%s",
+//                str_replace(base_path(), '', isset($trace['file']) ? $trace['file'] : ''),
+//                isset($trace['line']) ? $trace['line'] : '',
+//                isset($trace['class']) ? $trace['class'] : '',
+//                isset($trace['function']) ? $trace['function'] : ''
+//            );
+//        }
+//
+//        return ($str);
+        $ticketSale = UserTicketSales::find(3);
+
+        $view = View::make('emails.base.ticket')->with([
+            'tickets'   => $ticketSale,
+            'event'     => $ticketSale->event()->get(),
+        ])->render();
+
+        return $view;
+    }
 }
