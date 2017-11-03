@@ -91,7 +91,6 @@
                         <p><i class="fa fa-home mr-3"></i><a class='link-text' href='https://maps.google.com/maps?daddr=61 Main St Walden, New York'>61 Main St Walden, New York</a></p>
                         <p><i class="fa fa-envelope mr-3"></i>wm.wallkill627@gmail.com</p>
                         <p><i class="fa fa-phone mr-3"></i> (845) 778-7148</p>
-                        <p><i class="fa fa-print mr-3"></i> (845) 778-7148</p>
                     </div>
                     <!--/.Fourth column-->
 
