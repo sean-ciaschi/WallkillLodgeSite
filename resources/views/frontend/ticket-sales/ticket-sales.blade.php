@@ -110,176 +110,177 @@
 
 @section('after-scripts')
     <script>
+        @if(isset($activeEvent) && $activeEvent != null)
+            var applicationId = "{{  env('SQUARE_APP_ID', 0) }}"; // <-- Add your application's ID here
+            var locationId = "{{ env('SQUARE_LCOATION_ID', 0) }}";  // <-- For Apple Pay, set your location ID here
 
-        var applicationId = "{{  env('SQUARE_APP_ID', 0) }}"; // <-- Add your application's ID here
-        var locationId = "{{ env('SQUARE_LCOATION_ID', 0) }}";  // <-- For Apple Pay, set your location ID here
-
-        // Make sure the application ID is set before continuing.
-        // Note: checking locationId if using Apple Pay.
-        if (applicationId == '') {
-            alert('You need to provide a value for the applicationId variable.');
-        }
-
-        // Create and initialize a payment form object
-        var paymentForm = new SqPaymentForm({
-            applicationId: applicationId,
-            locationId: locationId,
-            inputClass: 'sq-input',
-            inputStyles: [
-                {
-                    fontSize: '15px'
-                }
-            ],
-            // Used for credit card payments
-            cardNumber: {
-                elementId: 'sq-card-number',
-                placeholder: '•••• •••• •••• ••••'
-            },
-            cvv: {
-                elementId: 'sq-cvv',
-                placeholder: 'CVV'
-            },
-            expirationDate: {
-                elementId: 'sq-expiration-date',
-                placeholder: 'MM/YY'
-            },
-            postalCode: {
-                elementId: 'sq-postal-code',
-                placeholder: '12345'
-            },
-            // Payment form callback functions
-            callbacks: {
-
-                // Used for credit card payments. Called when the SqPaymentForm
-                // completes a request to generate a card nonce, even if the request
-                // failed because of an error.
-                cardNonceResponseReceived: function(errors, nonce, cardData) {
-                    if (errors) {
-                        console.log("Encountered errors:");
-
-                        // This logs all errors encountered during nonce generation to the
-                        // Javascript console.
-                        errors.forEach(function(error) {
-                            console.log('  ' + error.message);
-                        });
-
-                        return;
-                    } else {
-
-                        // You can delete this line, it's provided for testing purposes
-                        alert('Nonce received: ' + nonce);
-
-
-                        // Assign the nonce value to the hidden form field
-                        document.getElementById('card-nonce').value = nonce;
-
-                        var buyerName = document.getElementById('user-fname').value + ' ' + document.getElementById('user-lname').value;
-
-                        if(document.getElementById('user-fname').value == '')
-                        {
-                            document.getElementById('user-fname').classList.add('invalid');
-                            toastr.warning('Please fill out all form fields');
-                            return false;
-                        }
-                        else if(document.getElementById('user-lname').value == '')
-                        {
-                            document.getElementById('user-lname').classList.add('invalid');
-                            toastr.warning('Please fill out all form fields');
-                            return false;
-                        }
-                        else if(document.getElementById('user-email').value == '')
-                        {
-                            document.getElementById('user-lname').classList.add('invalid');
-                            toastr.warning('Please fill out all form fields');
-                            return false;
-                        }
-
-                        // Let the form continue to the payment processing page
-                        jQuery.ajax({
-                            method: "POST",
-                            url: '{{route('frontend.ticket-sales.process-payment')}}',
-                            data: {
-                                nonce: nonce,
-                                cost: cost * 100,
-                                quantity: quantitySpinner.val(),
-                                eventId: {!! isset($activeEvent) && isset($activeEvent->id) ? $activeEvent->id : null; !!},
-                                buyerEmail: document.getElementById('user-email').value,
-                                buyerName: buyerName
-                            }
-                        });
-                    }
-                },
-
-                unsupportedBrowserDetected: function() {
-                    // Fill in this callback to alert buyers when their browser is not supported.
-                },
-
-                // Fill in these cases to respond to various events that can occur while a
-                // buyer is using the payment form.
-                inputEventReceived: function(inputEvent) {
-                    switch (inputEvent.eventType) {
-                        case 'focusClassAdded':
-                            // Handle as desired
-                            break;
-                        case 'focusClassRemoved':
-                            // Handle as desired
-                            break;
-                        case 'errorClassAdded':
-                            // Handle as desired
-                            break;
-                        case 'errorClassRemoved':
-                            // Handle as desired
-                            break;
-                        case 'cardBrandChanged':
-                            // Handle as desired
-                            break;
-                        case 'postalCodeChanged':
-                            // Handle as desired
-                            break;
-                    }
-                },
-
-                paymentFormLoaded: function() {
-                    // Fill in this callback to perform actions after the payment form is
-                    // done loading (such as setting the postal code field programmatically).
-                    // paymentForm.setPostalCode('94103');
-                }
+            // Make sure the application ID is set before continuing.
+            // Note: checking locationId if using Apple Pay.
+            if (applicationId == '') {
+                alert('You need to provide a value for the applicationId variable.');
             }
-        });
 
-        // This function is called when a buyer clicks the Submit button on the webpage
-        // to charge their card.
-        function requestCardNonce(event) {
+            // Create and initialize a payment form object
+            var paymentForm = new SqPaymentForm({
+                applicationId: applicationId,
+                locationId: locationId,
+                inputClass: 'sq-input',
+                inputStyles: [
+                    {
+                        fontSize: '15px'
+                    }
+                ],
+                // Used for credit card payments
+                cardNumber: {
+                    elementId: 'sq-card-number',
+                    placeholder: '•••• •••• •••• ••••'
+                },
+                cvv: {
+                    elementId: 'sq-cvv',
+                    placeholder: 'CVV'
+                },
+                expirationDate: {
+                    elementId: 'sq-expiration-date',
+                    placeholder: 'MM/YY'
+                },
+                postalCode: {
+                    elementId: 'sq-postal-code',
+                    placeholder: '12345'
+                },
+                // Payment form callback functions
+                callbacks: {
 
-            // This prevents the Submit button from submitting its associated form.
-            // Instead, clicking the Submit button should tell the SqPaymentForm to generate
-            // a card nonce, which the next line does.
-            event.preventDefault();
+                    // Used for credit card payments. Called when the SqPaymentForm
+                    // completes a request to generate a card nonce, even if the request
+                    // failed because of an error.
+                    cardNonceResponseReceived: function(errors, nonce, cardData) {
+                        if (errors) {
+                            console.log("Encountered errors:");
 
-            paymentForm.requestCardNonce();
-        }
+                            // This logs all errors encountered during nonce generation to the
+                            // Javascript console.
+                            errors.forEach(function(error) {
+                                console.log('  ' + error.message);
+                            });
 
-        var quantitySpinner = jQuery('#spinner'),
-            totalCost       = document.querySelector('.total-cost'),
-            button          = document.getElementById('submit-button'),
-                @if(isset($activeEvent) && $activeEvent != null)
-                cost        = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
-        @else
-            cost = {{$activeEvent->price}}).toFixed(2);
-        @endif
+                            return;
+                        } else {
 
-            totalCost.innerHTML = '$' + cost;
+                            // You can delete this line, it's provided for testing purposes
+                            alert('Nonce received: ' + nonce);
 
 
-        $('#spinner').on('change input', function(item) {
-            console.log('Changed');
-            var value = item.currentTarget.value;
-            @if(isset($activeEvent) && $activeEvent != null)
-                cost = (value * {{($activeEvent->price) ? $activeEvent->price : 0}}).toFixed(2);
+                            // Assign the nonce value to the hidden form field
+                            document.getElementById('card-nonce').value = nonce;
+
+                            var buyerName = document.getElementById('user-fname').value + ' ' + document.getElementById('user-lname').value;
+
+                            if(document.getElementById('user-fname').value == '')
+                            {
+                                document.getElementById('user-fname').classList.add('invalid');
+                                toastr.warning('Please fill out all form fields');
+                                return false;
+                            }
+                            else if(document.getElementById('user-lname').value == '')
+                            {
+                                document.getElementById('user-lname').classList.add('invalid');
+                                toastr.warning('Please fill out all form fields');
+                                return false;
+                            }
+                            else if(document.getElementById('user-email').value == '')
+                            {
+                                document.getElementById('user-lname').classList.add('invalid');
+                                toastr.warning('Please fill out all form fields');
+                                return false;
+                            }
+
+                            // Let the form continue to the payment processing page
+                            jQuery.ajax({
+                                method: "POST",
+                                url: '{{route('frontend.ticket-sales.process-payment')}}',
+                                data: {
+                                    nonce: nonce,
+                                    cost: cost * 100,
+                                    quantity: quantitySpinner.val(),
+                                    eventId: {!! isset($activeEvent) && isset($activeEvent->id) ? $activeEvent->id : null; !!},
+                                    buyerEmail: document.getElementById('user-email').value,
+                                    buyerName: buyerName
+                                }
+                            });
+                        }
+                    },
+
+                    unsupportedBrowserDetected: function() {
+                        // Fill in this callback to alert buyers when their browser is not supported.
+                    },
+
+                    // Fill in these cases to respond to various events that can occur while a
+                    // buyer is using the payment form.
+                    inputEventReceived: function(inputEvent) {
+                        switch (inputEvent.eventType) {
+                            case 'focusClassAdded':
+                                // Handle as desired
+                                break;
+                            case 'focusClassRemoved':
+                                // Handle as desired
+                                break;
+                            case 'errorClassAdded':
+                                // Handle as desired
+                                break;
+                            case 'errorClassRemoved':
+                                // Handle as desired
+                                break;
+                            case 'cardBrandChanged':
+                                // Handle as desired
+                                break;
+                            case 'postalCodeChanged':
+                                // Handle as desired
+                                break;
+                        }
+                    },
+
+                    paymentFormLoaded: function() {
+                        // Fill in this callback to perform actions after the payment form is
+                        // done loading (such as setting the postal code field programmatically).
+                        // paymentForm.setPostalCode('94103');
+                    }
+                }
+            });
+
+            // This function is called when a buyer clicks the Submit button on the webpage
+            // to charge their card.
+            function requestCardNonce(event) {
+
+                // This prevents the Submit button from submitting its associated form.
+                // Instead, clicking the Submit button should tell the SqPaymentForm to generate
+                // a card nonce, which the next line does.
+                event.preventDefault();
+
+                paymentForm.requestCardNonce();
+            }
+
+            var quantitySpinner = jQuery('#spinner'),
+                totalCost       = document.querySelector('.total-cost'),
+                button          = document.getElementById('submit-button'),
+                    @if(isset($activeEvent) && $activeEvent != null)
+                    cost        = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
             @else
-                cost = 0;
+                cost = {{$activeEvent->price}}).toFixed(2);
             @endif
+
                 totalCost.innerHTML = '$' + cost;
-        });
+
+
+            $('#spinner').on('change input', function(item) {
+                console.log('Changed');
+                var value = item.currentTarget.value;
+                @if(isset($activeEvent) && $activeEvent != null)
+                    cost = (value * {{($activeEvent->price) ? $activeEvent->price : 0}}).toFixed(2);
+                @else
+                    cost = 0;
+                @endif
+                    totalCost.innerHTML = '$' + cost;
+            });
+        @endif
     </script>
 @endsection
