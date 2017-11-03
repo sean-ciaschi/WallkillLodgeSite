@@ -47,7 +47,7 @@ class SendTickets extends Mailable
         // Instantiate and use the dompdf class
         $dompdf = new Dompdf();
 
-        //Genereate the tickets and
+        //Generate the tickets and send
         $dompdf->loadHtml(View::make('emails.base.ticket')->with([
             'tickets'   => $this->ticket,
             'event'     => $this->ticket->event()->get()
