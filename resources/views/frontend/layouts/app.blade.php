@@ -146,7 +146,6 @@
         <!-- Scripts -->
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}
-        <script src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
         <script src='{{asset('build/plugins/fullcalendar/moment.min.js')}}'></script>
         <script src='{{asset('assets/js/jquery-ui.min.js')}}'></script>
         <script src='{{asset('build/plugins/select2/select2.min.js')}}'></script>
