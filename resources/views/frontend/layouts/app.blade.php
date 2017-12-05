@@ -6,6 +6,19 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <meta name='csrf-token' content='{{ csrf_token() }}'>
 
+        <script type="application/ld+json">
+        {
+          "@type": "Organization",
+          "url": "http://www.wallkill627.com",
+          "name": "Wallkill Lodge #627 F & AM",
+          "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-845-778-7148",
+          "contactType": "General"
+          }
+        }
+        </script>
+
         <title>@yield('title', app_name())</title>
 
         <!-- Meta -->
