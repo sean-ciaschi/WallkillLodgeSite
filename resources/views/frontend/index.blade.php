@@ -19,11 +19,11 @@
             </div>
             <div class="carousel-item">
                 <!-- Set the second background image using inline CSS below. -->
-                <img class="d-block w-100" src ="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/10583050_354568161365723_1416304525595290067_o.jpg?oh=f204c5e7fb7e6438fe1491e42fa84eb9&oe=5A1743B7"/>
+                <img class="d-block w-100" src ="images/carousel_2.jpg"/>
             </div>
             <div class="carousel-item">
                 <!-- Set the third background image using inline CSS below. -->
-                <img class="d-block w-100" src ="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/62493_130922827063592_815700082_n.png?oh=d41dc470cb715c852f74561e27b1950c&oe=59EA85B2"/>
+                <img class="d-block w-100" src ="images/carousel_3.png"/>
             </div>
         </div>
 

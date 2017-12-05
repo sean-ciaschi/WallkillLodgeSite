@@ -36,33 +36,7 @@
                         <i class="fa fa-ticket"></i> Ticket Sales
                     </a>
                 </li>
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="">--}}
-                        {{--<i class="fa fa-question-circle"></i> FAQ--}}
-                    {{--</a>--}}
-                {{--</li>--}}
-            </ul>{{--
-            <ul class="nav navbar-nav navbar-right">
-                @if (!$logged_in_user)
-                    <li class="nav-item">
-                        {{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
-
-                    --}}{{--@if (config('access.users.registration'))--}}{{--
-                        --}}{{--<li>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>--}}{{--
-                    --}}{{--@endif--}}{{--
-                @else
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $logged_in_user->name }}</a>
-                        <div class="dropdown-menu dropdown-dark" aria-labelledby="navbarDropdownMenuLink">
-                            @permission('view-backend')
-                                {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) , [], ['class' => 'dropdown-item' ]}}
-                            @endauth
-                            {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => active_class(Active::checkRoute('frontend.user.account')) . ' dropdown-item' ]) }}
-                            {{ link_to_route('frontend.auth.logout', trans('navs.general.logout')), [], ['class' => 'dropdown-item'] }}
-                        </div>
-                    </li>
-                @endif
-            </ul>--}}
+            </ul>
         </div><!--navbar-collapse-->
     </div><!--container-->
 </nav>
