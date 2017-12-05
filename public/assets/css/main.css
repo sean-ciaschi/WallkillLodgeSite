@@ -133,7 +133,7 @@ body, html {
     max-height: 100vh;
 }
 .carousel-inner {
-    height: 100%;
+    overflow:visible;
 }
 
 /* Background images are set within the HTML using inline CSS, not here */
@@ -226,24 +226,6 @@ th {
 }
 .mr-auto {
     font-size: 15px;
-}
-.carousel-indicators {
-    position: absolute;
-    right: 0;
-    bottom: 10px;
-    left: 0;
-    z-index: 15;
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-pack: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    padding-left: 0;
-    margin: 0 auto;
-    list-style: none;
 }
 input[type=range]+.thumb.active .value {
     color: #fff;

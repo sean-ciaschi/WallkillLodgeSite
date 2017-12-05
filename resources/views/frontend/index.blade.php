@@ -2,42 +2,47 @@
 
 @section('before_content')
     @notmobile()
-    <!-- Full Page Image Background Carousel Header -->
-    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-        <!-- Indicators -->
+
+    <!--Carousel Wrapper-->
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <!--Indicators-->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
         </ol>
-
-        <!-- Wrapper for Slides -->
+        <!--/.Indicators-->
+        <!--Slides-->
         <div class="carousel-inner" role="listbox">
+            <!--First slide-->
             <div class="carousel-item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <img class="d-block w-100" src ="images/carousel_1.jpg"/>
+                <img class="d-block w-100" src="images/carousel_1.jpg" alt="First slide">
             </div>
+            <!--/First slide-->
+            <!--Second slide-->
             <div class="carousel-item">
-                <!-- Set the second background image using inline CSS below. -->
-                <img class="d-block w-100" src ="images/carousel_2.jpg"/>
+                <img class="d-block w-100" src="images/carousel_2.jpg" alt="Second slide">
             </div>
+            <!--/Second slide-->
+            <!--Third slide-->
             <div class="carousel-item">
-                <!-- Set the third background image using inline CSS below. -->
-                <img class="d-block w-100" src ="images/carousel_3.png"/>
+                <img class="d-block w-100" src="images/carousel_3.png" alt="Third slide">
             </div>
+            <!--/Third slide-->
         </div>
-
-        <!-- Controls -->
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-
+        <!--/.Controls-->
     </div>
+    <!--/.Carousel Wrapper-->
     @endnotmobile
 @endsection
 
@@ -101,9 +106,6 @@
 
 @section('after-scripts')
     <script>
-        $('.carousel').carousel({
-            interval: 6000,
-            pause: "false"
-        });
+        $('.carousel').carousel();
     </script>
 @endsection

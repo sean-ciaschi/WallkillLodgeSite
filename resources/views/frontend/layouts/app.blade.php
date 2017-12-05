@@ -47,6 +47,7 @@
         <link href='{{asset('assets/css/mdbpro.min.css')}}' rel='stylesheet'>
         <!-- Your custom styles (optional) -->
         <link href='{{asset('assets/css/main.css')}}' rel='stylesheet'>
+        <link href='{{asset('assets/css/style.css')}}' rel='stylesheet'>
 
         <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
         @yield('head_js')
@@ -145,6 +146,7 @@
         <!-- Scripts -->
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}
+        <script src="{{asset('assets/js/jquery-3.2.1.min.js')}}"></script>
         <script src='{{asset('build/plugins/fullcalendar/moment.min.js')}}'></script>
         <script src='{{asset('assets/js/jquery-ui.min.js')}}'></script>
         <script src='{{asset('build/plugins/select2/select2.min.js')}}'></script>
