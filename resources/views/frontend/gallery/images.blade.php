@@ -1,5 +1,9 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    {{app_name()}} :: Album Images
+@stop
+
 @section('content')
     <div class="container">
         <div class="row">

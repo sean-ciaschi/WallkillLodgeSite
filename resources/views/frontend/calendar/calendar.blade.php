@@ -1,5 +1,9 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    {{app_name()}} :: Calendar
+@stop
+
 @section('content')
     <div class="modal fade eventModal" id="centralModalSm" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

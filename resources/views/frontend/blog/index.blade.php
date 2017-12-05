@@ -1,5 +1,9 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    {{app_name()}} :: Trestle Board
+@stop
+
 @section('content')
     <div class="container">
         <div class="row">

@@ -11,6 +11,10 @@
 
 @extends('frontend.layouts.app')
 
+@section('title')
+    {{app_name()}} :: Ticket Sales
+@stop
+
 @section('head_js')
     <script src="https://js.braintreegateway.com/web/dropin/1.6.1/js/dropin.min.js"></script>
 @endsection
