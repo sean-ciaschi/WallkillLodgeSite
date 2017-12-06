@@ -115,8 +115,8 @@
 @section('after-scripts')
     <script>
         @if(isset($activeEvent) && $activeEvent != null)
-            var applicationId = "{{  env('SQUARE_APP_ID', 0) }}"; // <-- Add your application's ID here
-            var locationId = "{{ env('SQUARE_LCOATION_ID', 0) }}";  // <-- For Apple Pay, set your location ID here
+            var applicationId = "{{  env('SQUARE_APP_ID') }}"; // <-- Add your application's ID here
+            var locationId = "{{ env('SQUARE_LCOATION_ID') }}";  // <-- For Apple Pay, set your location ID here
 
             // Make sure the application ID is set before continuing.
             // Note: checking locationId if using Apple Pay.
