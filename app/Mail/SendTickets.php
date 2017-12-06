@@ -22,9 +22,10 @@ class SendTickets extends Mailable
     public $charge;
 
     /**
-     * Create a new message instance.
+     * Create a new ticket instance.
      *
      * @param $ticketId
+     * @param $chargeResponse
      */
     public function __construct($ticketId, $chargeResponse)
     {

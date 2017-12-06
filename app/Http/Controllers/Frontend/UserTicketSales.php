@@ -15,6 +15,7 @@ use Braintree\Exception;
 use App\Models\Event\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
+use SquareConnect\ApiException;
 use SquareConnect\Model\ChargeResponse;
 use Validator;
 use GuzzleHttp\Exception\GuzzleException;
@@ -33,9 +34,11 @@ class UserTicketSales extends Controller
         ]);
     }
 
-    public function success(Request $request)
+    public function success($responseBody)
     {
-        return view('frontend.ticket-sales.ticket-sales-receipt');
+        return view('frontend.ticket-sales.ticket-sales-receipt')->with([
+            'response'  => $responseBody
+        ]);
     }
 
     public function chargeSale(Request $request)
@@ -73,7 +76,7 @@ class UserTicketSales extends Controller
                 $charge = $transactions_api->charge($locationId, $request_body);
                 $this->createAndSendTickets($request, $charge);
             }
-            catch (Exception $e)
+            catch (ApiException $e)
             {
                 echo "Caught exception " . $e->getMessage();
             }
@@ -120,6 +123,8 @@ class UserTicketSales extends Controller
             'quantity'      => $quantity
         ])->id;
 
-        return Mail::to($buyerEmail)->send(new SendTickets($buyerTickets, $responseBody));
+        Mail::to($buyerEmail)->send(new SendTickets($buyerTickets, $responseBody));
+
+        return $this->success($responseBody);
     }
 }
