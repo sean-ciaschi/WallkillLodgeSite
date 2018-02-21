@@ -68,7 +68,7 @@ class EloquentBlogRepository
 
         $blogPost->create($rowData);
 
-        Session::flash('flash_message', 'Post successfully added.'); //<--FLASH MESSAGE
+//        Session::flash('flash_message', 'Post successfully added.'); //<--FLASH MESSAGE
 
         return redirect(route('admin.blog.create'));
     }
