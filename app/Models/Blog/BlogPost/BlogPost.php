@@ -1,6 +1,4 @@
-<?php
-
-namespace app\Models\Blog\BlogPost;
+<?php namespace App\Models\Blog\BlogPost;
 
 /*
  * BlogPosts Model
