@@ -33,10 +33,10 @@ class EloquentBlogRepository
      */
     public function createPost($request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255',
-            'body' => 'required',
-        ]);
+//        $this->validate($request, [
+//            'title' => 'required|max:255',
+//            'body' => 'required',
+//        ]);
 
         $userId = auth()->user()->id;
 
