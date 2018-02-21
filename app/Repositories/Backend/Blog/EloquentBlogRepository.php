@@ -64,7 +64,9 @@ class EloquentBlogRepository
             ];
         }
 
-        BlogPost::create($rowData);
+        $blogPost = new BlogPost();
+
+        $blogPost->create($rowData);
 
         Session::flash('flash_message', 'Post successfully added.'); //<--FLASH MESSAGE
 
