@@ -20,7 +20,9 @@ class EloquentBlogRepository
     {
         $model = $this->findOrThrowException($id);
 
-        return $model->delete();
+        $model->delete();
+
+        return redirect(route('admin.blog.index'));
     }
 
     /**
