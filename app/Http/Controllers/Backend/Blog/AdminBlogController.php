@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Blog;
 
+use App\Repositories\Backend\Blog\EloquentBlogRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,6 +13,12 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminBlogController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->repository = new EloquentBlogRepository();
+    }
+
     /**
      * @return \Illuminate\View\View
      */
