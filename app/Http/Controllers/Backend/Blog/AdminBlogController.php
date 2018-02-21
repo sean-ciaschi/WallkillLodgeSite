@@ -75,8 +75,8 @@ class AdminBlogController extends Controller
      */
     public function createPost(Request $request)
     {
-        $this->repository->createPost($request);
-        return redirect()->route('client.pos.orders.index')->withFlashSuccess('Order has been successfully deleted');
+        $item = $this->repository->createPost($request);
+        return redirect()->route('client.pos.orders.edit', ['id' => $item->id])->withFlashSuccess('Order has been successfully deleted');
     }
 
     /**

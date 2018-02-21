@@ -1,6 +1,13 @@
 <?php namespace App\Repositories\Backend\Blog;
 
 
+use App\Http\Requests\Request;
+use app\Models\Blog\BlogPost\BlogPost;
+use App\Models\System\Session;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+
 class EloquentBlogRepository
 {
     /**
