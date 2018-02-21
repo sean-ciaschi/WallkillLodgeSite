@@ -2,7 +2,7 @@
     <div class="container">
         <a href="{{route('frontend.index')}}">
             <div class="navbar-brand">
-                <img id="brand-img" src="{{asset('assets/img/square_compass.png')}}"> Wallkill Lodge #627
+                <img id="brand-img" src="{{asset('assets/img/square_compass.png')}}" alt="Masonic Square and Compass"> Wallkill Lodge #627
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#frontend-navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

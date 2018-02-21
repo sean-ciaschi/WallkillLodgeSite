@@ -53,51 +53,51 @@
                 <h2>2017-2018 Lodge Officers</h2>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Worshipful Master">
                 <h3>Worshipful Master:. Bob Agazzi</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/sw.jpg')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/sw.jpg')}}" style="width:150px; height:150px; align:center;" alt="Senior Warden">
                 <h3>Senior Warden:. Sean McMorris</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/jw.jpg')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/jw.jpg')}}" style="width:150px; height:150px; align:center;" alt="Junior Warden">
                 <h3>Junior Warden:. Nick Iacovitti</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/sec.jpg')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/sec.jpg')}}" style="width:150px; height:150px; align:center;" alt="Secretary">
                 <h3>Secretary:. Collin Oakinforth</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Treasurer">
                 <h3>Treasurer:. George Ciaschi</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/sd.jpg')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/sd.jpg')}}" style="width:150px; height:150px; align:center;" alt="Senior Deacon">
                 <h3>Senior Deacon:.</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/jd.jpg')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/jd.jpg')}}" style="width:150px; height:150px; align:center;" alt="Junior Deacon">
                 <h3>Junior Deacon:.</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Marshal">
                 <h3>Marshal:.</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
-                <h3>Tiler:.</h3>
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Tiler">
+                <h3>Tiler:. Samual Phelps</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Chaplain">
                 <h3>Chaplain:. Jose Ithier</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Steward 1">
                 <h3>Steward:. Sean Ciaschi</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
-                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;">
+                <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Steward 2">
                 <h3>Steward:.</h3>
             </div>
         </div>
