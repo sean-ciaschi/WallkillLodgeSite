@@ -2,7 +2,7 @@
 
 
 use App\Http\Requests\Request;
-use app\Models\Blog\BlogPost\BlogPost;
+use App\Models\Blog\BlogPost\BlogPost;
 use App\Models\System\Session;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
