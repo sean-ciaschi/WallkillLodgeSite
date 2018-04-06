@@ -71,7 +71,7 @@ class AdminBlogController extends Controller
     public function destroy($id)
     {
         $this->repository->destroy($id);
-        return redirect()->route('client.pos.orders.index')->withFlashSuccess('Order has been successfully deleted');
+        return redirect()->route('admin.Blog.blog')->withFlashSuccess('Post has been successfully deleted');
     }
 
     /**
