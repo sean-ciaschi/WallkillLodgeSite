@@ -22,7 +22,7 @@
             <th>Date</th>
             <th>Settings</th>
         </tr>
-        @if($events && $events->count())
+        @if(isset($events) && $events->count())
             @foreach($events as $event)
                 <tr>
                     <td>{{$event->name}}</td>
