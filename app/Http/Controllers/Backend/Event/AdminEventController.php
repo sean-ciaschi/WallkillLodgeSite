@@ -63,7 +63,7 @@ class AdminEventController extends Controller
 
         $event->delete();
 
-        return view('backend.event');
+        return view('backend.event.events');
     }
 
     public function ajaxCreateEvent(Request $request)
