@@ -107,16 +107,16 @@ class AdminEventController extends Controller
 
             $currentEvent = Event::find($id);
 
-            $currentEvent->name = $data->event_name;
-            $currentEvent->description = $data->event_desc;
-            $currentEvent->location = $data->event_location;
-            $currentEvent->price = $data->event_cost;
-            $currentEvent->date = $data->event_date;
-            if (isset($data->event_is_active)) {
-                $currentEvent->is_active = (isset($data->event_is_active) && $data->event_is_active == 'on') ? 1 : 0;
-            }
+            dump(isset($data->event_is_active) && $data->event_is_active == 'on');
 
-            $currentEvent->save();
+            $currentEvent->update([
+                'name'          => $data->event_name,
+                'description'   => $data->event_desc,
+                'location'      => $data->event_location,
+                'price'         => $data->event_cost,
+                'date'          => $data->event_date,
+                'is_active'     =>(isset($data->event_is_active) && $data->event_is_active == 'on') ? 1 : 0
+            ]);
 
             return redirect()->route('admin.events.index');
         }
