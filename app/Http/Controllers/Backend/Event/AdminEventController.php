@@ -50,6 +50,22 @@ class AdminEventController extends Controller
         ]);
     }
 
+    /**
+     * Delete Event View.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
+     */
+    public function delete($id)
+    {
+        $event = Event::find($id);
+
+        $event->delete();
+
+        return view('backend.event');
+    }
+
     public function ajaxCreateEvent(Request $request)
     {
         $data = (object) $request->all();
