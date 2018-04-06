@@ -113,7 +113,7 @@ class AdminEventController extends Controller
             $currentEvent->price = $data->event_cost;
             $currentEvent->date = $data->event_date;
             if (isset($data->event_is_active)) {
-                $currentEvent->is_active = ($data->event_is_active == 'on') ? 1 : 0;
+                $currentEvent->is_active = (isset($data->event_is_active) && $data->event_is_active == 'on') ? 1 : 0;
             }
 
             $currentEvent->save();
