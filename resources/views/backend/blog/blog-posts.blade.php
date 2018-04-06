@@ -1,6 +1,9 @@
 @extends('backend.layouts.app')
+@section('before-styles')
+@endsection
 
 @section('after-styles')
+    <meta name="csrf_token" content="{{csrf_token()}}" />
     <!-- include summernote css/js-->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
 @endsection

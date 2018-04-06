@@ -71,7 +71,7 @@ class AdminBlogController extends Controller
     public function destroy($id)
     {
         $this->repository->destroy($id);
-        return redirect()->route('admin.Blog.blog')->withFlashSuccess('Post has been successfully deleted');
+        return redirect()->route('admin.blog')->withFlashSuccess('Post has been successfully deleted');
     }
 
     /**
@@ -83,7 +83,7 @@ class AdminBlogController extends Controller
     public function createPost(Request $request)
     {
         $item = $this->repository->createPost($request);
-        return redirect()->route('client.pos.orders.edit', ['id' => $item->id])->withFlashSuccess('Order has been successfully deleted');
+        return redirect()->route('admin.blog.edit-post', ['id' => $item->id])->withFlashSuccess('Order has been successfully created');
     }
 
     /**

@@ -29,14 +29,14 @@ class EloquentBlogRepository
             dd("balls" . $e);
         }
 
-        return redirect(route('admin.blog.index'));
+        return true;
     }
 
     /**
      * Create Post.
      *
      * @param $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return BlogPost|\Illuminate\Database\Eloquent\Model
      */
     public function createPost($request)
     {
@@ -71,13 +71,11 @@ class EloquentBlogRepository
             ];
         }
 
-        $blogPost = new BlogPost();
-
-        $blogPost->create($rowData);
+        $blogPost = BlogPost::create($rowData);
 
 //        Session::flash('flash_message', 'Post successfully added.'); //<--FLASH MESSAGE
 
-        return redirect(route('admin.blog.create'));
+        return $blogPost;
     }
 
     /**
