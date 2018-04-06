@@ -96,18 +96,19 @@ class AdminEventController extends Controller
     {
         $data = (object) $request->all();
 
-        if (isset($data) && $data != null) {
-            if (isset($data->event_is_active)) {
+        if (isset($data) && $data != null)
+        {
+            if (isset($data->event_is_active))
+            {
                 $currentlyActiveEvents = Event::where('is_active', 1)->get();
-                foreach ($currentlyActiveEvents as $activeEvent) {
+                foreach ($currentlyActiveEvents as $activeEvent)
+                {
                     $activeEvent->is_active = 0;
                     $activeEvent->save();
                 }
             }
 
             $currentEvent = Event::find($id);
-
-            dump(isset($data->event_is_active) && $data->event_is_active == 'on');
 
             $currentEvent->update([
                 'name'          => $data->event_name,
