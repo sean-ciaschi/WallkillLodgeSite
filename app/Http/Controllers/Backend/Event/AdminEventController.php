@@ -83,7 +83,7 @@ class AdminEventController extends Controller
                'location'       => $data->event_location,
                'date'           => $data->event_date,
                'price'          => $data->event_cost,
-               'is_active'      => ($data->event_is_active == 'on') ? 1 : 0,
+               'is_active'      => (isset($data->event_is_active) && $data->event_is_active == 'on') ? 1 : 0,
             ]);
 
             return redirect()->route('admin.events.index');
