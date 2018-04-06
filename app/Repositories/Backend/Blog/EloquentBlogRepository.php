@@ -18,9 +18,16 @@ class EloquentBlogRepository
      */
     public function destroy($id = null)
     {
-        $model = $this->findOrThrowException($id);
+        $model = BlogPost::where('id', $id)->first();
 
-        $model->delete();
+        try
+        {
+            $model->delete();
+        }
+        catch (\Exception $e)
+        {
+            dd("balls" . $e);
+        }
 
         return redirect(route('admin.blog.index'));
     }
