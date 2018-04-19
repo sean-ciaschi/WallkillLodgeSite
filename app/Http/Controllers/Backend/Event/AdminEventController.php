@@ -50,6 +50,22 @@ class AdminEventController extends Controller
         ]);
     }
 
+    /**
+     * Delete Event View.
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
+     */
+    public function delete($id)
+    {
+        $event = Event::find($id);
+
+        $event->delete();
+
+        return view('backend.event.events');
+    }
+
     public function ajaxCreateEvent(Request $request)
     {
         $data = (object) $request->all();
@@ -67,7 +83,7 @@ class AdminEventController extends Controller
                'location'       => $data->event_location,
                'date'           => $data->event_date,
                'price'          => $data->event_cost,
-               'is_active'      => ($data->event_is_active == 'on') ? 1 : 0,
+               'is_active'      => (isset($data->event_is_active) && $data->event_is_active == 'on') ? 1 : 0,
             ]);
 
             return redirect()->route('admin.events.index');
@@ -80,10 +96,13 @@ class AdminEventController extends Controller
     {
         $data = (object) $request->all();
 
-        if (isset($data) && $data != null) {
-            if (isset($data->event_is_active)) {
+        if (isset($data) && $data != null)
+        {
+            if (isset($data->event_is_active))
+            {
                 $currentlyActiveEvents = Event::where('is_active', 1)->get();
-                foreach ($currentlyActiveEvents as $activeEvent) {
+                foreach ($currentlyActiveEvents as $activeEvent)
+                {
                     $activeEvent->is_active = 0;
                     $activeEvent->save();
                 }
@@ -91,16 +110,14 @@ class AdminEventController extends Controller
 
             $currentEvent = Event::find($id);
 
-            $currentEvent->name = $data->event_name;
-            $currentEvent->description = $data->event_desc;
-            $currentEvent->location = $data->event_location;
-            $currentEvent->price = $data->event_cost;
-            $currentEvent->date = $data->event_date;
-            if (isset($data->event_is_active)) {
-                $currentEvent->is_active = ($data->event_is_active == 'on') ? 1 : 0;
-            }
-
-            $currentEvent->save();
+            $currentEvent->update([
+                'name'          => $data->event_name,
+                'description'   => $data->event_desc,
+                'location'      => $data->event_location,
+                'price'         => $data->event_cost,
+                'date'          => $data->event_date,
+                'is_active'     =>(isset($data->event_is_active) && $data->event_is_active == 'on') ? 1 : 0
+            ]);
 
             return redirect()->route('admin.events.index');
         }

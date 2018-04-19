@@ -31,8 +31,9 @@
                         <div class="col-md-12 post_content">
                             {!! $post->content !!}
 
-                            <a href="{{route('frontend.trestle-board.download-attachment', ['fileName' => $post->attachment_path])}}" target="_blank">Download Attachment</a>
-
+                            @if($post->attachment_path)
+                                <a href="{{route('frontend.trestle-board.download-attachment', ['fileName' => $post->attachment_path])}}" target="_blank">Download Attachment</a>
+                            @endif
                         </div>
                     </div>
                 </div>

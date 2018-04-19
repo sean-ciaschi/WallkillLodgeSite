@@ -66,7 +66,7 @@
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/sec.jpg')}}" style="width:150px; height:150px; align:center;" alt="Secretary">
-                <h3>Secretary:. Colin Oakinforth</h3>
+                <h3>Secretary:. Colin Oakinfull</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Treasurer">
@@ -78,11 +78,11 @@
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/jd.jpg')}}" style="width:150px; height:150px; align:center;" alt="Junior Deacon">
-                <h3>Junior Deacon:.</h3>
+                <h3>Junior Deacon:. Bill Fitzhenry</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Marshal">
-                <h3>Marshal:.</h3>
+                <h3>Marshal:. Frank Glynn</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Tiler">
@@ -98,7 +98,7 @@
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Steward 2">
-                <h3>Steward:.</h3>
+                <h3>Steward:. Jeremy Pearl</h3>
             </div>
         </div>
     </div><!--row-->
