@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function getPosts()
     {
-        $posts = BlogPost::orderBy('date', 'desc')->get();
+        $posts = BlogPost::orderBy('date', 'asc')->get();
 
         return $posts;
     }
@@ -50,6 +50,7 @@ class BlogController extends Controller
      * @param Request $request
      * @param $id
      * @return bool
+     * @throws \Exception
      */
     public function deletePost(Request $request, $id)
     {
