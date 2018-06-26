@@ -66,6 +66,7 @@ class UserTicketSales extends Controller
      */
     public function success($responseBody)
     {
+        //return redirect()->route('frontend.ticket-sales-processed', ['response'  => $responseBody])->send();
         return view('frontend.ticket-sales.ticket-sales-receipt')->with([
             'response'  => $responseBody
         ]);
@@ -77,7 +78,7 @@ class UserTicketSales extends Controller
         $amount             = (integer) $request->get('cost');
         $buyerEmail         = $request->get('buyerEmail');
         $nonceFromTheClient = $request->get('nonce');
-        $event              = (new Event)->where('id', $request->get('eventId'))->get();
+        $event              = (new Event)->where('id', $request->get('eventId'))->first();
 
         $locationId         = env('SQUARE_LOCATION_ID', 0);
         $access_token       = env('SQUARE_ACCESS_TOKEN', 0);
@@ -102,7 +103,7 @@ class UserTicketSales extends Controller
                 # it with the same idempotency key without worrying about double charging
                 # the buyer.
                 "idempotency_key" => uniqid(),
-                "note"  => $event->name
+                "note"  => "Event: " . $event->name
             ];
 
             try

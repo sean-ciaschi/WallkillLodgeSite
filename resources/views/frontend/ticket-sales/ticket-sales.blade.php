@@ -1,5 +1,13 @@
 <?php
-    if(!isset($event) && $event->count() == 0)
+    if(isset($event) && $event->count() != 0 && !isset($activeEvent))
+    {
+        $activeEvent = $event->first();
+    }
+    else if(isset($activeEvent))
+    {
+        $activeEvent = $activeEvent;
+    }
+    else
     {
         $activeEvent = null;
     }
