@@ -73,8 +73,8 @@ class AdminEventController extends Controller
         if (isset($data) && $data != null) {
             $currentlyActiveEvents = Event::where('is_active', 1)->get();
             foreach ($currentlyActiveEvents as $activeEvent) {
-                $activeEvent->is_active = 0;
-                $activeEvent->save();
+//                $activeEvent->is_active = 0;
+//                $activeEvent->save();
             }
 
             Event::create([
@@ -103,8 +103,8 @@ class AdminEventController extends Controller
                 $currentlyActiveEvents = Event::where('is_active', 1)->get();
                 foreach ($currentlyActiveEvents as $activeEvent)
                 {
-                    $activeEvent->is_active = 0;
-                    $activeEvent->save();
+//                    $activeEvent->is_active = 0;
+//                    $activeEvent->save();
                 }
             }
 

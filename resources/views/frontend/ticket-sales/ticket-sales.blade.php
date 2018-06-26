@@ -1,9 +1,5 @@
 <?php
-    if(isset($event) && $event->count() != 0)
-    {
-        $activeEvent = $event->first();
-    }
-    else
+    if(!isset($event) && $event->count() == 0)
     {
         $activeEvent = null;
     }
@@ -36,6 +32,21 @@
                         <p style="font-weight: bold;">ALL TICKETS ARE NON-REFUNDABLE</p>
                         <p style="font-weight: bold;">Recipient must have ID and Tickets with them at time/place of event to verify the purchase</p>
                     </div>
+                    @if($event->count() > 1)
+                        <div class="dropdown">
+
+                            <!--Trigger-->
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Events</button>
+
+
+                            <!--Menu-->
+                            <div class="dropdown-menu dropdown-primary">
+                                @foreach($event as $item)
+                                    <a class="dropdown-item" href="/ticket-sales/{{$item->id}}">{{$item->name}}</a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="col-sm-6 mt-10">
@@ -56,7 +67,6 @@
                             </div>
                         </form>
                     </div>
-                    {{--<div id="dropin-container"></div>--}}
 
                     <div class="card">
                         <h3 class="card-header primary-color white-text custom-card-header">Card Information</h3>
@@ -89,7 +99,10 @@
                                 <label for="spinner">Select Quantity:</label>
                             </div>
                             <div class="col-sm-6">
-                                <input id="spinner" type="range" min="1" max="20" value="1" />
+                                <form class="range-field my-4">
+                                    <input id="spinner" class="no-border" type="range" value="1" min="1" max="30" />
+                                </form>
+                                {{--<input id="spinner" type="range" min="1" max="20" value="1" />--}}
                             </div>
                         </div>
 
@@ -116,7 +129,7 @@
     <script>
         @if(isset($activeEvent) && $activeEvent != null)
             var applicationId = "{{  env('SQUARE_APP_ID') }}"; // <-- Add your application's ID here
-            var locationId = "{{ env('SQUARE_LCOATION_ID') }}";  // <-- For Apple Pay, set your location ID here
+            var locationId = "{{ env('SQUARE_LOCATION_ID') }}";  // <-- For Apple Pay, set your location ID here
 
             // Make sure the application ID is set before continuing.
             // Note: checking locationId if using Apple Pay.
@@ -171,7 +184,7 @@
                         } else {
 
                             // You can delete this line, it's provided for testing purposes
-                            alert('Nonce received: ' + nonce);
+                            //alert('Nonce received: ' + nonce);
 
 
                             // Assign the nonce value to the hidden form field
@@ -266,11 +279,11 @@
             var quantitySpinner = jQuery('#spinner'),
                 totalCost       = document.querySelector('.total-cost'),
                 button          = document.getElementById('submit-button'),
-                    @if(isset($activeEvent) && $activeEvent != null)
+                @if(isset($activeEvent) && $activeEvent != null)
                     cost        = (quantitySpinner.val() * {{$activeEvent->price}}).toFixed(2);
-            @else
-                cost = {{$activeEvent->price}}).toFixed(2);
-            @endif
+                @else
+                    cost = {{$activeEvent->price}}).toFixed(2);
+                @endif
 
                 totalCost.innerHTML = '$' + cost;
 

@@ -55,6 +55,7 @@ Route::get('/trestle-board/get-posts', 'Blog\BlogController@getPosts')->name('tr
 Route::get('/trestle-board/delete-post/{id}', 'Blog\BlogController@deletePost')->name('trestle-board.delete-post');
 Route::get('/trestle-board/download-attachment/{fileName}', 'Blog\BlogController@downloadAttachment')->name('trestle-board.download-attachment');
 
-Route::get('ticket-sales', 'UserTicketSales@index')->name('ticket-sales');
+Route::get('ticket-sales/{id?}', 'UserTicketSales@index')->name('ticket-sales');
+Route::get('ticket-sales/get-event/{id}', 'UserTicketSales@getEventById')->name('ticket-sales.get-event');
 Route::get('ticket-sales-processed', 'UserTicketSales@success')->name('ticket-sales-processed');
 Route::post('ticket-sales/process-payment', 'UserTicketSales@chargeSale')->name('ticket-sales.process-payment');

@@ -25,15 +25,45 @@ class UserTicketSales extends Controller
 {
     public function __construct(){}
 
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @param null $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(Request $request, $id = null)
     {
-        $event = Event::where('is_active', 1)->get();
+        if($id)
+        {
+            $activeEvent = Event::where('is_active', 1)->where('id', $id)->first();
+        }
+        else
+        {
+            $activeEvent = null;
+        }
+
+        $events = Event::where('is_active', 1)->get();
 
         return view('frontend.ticket-sales.ticket-sales')->with([
-            'event'     => $event,
+            'activeEvent'   => $activeEvent,
+            'event'         => $events,
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return Event
+     */
+    public function getEventById(Request $request)
+    {
+        $eventModel = new Event();
+
+        return json_encode($eventModel->where('id', $request->get('id'))->first());
+    }
+
+    /**
+     * @param $responseBody
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function success($responseBody)
     {
         return view('frontend.ticket-sales.ticket-sales-receipt')->with([
@@ -43,9 +73,11 @@ class UserTicketSales extends Controller
 
     public function chargeSale(Request $request)
     {
+
         $amount             = (integer) $request->get('cost');
         $buyerEmail         = $request->get('buyerEmail');
         $nonceFromTheClient = $request->get('nonce');
+        $event              = (new Event)->where('id', $request->get('eventId'))->get();
 
         $locationId         = env('SQUARE_LOCATION_ID', 0);
         $access_token       = env('SQUARE_ACCESS_TOKEN', 0);
@@ -54,8 +86,9 @@ class UserTicketSales extends Controller
         try
         {
             $squareProcesser::getDefaultConfiguration()->setAccessToken($access_token);
-            $transactions_api = new \SquareConnect\Api\TransactionsApi();
-            $request_body = [
+
+            $transactions_api   = new \SquareConnect\Api\TransactionsApi();
+            $request_body       = [
                 "card_nonce" => $nonceFromTheClient,
                 # Monetary amounts are specified in the smallest unit of the applicable currency.
                 # This amount is in cents. It's also hard-coded for $1, which is not very useful.
@@ -68,7 +101,8 @@ class UserTicketSales extends Controller
                 # If you're unsure whether a particular payment succeeded, you can reattempt
                 # it with the same idempotency key without worrying about double charging
                 # the buyer.
-                "idempotency_key" => uniqid()
+                "idempotency_key" => uniqid(),
+                "note"  => $event->name
             ];
 
             try
@@ -97,6 +131,7 @@ class UserTicketSales extends Controller
     public function createAndSendTickets(Request $request, ChargeResponse $charge)
     {
         $transaction        = $charge->getTransaction();
+        $tenders            = $transaction->getTenders();
         $locationId         = env('SQUARE_LOCATION_ID', 0);
         $access_token       = env('SQUARE_ACCESS_TOKEN', 0);
         $headers = [
@@ -105,7 +140,7 @@ class UserTicketSales extends Controller
         ];
 
         $client = new Client();
-        $res = $client->get('https://connect.squareup.com/v1/'.$locationId.'/payments/'.$transaction->getId(), [
+        $res = $client->get('https://connect.squareup.com/v1/'.$locationId.'/payments/'.$tenders[0]->getId(), [
             'headers' =>  $headers
         ]);
 
@@ -116,7 +151,7 @@ class UserTicketSales extends Controller
         $quantity   = $request->get('quantity');
         $eventId    = $request->get('eventId');
 
-        $buyerTickets = \App\Models\UserTicketSales\UserTicketSales::create([
+        $buyerTickets = (new \App\Models\UserTicketSales\UserTicketSales)->create([
             'event_id'      => $eventId,
             'buyer_name'    => $buyerName,
             'buyer_email'   => $buyerEmail,
