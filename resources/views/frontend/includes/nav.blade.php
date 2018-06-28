@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('frontend.gallery.albums')}}">
+                    <a class="nav-link" href="https://www.instagram.com/wallkill627/?hl=en" target="_blank">
                         <i class="fa fa-image"></i> Gallery
                     </a>
                 </li>
