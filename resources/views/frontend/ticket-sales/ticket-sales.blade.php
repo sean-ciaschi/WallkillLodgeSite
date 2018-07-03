@@ -226,6 +226,34 @@
                                     eventId: {!! isset($activeEvent) && isset($activeEvent->id) ? $activeEvent->id : null; !!},
                                     buyerEmail: document.getElementById('user-email').value,
                                     buyerName: buyerName
+                                },
+                                beforeSend: function()
+                                {
+                                    $.LoadingOverlay("show");
+                                },
+                                success: function(data) {
+                                    $.LoadingOverlay("hide");
+                                    if(data.status == 'true')
+                                    {
+                                        swal({
+                                            type: 'success',
+                                            title: 'Tickets Purchased Successfully!',
+                                            text: 'Your receipt and ticket(s) have been sent to your email which should arrive in 1 minute to 5 minutes\n',
+                                            footer: 'View/Download your receipt <a href="'+ data.response.receipt_url +'"> here</a>'
+                                        });
+                                    }
+                                    else
+                                    {
+                                        swal({
+                                            type: 'error',
+                                            title: 'Error Processing Payment!',
+                                            text: data.response,
+                                        });
+                                    }
+                                },
+                                complete: function()
+                                {
+                                    $.LoadingOverlay("hide");
                                 }
                             });
                         }

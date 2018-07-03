@@ -61,14 +61,13 @@ class UserTicketSales extends Controller
     }
 
     /**
-     * @param $responseBody
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function success($responseBody)
+    public function success(Request $request)
     {
-        //return redirect()->route('frontend.ticket-sales-processed', ['response'  => $responseBody])->send();
         return view('frontend.ticket-sales.ticket-sales-receipt')->with([
-            'response'  => $responseBody
+            'responseBody'  => $request->get('responseBody')
         ]);
     }
 
@@ -89,7 +88,7 @@ class UserTicketSales extends Controller
             $squareProcesser::getDefaultConfiguration()->setAccessToken($access_token);
 
             $transactions_api   = new \SquareConnect\Api\TransactionsApi();
-            $request_body       = [
+            $request_body       = new \SquareConnect\Model\ChargeRequest([
                 "card_nonce" => $nonceFromTheClient,
                 # Monetary amounts are specified in the smallest unit of the applicable currency.
                 # This amount is in cents. It's also hard-coded for $1, which is not very useful.
@@ -104,21 +103,28 @@ class UserTicketSales extends Controller
                 # the buyer.
                 "idempotency_key" => uniqid(),
                 "note"  => "Event: " . $event->name
-            ];
+            ]);
+
 
             try
             {
                 $charge = $transactions_api->charge($locationId, $request_body);
-                $this->createAndSendTickets($request, $charge);
+                return $this->createAndSendTickets($request, $charge);
             }
             catch (ApiException $e)
             {
-                echo "Caught exception " . $e->getMessage();
+                return [
+                    'status' => 'false',
+                    'response'  => $e->getMessage()
+                ];
             }
         }
         catch (Exception $exception)
         {
-            dd($exception);
+            return [
+                'status' => 'false',
+                'response'  => $exception->getMessage()
+            ];
         }
     }
 
@@ -161,6 +167,9 @@ class UserTicketSales extends Controller
 
         Mail::to($buyerEmail)->send(new SendTickets($buyerTickets, $responseBody));
 
-        return $this->success($responseBody);
+        return [
+            'status' => 'true',
+            'response'  => $responseBody
+        ];
     }
 }

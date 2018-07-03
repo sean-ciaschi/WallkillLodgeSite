@@ -19,7 +19,7 @@ elixir(function(mix)
     .copy(
         [
             'node_modules/fullcalendar/dist',
-            'node_modules/moment/min/moment.min.js'
+            //'node_modules/moment/min/moment.min.js'
         ],
         'public/build/plugins/fullcalendar'
     )

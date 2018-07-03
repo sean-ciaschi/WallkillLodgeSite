@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 44);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -71,14 +71,14 @@
 /***/ 36:
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \n@import \"/node_modules/sweetalert2/src/sweetalert2.scss\";\n^\n      File to import not found or unreadable: /node_modules/sweetalert2/src/sweetalert2.scss.\n      in /var/www/wallkill627.lh/html/resources/assets/sass/frontend/app.scss (line 24, column 1)\n    at runLoaders (/var/www/wallkill627.lh/html/node_modules/webpack/lib/NormalModule.js:192:19)\n    at /var/www/wallkill627.lh/html/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /var/www/wallkill627.lh/html/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/var/www/wallkill627.lh/html/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/var/www/wallkill627.lh/html/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.done [as callback] (/var/www/wallkill627.lh/html/node_modules/neo-async/async.js:7974:18)\n    at options.error (/var/www/wallkill627.lh/html/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ }),
 
 /***/ 37:
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: \n@import \"/node_modules/sweetalert2/src/sweetalert2.scss\";\n^\n      File to import not found or unreadable: /node_modules/sweetalert2/src/sweetalert2.scss.\n      in /var/www/wallkill627.lh/html/resources/assets/sass/backend/app.scss (line 59, column 1)\n    at runLoaders (/var/www/wallkill627.lh/html/node_modules/webpack/lib/NormalModule.js:192:19)\n    at /var/www/wallkill627.lh/html/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /var/www/wallkill627.lh/html/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/var/www/wallkill627.lh/html/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/var/www/wallkill627.lh/html/node_modules/sass-loader/lib/loader.js:55:13)\n    at Object.done [as callback] (/var/www/wallkill627.lh/html/node_modules/neo-async/async.js:7974:18)\n    at options.error (/var/www/wallkill627.lh/html/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ }),
 
@@ -89,7 +89,7 @@
 
 /***/ }),
 
-/***/ 44:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(38);

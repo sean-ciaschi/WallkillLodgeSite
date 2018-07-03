@@ -38,6 +38,8 @@
         @endif
 
         @yield('after-styles')
+        <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         <link href='{{asset('build/plugins/select2/select2.min.css')}}' rel='stylesheet'>
         <link href='{{asset('build/plugins/fullcalendar/fullcalendar.css')}}' rel='stylesheet'>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css' />
@@ -149,6 +151,10 @@
         <script src='{{asset('build/plugins/fullcalendar/moment.min.js')}}'></script>
         <script src='{{asset('assets/js/jquery-ui.min.js')}}'></script>
         <script src='{{asset('build/plugins/select2/select2.min.js')}}'></script>
+        <script src="{{asset('assets/js/sweetalert2.all.js')}}"></script>
+
+        <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js'></script>
         <!-- Bootstrap tooltips -->
         <script type='text/javascript' src='{{asset('assets/js/popper.min.js')}}'></script>
@@ -158,6 +164,8 @@
         <script src='{{asset('build/plugins/fullcalendar/fullcalendar.min.js')}}'></script>
 
         <script src='{{asset('assets/js/validator.min.js')}}'></script>
+
+        <script src="{{asset('assets/js/loadingoverlay.js')}}"></script>
         @yield('after-scripts')
 
         @include('includes.partials.ga')
