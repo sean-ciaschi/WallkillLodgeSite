@@ -54,59 +54,59 @@
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/wm.jpg')}}" style="width:150px; height:150px; align:center;" alt="Worshipful Master">
-                <h3>Worshipful Master:. Sean McMorris</h3>
+                <h3>Worshipful Master:. W. Sean McMorris</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Senior Warden">
-                <h3>Senior Warden:. Gil Torres</h3>
+                <h3>Senior Warden:. W. Gil Torres</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Junior Warden">
-                <h3>Junior Warden:. Bob Schroeder</h3>
+                <h3>Junior Warden:. W. Bob Schroeder</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Secretary">
-                <h3>Secretary:. John Cola</h3>
+                <h3>Secretary:. R.W. John Cola</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Treasurer">
-                <h3>Treasurer:. George Ciaschi</h3>
+                <h3>Treasurer:. Bro. George Ciaschi</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Senior Deacon">
-                <h3>Senior Deacon:. Rafael Corchado</h3>
+                <h3>Senior Deacon:. Bro. Rafael Corchado</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Junior Deacon">
-                <h3>Junior Deacon:. George Batchelor</h3>
+                <h3>Junior Deacon:. Bro. George Batchelor</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Marshal">
-                <h3>Marshal:. Frank Glynn</h3>
+                <h3>Marshal:. W. Frank Glynn</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Tiler">
-                <h3>Tiler:. Samual Phelps</h3>
+                <h3>Tiler:. W. Samual Phelps</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Chaplain">
-                <h3>Chaplain:. Jose Ithier</h3>
+                <h3>Chaplain:. R.W. Jose Ithier</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Chaplain">
-                <h3>Junior Master of Ceremonies:. Anthony Vita</h3>
+                <h3>Junior Master of Ceremonies:. Bro. Anthony Vita</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Chaplain">
-                <h3>Senior Master of Ceremonies:. Sean Ciaschi</h3>
+                <h3>Senior Master of Ceremonies:. Bro. Sean Ciaschi</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Steward 1">
-                <h3>Steward:. </h3>
+                <h3>Steward:. Bro. Eric Vandelinda</h3>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.png')}}" style="width:150px; height:150px; align:center;" alt="Steward 2">
-                <h3>Steward:. </h3>
+                <h3>Steward:. Bro. Joe Leahy</h3>
             </div>
         </div>
     </div><!--row-->
