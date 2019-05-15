@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
-class EloquentBlogRepository
+class EloquentLodgeOfficerRepository
 {
     /**
      * Destroy Blog Post
@@ -26,7 +26,7 @@ class EloquentBlogRepository
         }
         catch (\Exception $e)
         {
-            dd("balls" . $e);
+            dd("Error Deleting Officer - " . $e);
         }
 
         return true;

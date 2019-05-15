@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Blog\BlogPost\BlogPost as BlogPost;
+use App\Models\Blog\BlogPost\LodgeOfficer as BlogPost;
 
 class BlogController extends Controller
 {
@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function getPosts()
     {
-        $posts = BlogPost::orderBy('created_at', 'desc')->get();
+        $posts = LodgeOfficer::orderBy('created_at', 'desc')->get();
 
         return $posts;
     }
@@ -54,7 +54,7 @@ class BlogController extends Controller
      */
     public function deletePost(Request $request, $id)
     {
-        $post = BlogPost::find($id);
+        $post = LodgeOfficer::find($id);
 
         if (isset($post) && ! empty($post)) {
             $post->delete();
