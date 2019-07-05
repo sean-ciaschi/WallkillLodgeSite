@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="page_title">Trestle Board - Winter 2018/Spring 2019</h1>
+                <h1 class="page_title">Trestle Board - Winter 2019/Spring 2020</h1>
             </div>
         </div>
 

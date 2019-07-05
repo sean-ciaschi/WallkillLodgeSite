@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-12 well">
             <div class="lodge-officer-header">
-                <h2>2018-2019 Lodge Officers</h2>
+                <h2>2019-2020 Lodge Officers</h2>
             </div>
             <div class="col-xs-12 col-md-4 text-center">
                 <img class="officer-photo" src="{{asset('images/home-images/default.jpg')}}" style="width:150px; height:150px; align:center;" alt="Worshipful Master">

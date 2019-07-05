@@ -20,8 +20,12 @@
             {{Form::text('name', isset($name) ? $name : null, array('class' => 'form-control', 'placeholder'=>'Name'))}}
         </div>
         <div class="form-group">
-            {{Form::label('name', 'Name')}}
-            {{Form::text('name', isset($name) ? $name : null, array('class' => 'form-control', 'placeholder'=>'Name'))}}
+            {{Form::label('position', 'position')}}
+            {{Form::number('position', isset($position) ? $position : null, array('class' => 'form-control', 'placeholder'=>'Position'))}}
+        </div>
+        <div class="form-group">
+            {{Form::label('position', 'position')}}
+            {{Form::number('position', isset($position) ? $position : null, array('class' => 'form-control', 'placeholder'=>'Position'))}}
         </div>
         <div class="form-group">
             {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}}
